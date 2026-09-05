@@ -9,7 +9,7 @@ from services.campaign_service import (
     create_campaign,
     get_campaign,
 )
-from services.text_analyzer import analyze_text as analyze_text_content
+from services.analysis_service import analyze_text as analyze_text_content
 
 
 app = FastAPI()

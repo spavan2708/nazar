@@ -2,7 +2,7 @@ from uuid import uuid4
 
 from schemas.analysis import SignalCode
 from schemas.campaign import Campaign, Interaction, InteractionRequest
-from services.text_analyzer import analyze_text
+from services.analysis_service import analyze_text
 
 
 class CampaignNotFoundError(Exception):

@@ -1,0 +1,48 @@
+{
+  "model_version": "v1",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "classifier": "LogisticRegression",
+  "random_seed": 42,
+  "dataset_size": 48,
+  "label_distribution": {
+    "scam": 24,
+    "safe": 24
+  },
+  "train_size": 36,
+  "test_size": 12,
+  "metrics": {
+    "accuracy": 0.6666666666666666,
+    "precision": 0.625,
+    "recall": 0.8333333333333334,
+    "f1": 0.7142857142857143,
+    "confusion_matrix": [
+      [
+        3,
+        3
+      ],
+      [
+        1,
+        5
+      ]
+    ]
+  },
+  "challenge_predictions": [
+    {
+      "text": "Pass me the number that just appeared on your handset.",
+      "scam_probability": 0.5954765677452087
+    },
+    {
+      "text": "To restore access, download the support tool and let our technician connect.",
+      "scam_probability": 0.5422427654266357
+    },
+    {
+      "text": "Never reveal verification numbers to callers.",
+      "scam_probability": 0.3342694938182831
+    },
+    {
+      "text": "Would you like to join us for coffee after work?",
+      "scam_probability": 0.3776945471763611
+    }
+  ],
+  "limitations": "Prototype dataset created for architecture validation; probabilities are not production-calibrated and the dataset is not representative of real-world prevalence."
+}

@@ -12,6 +12,8 @@ frontend/.next/
 .env.*
 frontend/.env.local
 backend/.env
+backend/ml/artifacts/classifier.joblib
+backend/ml/artifacts/embedding_model/
 
 # macOS
 .DS_Store

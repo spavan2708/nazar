@@ -33,12 +33,19 @@ class AnalysisContext(BaseModel):
     is_action_request: bool = False
 
 
+class MLAnalysis(BaseModel):
+    available: bool
+    scam_probability: float | None = None
+    model_version: str | None = None
+
+
 class TextAnalysisResponse(BaseModel):
     score: int
     risk_level: str
     signals: list[str]
     explanation: str
     recommended_action: str
+    ml: MLAnalysis | None = None
     signal_codes: set[SignalCode] = Field(default_factory=set, exclude=True)
     context: AnalysisContext = Field(default_factory=AnalysisContext, exclude=True)
     patterns: list[str] = Field(default_factory=list, exclude=True)

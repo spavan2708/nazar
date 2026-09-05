@@ -166,7 +166,7 @@ def analyze_text(text: str) -> TextAnalysisResponse:
     signals = [
         label for code, label in SIGNAL_LABELS.items() if code in signal_codes
     ]
-    risk_level, recommended_action = _risk_guidance(score)
+    risk_level, recommended_action = risk_guidance(score)
     explanation = _build_explanation(signals, context)
 
     return TextAnalysisResponse(
@@ -237,7 +237,7 @@ def _calculate_score(
     return min(base_severity + context_modifier + pattern_severity, 100)
 
 
-def _risk_guidance(score: int) -> tuple[str, str]:
+def risk_guidance(score: int) -> tuple[str, str]:
     if score >= 70:
         return (
             "high",
