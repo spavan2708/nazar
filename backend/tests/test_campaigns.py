@@ -1,16 +1,22 @@
 import unittest
+from unittest.mock import patch
 
 from fastapi import HTTPException
 
 from main import retrieve_campaign
 from schemas.analysis import SignalCode, TextAnalysisResponse
 from schemas.campaign import Interaction, InteractionRequest
+from schemas.semantic import SemanticAnalysis
 from services import campaign_service
 
 
 class CampaignTests(unittest.TestCase):
     def setUp(self):
         campaign_service._campaigns.clear()
+        semantic_patcher = patch("services.analysis_service.analyze_semantics")
+        semantic = semantic_patcher.start()
+        semantic.return_value = SemanticAnalysis(available=False)
+        self.addCleanup(semantic_patcher.stop)
 
     def test_create_campaign(self):
         campaign = campaign_service.create_campaign()

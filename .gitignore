@@ -10,6 +10,7 @@ frontend/.next/
 # Environment variables / secrets
 .env
 .env.*
+!backend/.env.example
 frontend/.env.local
 backend/.env
 backend/ml/artifacts/classifier.joblib

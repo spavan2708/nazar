@@ -1,20 +1,7 @@
-from enum import StrEnum
-
 from pydantic import BaseModel, Field, field_validator
 
-
-class SignalCode(StrEnum):
-    URGENCY = "URGENCY"
-    LINK_REQUEST = "LINK_REQUEST"
-    IDENTITY_VERIFICATION = "IDENTITY_VERIFICATION"
-    BANK_IMPERSONATION = "BANK_IMPERSONATION"
-    GOVERNMENT_IMPERSONATION = "GOVERNMENT_IMPERSONATION"
-    OTP_REQUEST = "OTP_REQUEST"
-    CREDENTIAL_REQUEST = "CREDENTIAL_REQUEST"
-    REMOTE_ACCESS = "REMOTE_ACCESS"
-    PAYMENT_REQUEST = "PAYMENT_REQUEST"
-    ACCOUNT_THREAT = "ACCOUNT_THREAT"
-    INVESTMENT_PROMISE = "INVESTMENT_PROMISE"
+from schemas.semantic import SemanticAnalysis
+from schemas.signals import SignalCode
 
 
 class TextAnalysisRequest(BaseModel):
@@ -46,6 +33,7 @@ class TextAnalysisResponse(BaseModel):
     explanation: str
     recommended_action: str
     ml: MLAnalysis | None = None
+    semantic: SemanticAnalysis | None = None
     signal_codes: set[SignalCode] = Field(default_factory=set, exclude=True)
     context: AnalysisContext = Field(default_factory=AnalysisContext, exclude=True)
     patterns: list[str] = Field(default_factory=list, exclude=True)

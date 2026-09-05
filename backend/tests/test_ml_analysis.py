@@ -36,9 +36,13 @@ class MLAnalysisTests(unittest.TestCase):
 
         self.assertLess(warning.scam_probability, suspicious.scam_probability)
 
+    @patch("services.analysis_service.analyze_semantics")
     @patch("services.analysis_service.predict_scam_probability")
-    def test_deterministic_analysis_survives_unavailable_ml(self, predict):
+    def test_deterministic_analysis_survives_unavailable_ml(
+        self, predict, semantic
+    ):
         predict.return_value = MLAnalysis(available=False, model_version="v1")
+        semantic.return_value = None
 
         result = analyze_text("Your KYC expires today. Click this link immediately.")
 
