@@ -2,7 +2,9 @@ import unittest
 
 from pydantic import ValidationError
 
-from main import TextAnalysisRequest, analyze_text, app
+from main import app
+from schemas.analysis import TextAnalysisRequest
+from services.text_analyzer import analyze_text
 
 
 class TextAnalysisTests(unittest.TestCase):
@@ -10,7 +12,7 @@ class TextAnalysisTests(unittest.TestCase):
         result = analyze_text(
             TextAnalysisRequest(
                 text="Your KYC expires today. Click this link immediately."
-            )
+            ).text
         )
 
         self.assertEqual(result.score, 90)
@@ -18,7 +20,9 @@ class TextAnalysisTests(unittest.TestCase):
         self.assertEqual(len(result.signals), 3)
 
     def test_harmless_message_is_low_risk(self):
-        result = analyze_text(TextAnalysisRequest(text="Let's meet for lunch tomorrow."))
+        result = analyze_text(
+            TextAnalysisRequest(text="Let's meet for lunch tomorrow.").text
+        )
 
         self.assertEqual(result.score, 0)
         self.assertEqual(result.risk_level, "low")
@@ -31,7 +35,10 @@ class TextAnalysisTests(unittest.TestCase):
     def test_analysis_route_is_registered(self):
         routes = {(route.path, tuple(route.methods or [])) for route in app.routes}
         self.assertTrue(
-            any(path == "/api/analyze/text" and "POST" in methods for path, methods in routes)
+            any(
+                path == "/api/analyze/text" and "POST" in methods
+                for path, methods in routes
+            )
         )
 
 
