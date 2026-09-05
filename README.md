@@ -20,7 +20,7 @@ The central principle is:
 
 A submitted interaction passes through the relevant extraction layer before entering Nazar's shared analysis pipeline.
 
-
+```text
 User Evidence
     │
     ├── Message
@@ -45,7 +45,7 @@ Investigation Intelligence
     │
     ▼
 Trusted RAG Guidance
-
+```
 
 The deterministic layer remains available even when optional AI services are unavailable.
 
