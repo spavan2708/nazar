@@ -47,7 +47,7 @@ class CampaignTests(unittest.TestCase):
             "Install this screen-sharing app so I can help you.",
         )
 
-        self.assertEqual(updated.campaign_score, 83)
+        self.assertEqual(updated.campaign_score, 84)
         self.assertEqual(updated.risk_level, "high")
 
     def test_otp_after_remote_access_becomes_critical(self):

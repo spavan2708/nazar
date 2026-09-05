@@ -28,6 +28,11 @@ class TextAnalysisRequest(BaseModel):
         return value.strip()
 
 
+class AnalysisContext(BaseModel):
+    is_safety_warning: bool = False
+    is_action_request: bool = False
+
+
 class TextAnalysisResponse(BaseModel):
     score: int
     risk_level: str
@@ -35,3 +40,5 @@ class TextAnalysisResponse(BaseModel):
     explanation: str
     recommended_action: str
     signal_codes: set[SignalCode] = Field(default_factory=set, exclude=True)
+    context: AnalysisContext = Field(default_factory=AnalysisContext, exclude=True)
+    patterns: list[str] = Field(default_factory=list, exclude=True)

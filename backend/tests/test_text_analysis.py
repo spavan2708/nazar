@@ -56,6 +56,88 @@ class TextAnalysisTests(unittest.TestCase):
         self.assertIn(SignalCode.PAYMENT_REQUEST, result.signal_codes)
         self.assertIn(SignalCode.URGENCY, result.signal_codes)
 
+    def test_action_oriented_otp_request(self):
+        result = analyze_text("Share your OTP with me immediately.")
+
+        self.assertIn(SignalCode.OTP_REQUEST, result.signal_codes)
+        self.assertIn(SignalCode.URGENCY, result.signal_codes)
+        self.assertTrue(result.context.is_action_request)
+        self.assertGreaterEqual(result.score, 70)
+
+    def test_otp_safety_warning_is_low_risk(self):
+        result = analyze_text("Never share your OTP with anyone.")
+
+        self.assertNotIn(SignalCode.OTP_REQUEST, result.signal_codes)
+        self.assertTrue(result.context.is_safety_warning)
+        self.assertEqual(result.score, 0)
+        self.assertEqual(result.risk_level, "low")
+
+    def test_educational_otp_reference_is_low_risk(self):
+        result = analyze_text("OTP means one-time password.")
+
+        self.assertNotIn(SignalCode.OTP_REQUEST, result.signal_codes)
+        self.assertFalse(result.context.is_action_request)
+        self.assertEqual(result.score, 0)
+
+    def test_action_oriented_remote_access_request(self):
+        result = analyze_text("Install AnyDesk and share your screen.")
+
+        self.assertIn(SignalCode.REMOTE_ACCESS, result.signal_codes)
+        self.assertTrue(result.context.is_action_request)
+        self.assertGreater(result.score, 0)
+
+    def test_remote_access_safety_warning_is_low_risk(self):
+        result = analyze_text("Do not install AnyDesk for unknown callers.")
+
+        self.assertNotIn(SignalCode.REMOTE_ACCESS, result.signal_codes)
+        self.assertTrue(result.context.is_safety_warning)
+        self.assertEqual(result.score, 0)
+
+    def test_informational_remote_access_reference_is_low_risk(self):
+        result = analyze_text("AnyDesk is a remote access application.")
+
+        self.assertNotIn(SignalCode.REMOTE_ACCESS, result.signal_codes)
+        self.assertEqual(result.score, 0)
+
+    def test_coercive_verification_pattern(self):
+        result = analyze_text(
+            "Your account will be blocked unless you verify immediately."
+        )
+
+        self.assertTrue(
+            {
+                SignalCode.ACCOUNT_THREAT,
+                SignalCode.IDENTITY_VERIFICATION,
+                SignalCode.URGENCY,
+            }
+            <= result.signal_codes
+        )
+        self.assertIn("coercive_verification", result.patterns)
+        self.assertEqual(result.score, 100)
+
+    def test_urgent_credential_request_pattern(self):
+        result = analyze_text("Send your password now.")
+
+        self.assertIn(SignalCode.CREDENTIAL_REQUEST, result.signal_codes)
+        self.assertIn(SignalCode.URGENCY, result.signal_codes)
+        self.assertIn("credential_theft", result.patterns)
+        self.assertGreaterEqual(result.score, 70)
+
+    def test_bank_credential_safety_advice_is_low_risk(self):
+        result = analyze_text("Your bank will never ask you to share your PIN.")
+
+        self.assertTrue(result.context.is_safety_warning)
+        self.assertNotIn(SignalCode.CREDENTIAL_REQUEST, result.signal_codes)
+        self.assertEqual(result.score, 0)
+
+    def test_internal_metadata_is_not_serialized(self):
+        result = analyze_text("Share your OTP")
+        serialized = result.model_dump()
+
+        self.assertNotIn("signal_codes", serialized)
+        self.assertNotIn("context", serialized)
+        self.assertNotIn("patterns", serialized)
+
     def test_analysis_route_is_registered(self):
         routes = {(route.path, tuple(route.methods or [])) for route in app.routes}
         self.assertTrue(
