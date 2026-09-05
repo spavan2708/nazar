@@ -1,0 +1,484 @@
+{
+  "attack": {
+    "detected_language": "Hinglish",
+    "detected_script": "Latin",
+    "is_mixed_language": true,
+    "language_confidence": "low",
+    "language_detection_method": "script_and_lexical_heuristic",
+    "orchestration": {
+      "detectors": [
+        {
+          "source": "rules",
+          "available": true,
+          "score": 80.0,
+          "confidence_type": "severity",
+          "signals": [
+            "OTP_REQUEST",
+            "URGENCY"
+          ],
+          "safety_context": false,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "ml",
+          "available": true,
+          "score": 0.25728198885917664,
+          "confidence_type": "classifier_output",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "llm",
+          "available": false,
+          "score": null,
+          "confidence_type": "semantic_evidence",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "rag",
+          "available": true,
+          "score": null,
+          "confidence_type": "reference",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Topic references are not detector evidence."
+        }
+      ],
+      "findings": [
+        {
+          "agent": "text_threat",
+          "sources": [
+            "rules",
+            "ml",
+            "llm"
+          ],
+          "signals": [
+            "OTP_REQUEST",
+            "URGENCY"
+          ],
+          "explanation": "The message contains: urgency or pressure, otp request. Verification codes can give access to accounts; do not send them to another person.",
+          "determines_risk": false
+        },
+        {
+          "agent": "social_engineering",
+          "sources": [
+            "text_threat"
+          ],
+          "signals": [
+            "URGENCY"
+          ],
+          "explanation": "Attributed existing signals; no additional score or inference.",
+          "determines_risk": false
+        },
+        {
+          "agent": "credential_theft",
+          "sources": [
+            "text_threat"
+          ],
+          "signals": [
+            "OTP_REQUEST"
+          ],
+          "explanation": "Attributed existing signals; no additional score or inference.",
+          "determines_risk": false
+        },
+        {
+          "agent": "trusted_guidance",
+          "sources": [
+            "rag"
+          ],
+          "signals": [],
+          "explanation": "Official topic references only; does not determine risk.",
+          "determines_risk": false
+        },
+        {
+          "agent": "explanation",
+          "sources": [
+            "fused_evidence"
+          ],
+          "signals": [],
+          "explanation": "The message contains: urgency or pressure, otp request. Verification codes can give access to accounts; do not send them to another person.",
+          "determines_risk": false
+        }
+      ],
+      "llm_synthesis_calls": 0
+    },
+    "timings_ms": {
+      "language": 0.153,
+      "url": 0.019,
+      "rules": 5.77,
+      "ml_including_embedding_and_neighbors": 6538.525,
+      "semantic": 0.084,
+      "rag": 419.336
+    },
+    "grounding": {
+      "available": true,
+      "results": [
+        {
+          "source_id": "otp-safety",
+          "chunk_id": "otp-safety-1",
+          "title": "Keep one-time passwords private",
+          "source_name": "State Bank of India",
+          "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+          "guidance": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+          "topics": [
+            "otp"
+          ],
+          "matched_signals": [
+            "OTP_REQUEST"
+          ],
+          "matched_topics": [],
+          "matched_stages": [
+            "AUTHENTICATION_TAKEOVER"
+          ],
+          "similarity": 0.24532397091388702,
+          "reviewed_on": "2026-09-05",
+          "review_due": false,
+          "relevance": "signal"
+        }
+      ]
+    },
+    "intelligence": {
+      "deterministic": {
+        "available": true,
+        "contributed": true,
+        "suspicious": true,
+        "safety_warning": false,
+        "signals": [
+          "OTP_REQUEST",
+          "URGENCY"
+        ],
+        "score": null,
+        "score_raised": false,
+        "risk_before_fusion": 80
+      },
+      "ml": {
+        "available": true,
+        "contributed": false,
+        "suspicious": false,
+        "safety_warning": false,
+        "signals": [],
+        "score": 0.25728198885917664,
+        "score_raised": false,
+        "model_version": "v2",
+        "evidence_level": "below_threshold",
+        "semantic_neighbors": {
+          "available": true,
+          "suspicious": [
+            {
+              "text": "Refund process karne ko tumhara banking password is chat mein chahiye.",
+              "similarity": 0.6301761666921025,
+              "language": "Hinglish",
+              "category": "credential"
+            },
+            {
+              "text": "Loan clear karne ke liye mobile wala OTP mujhe bol do.",
+              "similarity": 0.579958846293755,
+              "language": "Hinglish",
+              "category": "otp"
+            }
+          ],
+          "safe": [
+            {
+              "text": "Kisi caller ko login wala number mat batana, chahe bank ka naam le.",
+              "similarity": 0.6719080243620488,
+              "language": "Hinglish",
+              "category": "safety"
+            },
+            {
+              "text": "Test fixture ka verification code dummy hai, customer ka nahi.",
+              "similarity": 0.614920612959722,
+              "language": "Hinglish",
+              "category": "hard_negative"
+            }
+          ]
+        }
+      },
+      "llm": {
+        "available": false,
+        "contributed": false,
+        "suspicious": false,
+        "safety_warning": false,
+        "signals": [],
+        "score": null,
+        "score_raised": false
+      },
+      "agreement": {
+        "status": "RULES_ONLY",
+        "explanation": "Only one source found suspicious evidence. Other available sources did not; unavailable sources cannot provide confirmation.",
+        "suspicious_sources": [
+          "rules"
+        ],
+        "available_sources": [
+          "rules",
+          "ml"
+        ]
+      }
+    },
+    "original_text": "sir code aya hoga phone pe woh 6 digit wala bhej do jaldi verification expire ho jayega",
+    "urls": [],
+    "urls_truncated": false,
+    "score": 80,
+    "risk_level": "high",
+    "signals": [
+      "Urgency or pressure",
+      "OTP request"
+    ],
+    "explanation": "The message contains: urgency or pressure, otp request. Verification codes can give access to accounts; do not send them to another person.",
+    "recommended_action": "Do not click or respond. Verify the request through the official organization.",
+    "ml": {
+      "available": true,
+      "scam_probability": 0.25728198885917664,
+      "model_version": "v2",
+      "input_truncated": false
+    },
+    "semantic": {
+      "available": false,
+      "risk_score": null,
+      "intent": null,
+      "tactics": [],
+      "requested_actions": [],
+      "claimed_identity": null,
+      "signals": [],
+      "is_safety_warning": null,
+      "explanation": null,
+      "model_version": null,
+      "provider": null,
+      "is_mock": false
+    }
+  },
+  "safe": {
+    "detected_language": "Hinglish",
+    "detected_script": "Latin",
+    "is_mixed_language": true,
+    "language_confidence": "low",
+    "language_detection_method": "script_and_lexical_heuristic",
+    "orchestration": {
+      "detectors": [
+        {
+          "source": "rules",
+          "available": true,
+          "score": 0.0,
+          "confidence_type": "severity",
+          "signals": [],
+          "safety_context": true,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "ml",
+          "available": true,
+          "score": 0.6592745184898376,
+          "confidence_type": "classifier_output",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "llm",
+          "available": false,
+          "score": null,
+          "confidence_type": "semantic_evidence",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Existing detector evidence; scores have different meanings and are not averaged."
+        },
+        {
+          "source": "rag",
+          "available": true,
+          "score": null,
+          "confidence_type": "reference",
+          "signals": [],
+          "safety_context": false,
+          "explanation": "Topic references are not detector evidence."
+        }
+      ],
+      "findings": [
+        {
+          "agent": "text_threat",
+          "sources": [
+            "rules",
+            "ml",
+            "llm"
+          ],
+          "signals": [],
+          "explanation": "The message appears to be safety advice rather than a request to take a risky action. The semantic classifier also found scam-like language.",
+          "determines_risk": false
+        },
+        {
+          "agent": "safety_contradiction",
+          "sources": [
+            "rules",
+            "ml",
+            "llm"
+          ],
+          "signals": [],
+          "explanation": "Analysis sources disagree: safety-warning language was detected, while another source found suspicious evidence. Ambiguous wording and safety examples can lead detectors to disagree.",
+          "determines_risk": false
+        },
+        {
+          "agent": "trusted_guidance",
+          "sources": [
+            "rag"
+          ],
+          "signals": [],
+          "explanation": "Official topic references only; does not determine risk.",
+          "determines_risk": false
+        },
+        {
+          "agent": "explanation",
+          "sources": [
+            "fused_evidence"
+          ],
+          "signals": [],
+          "explanation": "The message appears to be safety advice rather than a request to take a risky action. The semantic classifier also found scam-like language.",
+          "determines_risk": false
+        }
+      ],
+      "llm_synthesis_calls": 0
+    },
+    "timings_ms": {
+      "language": 0.124,
+      "url": 0.018,
+      "rules": 2.051,
+      "ml_including_embedding_and_neighbors": 11.759,
+      "semantic": 0.035,
+      "rag": 10.383
+    },
+    "grounding": {
+      "available": true,
+      "results": []
+    },
+    "intelligence": {
+      "deterministic": {
+        "available": true,
+        "contributed": false,
+        "suspicious": false,
+        "safety_warning": true,
+        "signals": [],
+        "score": null,
+        "score_raised": false,
+        "risk_before_fusion": 0
+      },
+      "ml": {
+        "available": true,
+        "contributed": true,
+        "suspicious": true,
+        "safety_warning": false,
+        "signals": [],
+        "score": 0.6592745184898376,
+        "score_raised": true,
+        "model_version": "v2",
+        "evidence_level": "moderate",
+        "semantic_neighbors": {
+          "available": true,
+          "suspicious": [
+            {
+              "text": "Refund process karne ko tumhara banking password is chat mein chahiye.",
+              "similarity": 0.597472697948058,
+              "language": "Hinglish",
+              "category": "credential"
+            },
+            {
+              "text": "Support software chalao aur technician ko poora phone access de do.",
+              "similarity": 0.5704524503582065,
+              "language": "Hinglish",
+              "category": "remote_access"
+            }
+          ],
+          "safe": [
+            {
+              "text": "Kisi caller ko login wala number mat batana, chahe bank ka naam le.",
+              "similarity": 0.6651168417102644,
+              "language": "Hinglish",
+              "category": "safety"
+            },
+            {
+              "text": "Test fixture ka verification code dummy hai, customer ka nahi.",
+              "similarity": 0.6152712048859106,
+              "language": "Hinglish",
+              "category": "hard_negative"
+            }
+          ]
+        }
+      },
+      "llm": {
+        "available": false,
+        "contributed": false,
+        "suspicious": false,
+        "safety_warning": false,
+        "signals": [],
+        "score": null,
+        "score_raised": false
+      },
+      "agreement": {
+        "status": "CONFLICTING",
+        "explanation": "Analysis sources disagree: safety-warning language was detected, while another source found suspicious evidence. Ambiguous wording and safety examples can lead detectors to disagree.",
+        "suspicious_sources": [
+          "ml"
+        ],
+        "available_sources": [
+          "rules",
+          "ml"
+        ]
+      }
+    },
+    "original_text": "sir phone pe 6 digit code aya hoga kisi ko mat bhejna, verification code kabhi share nahi karna",
+    "urls": [],
+    "urls_truncated": false,
+    "score": 35,
+    "risk_level": "medium",
+    "signals": [],
+    "explanation": "The message appears to be safety advice rather than a request to take a risky action. The semantic classifier also found scam-like language.",
+    "recommended_action": "Pause and verify the sender through a trusted channel before acting.",
+    "ml": {
+      "available": true,
+      "scam_probability": 0.6592745184898376,
+      "model_version": "v2",
+      "input_truncated": false
+    },
+    "semantic": {
+      "available": false,
+      "risk_score": null,
+      "intent": null,
+      "tactics": [],
+      "requested_actions": [],
+      "claimed_identity": null,
+      "signals": [],
+      "is_safety_warning": null,
+      "explanation": null,
+      "model_version": null,
+      "provider": null,
+      "is_mock": false
+    }
+  },
+  "diagnostics": {
+    "selected_version": "v2",
+    "artifact_path": "/Users/pavans/Desktop/nazar/backend/ml/artifacts/v2/classifier.joblib",
+    "embedding_path": "/Users/pavans/Desktop/nazar/backend/ml/artifacts/embedding_model",
+    "thresholds": {
+      "moderate": 0.65,
+      "high": 0.8
+    },
+    "loaded": true,
+    "model_version": "v2",
+    "classifier": "LogisticRegression",
+    "classifier_sha256": "92df25090eae3a41ff43ee8e75e95323e9b37229d30a886b9395c73a515c0793",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "max_seq_length": 128,
+    "normalize_embeddings": true,
+    "dataset": "train_v2.json",
+    "dataset_hashes": {
+      "train_v2.json": "1e319c7e487fe9aee71fd2970c3daf0588f28a584b3ec33d2fc831a7000f31b4",
+      "eval_v2.json": "aae98f6368793bb5ea0f754e1d0e7c06511cbcd7c2c98e16246dbba77d84508e"
+    },
+    "dataset_hashes_match": true
+  },
+  "family": {
+    "attack_detected": 19,
+    "attacks": 19,
+    "safe_with_otp": 0,
+    "safe": 14
+  }
+}

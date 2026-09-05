@@ -1,0 +1,1655 @@
+{
+  "datasets": {
+    "scam_training.json": {
+      "sha256": "7748c746acff65b3991c7a87fe097c5b3e51090a9ea2a50de72deef9be879bc1",
+      "n": 48,
+      "groups": 1,
+      "label": {
+        "scam": 24,
+        "safe": 24
+      },
+      "language": {
+        "None": 48
+      },
+      "category": {
+        "None": 48
+      },
+      "difficulty": {
+        "None": 48
+      },
+      "source_type": {
+        "None": 48
+      },
+      "safety_context": {
+        "None": 48
+      },
+      "implicit_request": {
+        "None": 48
+      },
+      "noise_type": {
+        "None": 48
+      },
+      "signal_support": {},
+      "annotations_unknown": 48,
+      "exact_duplicates": 0,
+      "normalized_duplicates": 0,
+      "implicit_category_proxy": 0,
+      "lexical_noise_proxy": 0
+    },
+    "train_v2.json": {
+      "sha256": "1e319c7e487fe9aee71fd2970c3daf0588f28a584b3ec33d2fc831a7000f31b4",
+      "n": 150,
+      "groups": 100,
+      "label": {
+        "scam": 75,
+        "safe": 75
+      },
+      "language": {
+        "English": 80,
+        "Hindi": 20,
+        "Tamil": 20,
+        "Hinglish": 10,
+        "Tanglish": 10,
+        "Mixed": 10
+      },
+      "category": {
+        "otp": 9,
+        "implicit_sensitive": 5,
+        "euphemistic": 2,
+        "credential": 8,
+        "remote_access": 9,
+        "bank_impersonation": 5,
+        "government_impersonation": 6,
+        "payment": 8,
+        "account_threat": 6,
+        "investment": 8,
+        "link": 7,
+        "ocr": 2,
+        "transcription": 2,
+        "safety": 22,
+        "educational": 15,
+        "hard_negative": 17,
+        "ordinary": 19
+      },
+      "difficulty": {
+        "standard": 122,
+        "hard": 28
+      },
+      "source_type": {
+        "synthetic_manual": 150
+      },
+      "safety_context": {
+        "None": 150
+      },
+      "implicit_request": {
+        "None": 150
+      },
+      "noise_type": {
+        "None": 150
+      },
+      "signal_support": {},
+      "annotations_unknown": 150,
+      "exact_duplicates": 0,
+      "normalized_duplicates": 0,
+      "implicit_category_proxy": 7,
+      "lexical_noise_proxy": 0
+    },
+    "eval_v2.json": {
+      "sha256": "aae98f6368793bb5ea0f754e1d0e7c06511cbcd7c2c98e16246dbba77d84508e",
+      "n": 90,
+      "groups": 53,
+      "label": {
+        "scam": 45,
+        "safe": 45
+      },
+      "language": {
+        "English": 40,
+        "Hindi": 10,
+        "Tamil": 10,
+        "Hinglish": 10,
+        "Tanglish": 10,
+        "Mixed": 10
+      },
+      "category": {
+        "implicit_sensitive": 7,
+        "euphemistic": 2,
+        "otp": 1,
+        "credential": 3,
+        "remote_access": 7,
+        "bank_impersonation": 1,
+        "government_impersonation": 4,
+        "payment": 5,
+        "account_threat": 3,
+        "investment": 6,
+        "link": 4,
+        "ocr": 2,
+        "transcription": 2,
+        "safety": 15,
+        "educational": 9,
+        "hard_negative": 10,
+        "ordinary": 9
+      },
+      "difficulty": {
+        "hard": 23,
+        "standard": 67
+      },
+      "source_type": {
+        "synthetic_manual": 90
+      },
+      "safety_context": {
+        "None": 90
+      },
+      "implicit_request": {
+        "None": 90
+      },
+      "noise_type": {
+        "None": 90
+      },
+      "signal_support": {},
+      "annotations_unknown": 90,
+      "exact_duplicates": 0,
+      "normalized_duplicates": 0,
+      "implicit_category_proxy": 9,
+      "lexical_noise_proxy": 0
+    },
+    "hardening/train.json": {
+      "sha256": "f6d4acb4fbdd3ab41039db14efbbbff8f9bc9c7aa8dc9a151968559cdca674e4",
+      "n": 210,
+      "groups": 108,
+      "label": {
+        "scam": 100,
+        "safe": 110
+      },
+      "language": {
+        "English": 115,
+        "Hindi": 25,
+        "Tamil": 25,
+        "Hinglish": 15,
+        "Tanglish": 15,
+        "Mixed": 7,
+        "Mixed Hindi-English": 4,
+        "Mixed Tamil-English": 4
+      },
+      "category": {
+        "otp": 7,
+        "euphemistic": 2,
+        "credential": 7,
+        "remote_access": 8,
+        "bank_impersonation": 5,
+        "government_impersonation": 3,
+        "payment": 3,
+        "account_threat": 7,
+        "investment": 8,
+        "link": 6,
+        "ocr": 2,
+        "transcription": 2,
+        "educational": 16,
+        "hard_negative": 17,
+        "ordinary": 23,
+        "safety": 35,
+        "otp_request": 9,
+        "credentials": 7,
+        "benign_support": 6,
+        "payment_request": 5,
+        "legitimate_banking": 3,
+        "upi_manipulation": 1,
+        "qr_scam": 1,
+        "genuine_support": 3,
+        "delivery_scam": 1,
+        "job_scam": 5,
+        "investment_scam": 3,
+        "crypto_scam": 1,
+        "refund_scam": 1,
+        "kyc_scam": 1,
+        "tech_support": 1,
+        "software_code": 2,
+        "login_notification": 1,
+        "phishing_link": 1,
+        "urgency_pressure": 1,
+        "coupon_expiry": 1,
+        "authority_pressure": 1,
+        "recovery_scam": 1,
+        "parcel_customs": 1,
+        "family_emergency": 1,
+        "quoted_scam": 1
+      },
+      "difficulty": {
+        "standard": 87,
+        "hard": 123
+      },
+      "source_type": {
+        "synthetic_manual": 110,
+        "synthetic_authored": 100
+      },
+      "safety_context": {
+        "None": 110,
+        "False": 74,
+        "True": 26
+      },
+      "implicit_request": {
+        "None": 210
+      },
+      "noise_type": {
+        "None": 210
+      },
+      "signal_support": {
+        "OTP_REQUEST": 11,
+        "CREDENTIAL_REQUEST": 10,
+        "PAYMENT_REQUEST": 22,
+        "URGENCY": 3,
+        "REMOTE_ACCESS": 6,
+        "BANK_IMPERSONATION": 1,
+        "GOVERNMENT_IMPERSONATION": 2,
+        "LINK_REQUEST": 2,
+        "INVESTMENT_PROMISE": 3,
+        "IDENTITY_VERIFICATION": 1,
+        "ACCOUNT_THREAT": 1
+      },
+      "annotations_unknown": 110,
+      "exact_duplicates": 0,
+      "normalized_duplicates": 0,
+      "implicit_category_proxy": 2,
+      "lexical_noise_proxy": 0
+    },
+    "hardening/validation.json": {
+      "sha256": "7646b82444c0a6baf67179a2261a32125bb00e2ea55cdb7147b916667e3e660b",
+      "n": 50,
+      "groups": 28,
+      "label": {
+        "scam": 30,
+        "safe": 20
+      },
+      "language": {
+        "English": 23,
+        "Hindi": 7,
+        "Tamil": 7,
+        "Hinglish": 3,
+        "Tanglish": 3,
+        "Mixed": 3,
+        "Mixed Hindi-English": 2,
+        "Mixed Tamil-English": 2
+      },
+      "category": {
+        "implicit_sensitive": 5,
+        "otp": 2,
+        "remote_access": 6,
+        "government_impersonation": 4,
+        "payment": 5,
+        "credential": 1,
+        "bank_impersonation": 1,
+        "link": 1,
+        "safety": 9,
+        "ordinary": 6,
+        "educational": 4,
+        "fake_verification": 1,
+        "benign_support": 1,
+        "prize_scam": 1,
+        "negation_exception": 1,
+        "payment_request": 2
+      },
+      "difficulty": {
+        "hard": 15,
+        "standard": 35
+      },
+      "source_type": {
+        "synthetic_manual": 40,
+        "synthetic_authored": 10
+      },
+      "safety_context": {
+        "None": 40,
+        "False": 8,
+        "True": 2
+      },
+      "implicit_request": {
+        "None": 50
+      },
+      "noise_type": {
+        "None": 50
+      },
+      "signal_support": {
+        "IDENTITY_VERIFICATION": 1,
+        "CREDENTIAL_REQUEST": 1,
+        "PAYMENT_REQUEST": 3,
+        "OTP_REQUEST": 1
+      },
+      "annotations_unknown": 40,
+      "exact_duplicates": 0,
+      "normalized_duplicates": 0,
+      "implicit_category_proxy": 5,
+      "lexical_noise_proxy": 0
+    }
+  },
+  "split_quality": {
+    "counts": {
+      "train": 210,
+      "validation": 50,
+      "test": 90
+    },
+    "breakdown": {
+      "train": {
+        "label": {
+          "scam": 100,
+          "safe": 110
+        },
+        "language": {
+          "English": 115,
+          "Hindi": 25,
+          "Tamil": 25,
+          "Hinglish": 15,
+          "Tanglish": 15,
+          "Mixed": 7,
+          "Mixed Hindi-English": 4,
+          "Mixed Tamil-English": 4
+        },
+        "category": {
+          "otp": 7,
+          "euphemistic": 2,
+          "credential": 7,
+          "remote_access": 8,
+          "bank_impersonation": 5,
+          "government_impersonation": 3,
+          "payment": 3,
+          "account_threat": 7,
+          "investment": 8,
+          "link": 6,
+          "ocr": 2,
+          "transcription": 2,
+          "educational": 16,
+          "hard_negative": 17,
+          "ordinary": 23,
+          "safety": 35,
+          "otp_request": 9,
+          "credentials": 7,
+          "benign_support": 6,
+          "payment_request": 5,
+          "legitimate_banking": 3,
+          "upi_manipulation": 1,
+          "qr_scam": 1,
+          "genuine_support": 3,
+          "delivery_scam": 1,
+          "job_scam": 5,
+          "investment_scam": 3,
+          "crypto_scam": 1,
+          "refund_scam": 1,
+          "kyc_scam": 1,
+          "tech_support": 1,
+          "software_code": 2,
+          "login_notification": 1,
+          "phishing_link": 1,
+          "urgency_pressure": 1,
+          "coupon_expiry": 1,
+          "authority_pressure": 1,
+          "recovery_scam": 1,
+          "parcel_customs": 1,
+          "family_emergency": 1,
+          "quoted_scam": 1
+        },
+        "source_type": {
+          "synthetic_manual": 110,
+          "synthetic_authored": 100
+        }
+      },
+      "validation": {
+        "label": {
+          "scam": 30,
+          "safe": 20
+        },
+        "language": {
+          "English": 23,
+          "Hindi": 7,
+          "Tamil": 7,
+          "Hinglish": 3,
+          "Tanglish": 3,
+          "Mixed": 3,
+          "Mixed Hindi-English": 2,
+          "Mixed Tamil-English": 2
+        },
+        "category": {
+          "implicit_sensitive": 5,
+          "otp": 2,
+          "remote_access": 6,
+          "government_impersonation": 4,
+          "payment": 5,
+          "credential": 1,
+          "bank_impersonation": 1,
+          "link": 1,
+          "safety": 9,
+          "ordinary": 6,
+          "educational": 4,
+          "fake_verification": 1,
+          "benign_support": 1,
+          "prize_scam": 1,
+          "negation_exception": 1,
+          "payment_request": 2
+        },
+        "source_type": {
+          "synthetic_manual": 40,
+          "synthetic_authored": 10
+        }
+      },
+      "test": {
+        "label": {
+          "scam": 45,
+          "safe": 45
+        },
+        "language": {
+          "English": 40,
+          "Hindi": 10,
+          "Tamil": 10,
+          "Hinglish": 10,
+          "Tanglish": 10,
+          "Mixed": 10
+        },
+        "category": {
+          "implicit_sensitive": 7,
+          "euphemistic": 2,
+          "otp": 1,
+          "credential": 3,
+          "remote_access": 7,
+          "bank_impersonation": 1,
+          "government_impersonation": 4,
+          "payment": 5,
+          "account_threat": 3,
+          "investment": 6,
+          "link": 4,
+          "ocr": 2,
+          "transcription": 2,
+          "safety": 15,
+          "educational": 9,
+          "hard_negative": 10,
+          "ordinary": 9
+        },
+        "source_type": {
+          "synthetic_manual": 90
+        }
+      }
+    },
+    "normalized_duplicate_records": [],
+    "blocking_cross_split_overlaps": [],
+    "semantic_review_candidates": [
+      {
+        "left": "train-101",
+        "right": "train-103",
+        "similarity": 0.9990013837814331
+      },
+      {
+        "left": "train-102",
+        "right": "train-103",
+        "similarity": 0.9965553283691406
+      },
+      {
+        "left": "train-107",
+        "right": "train-103",
+        "similarity": 0.9560442566871643
+      },
+      {
+        "left": "train-109",
+        "right": "train-103",
+        "similarity": 0.96542888879776
+      },
+      {
+        "left": "train-113",
+        "right": "train-103",
+        "similarity": 0.9825412631034851
+      },
+      {
+        "left": "train-115",
+        "right": "train-103",
+        "similarity": 0.9884582757949829
+      },
+      {
+        "left": "train-119",
+        "right": "train-103",
+        "similarity": 0.9705132246017456
+      },
+      {
+        "left": "hardening-071",
+        "right": "train-103",
+        "similarity": 0.9960366487503052
+      },
+      {
+        "left": "hardening-072",
+        "right": "train-103",
+        "similarity": 0.9907537698745728
+      },
+      {
+        "left": "hardening-073",
+        "right": "train-103",
+        "similarity": 0.9645479917526245
+      },
+      {
+        "left": "hardening-074",
+        "right": "train-103",
+        "similarity": 0.9929467439651489
+      },
+      {
+        "left": "hardening-075",
+        "right": "train-103",
+        "similarity": 0.9856416583061218
+      },
+      {
+        "left": "hardening-076",
+        "right": "train-103",
+        "similarity": 0.9554636478424072
+      },
+      {
+        "left": "hardening-078",
+        "right": "train-103",
+        "similarity": 0.9958271980285645
+      },
+      {
+        "left": "hardening-079",
+        "right": "train-103",
+        "similarity": 0.9962368011474609
+      },
+      {
+        "left": "hardening-080",
+        "right": "train-103",
+        "similarity": 0.9925588369369507
+      },
+      {
+        "left": "hardening-081",
+        "right": "train-103",
+        "similarity": 0.9650912284851074
+      },
+      {
+        "left": "hardening-082",
+        "right": "train-103",
+        "similarity": 0.9865844249725342
+      },
+      {
+        "left": "train-104",
+        "right": "train-105",
+        "similarity": 0.9791714549064636
+      },
+      {
+        "left": "train-119",
+        "right": "train-105",
+        "similarity": 0.9520162343978882
+      },
+      {
+        "left": "hardening-072",
+        "right": "train-105",
+        "similarity": 0.9562684297561646
+      },
+      {
+        "left": "hardening-073",
+        "right": "train-105",
+        "similarity": 0.9684306979179382
+      },
+      {
+        "left": "hardening-074",
+        "right": "train-105",
+        "similarity": 0.9515496492385864
+      },
+      {
+        "left": "hardening-076",
+        "right": "train-105",
+        "similarity": 0.9821491241455078
+      },
+      {
+        "left": "hardening-077",
+        "right": "train-105",
+        "similarity": 0.9744662642478943
+      },
+      {
+        "left": "hardening-078",
+        "right": "train-105",
+        "similarity": 0.9528310298919678
+      },
+      {
+        "left": "hardening-080",
+        "right": "train-105",
+        "similarity": 0.9571846127510071
+      },
+      {
+        "left": "hardening-081",
+        "right": "train-105",
+        "similarity": 0.9731065034866333
+      },
+      {
+        "left": "train-101",
+        "right": "train-106",
+        "similarity": 0.9880462884902954
+      },
+      {
+        "left": "train-102",
+        "right": "train-106",
+        "similarity": 0.9921407699584961
+      },
+      {
+        "left": "train-104",
+        "right": "train-106",
+        "similarity": 0.9535399675369263
+      },
+      {
+        "left": "train-107",
+        "right": "train-106",
+        "similarity": 0.9562299251556396
+      },
+      {
+        "left": "train-109",
+        "right": "train-106",
+        "similarity": 0.9833542704582214
+      },
+      {
+        "left": "train-112",
+        "right": "train-106",
+        "similarity": 0.9592561721801758
+      },
+      {
+        "left": "train-113",
+        "right": "train-106",
+        "similarity": 0.9890755414962769
+      },
+      {
+        "left": "train-115",
+        "right": "train-106",
+        "similarity": 0.9922311305999756
+      },
+      {
+        "left": "train-119",
+        "right": "train-106",
+        "similarity": 0.9821807742118835
+      },
+      {
+        "left": "hardening-071",
+        "right": "train-106",
+        "similarity": 0.9884281754493713
+      },
+      {
+        "left": "hardening-072",
+        "right": "train-106",
+        "similarity": 0.9902361631393433
+      },
+      {
+        "left": "hardening-073",
+        "right": "train-106",
+        "similarity": 0.9519816637039185
+      },
+      {
+        "left": "hardening-074",
+        "right": "train-106",
+        "similarity": 0.991325855255127
+      },
+      {
+        "left": "hardening-075",
+        "right": "train-106",
+        "similarity": 0.979128360748291
+      },
+      {
+        "left": "hardening-076",
+        "right": "train-106",
+        "similarity": 0.9504142999649048
+      },
+      {
+        "left": "hardening-078",
+        "right": "train-106",
+        "similarity": 0.9916982054710388
+      },
+      {
+        "left": "hardening-079",
+        "right": "train-106",
+        "similarity": 0.9897561073303223
+      },
+      {
+        "left": "hardening-080",
+        "right": "train-106",
+        "similarity": 0.9932278990745544
+      },
+      {
+        "left": "hardening-081",
+        "right": "train-106",
+        "similarity": 0.9628411531448364
+      },
+      {
+        "left": "hardening-082",
+        "right": "train-106",
+        "similarity": 0.9805587530136108
+      },
+      {
+        "left": "train-101",
+        "right": "train-110",
+        "similarity": 0.9911632537841797
+      },
+      {
+        "left": "train-102",
+        "right": "train-110",
+        "similarity": 0.9952371716499329
+      },
+      {
+        "left": "train-104",
+        "right": "train-110",
+        "similarity": 0.955392599105835
+      },
+      {
+        "left": "train-107",
+        "right": "train-110",
+        "similarity": 0.9568876624107361
+      },
+      {
+        "left": "train-109",
+        "right": "train-110",
+        "similarity": 0.9808032512664795
+      },
+      {
+        "left": "train-112",
+        "right": "train-110",
+        "similarity": 0.9573988914489746
+      },
+      {
+        "left": "train-113",
+        "right": "train-110",
+        "similarity": 0.9881776571273804
+      },
+      {
+        "left": "train-115",
+        "right": "train-110",
+        "similarity": 0.9947782754898071
+      },
+      {
+        "left": "train-119",
+        "right": "train-110",
+        "similarity": 0.9866471886634827
+      },
+      {
+        "left": "hardening-071",
+        "right": "train-110",
+        "similarity": 0.9930419921875
+      },
+      {
+        "left": "hardening-072",
+        "right": "train-110",
+        "similarity": 0.99556964635849
+      },
+      {
+        "left": "hardening-073",
+        "right": "train-110",
+        "similarity": 0.9557861089706421
+      },
+      {
+        "left": "hardening-074",
+        "right": "train-110",
+        "similarity": 0.9953969120979309
+      },
+      {
+        "left": "hardening-075",
+        "right": "train-110",
+        "similarity": 0.9811720848083496
+      },
+      {
+        "left": "hardening-076",
+        "right": "train-110",
+        "similarity": 0.9534740447998047
+      },
+      {
+        "left": "hardening-078",
+        "right": "train-110",
+        "similarity": 0.9937343597412109
+      },
+      {
+        "left": "hardening-079",
+        "right": "train-110",
+        "similarity": 0.9933333992958069
+      },
+      {
+        "left": "hardening-080",
+        "right": "train-110",
+        "similarity": 0.9961873888969421
+      },
+      {
+        "left": "hardening-081",
+        "right": "train-110",
+        "similarity": 0.9661304950714111
+      },
+      {
+        "left": "hardening-082",
+        "right": "train-110",
+        "similarity": 0.9807644486427307
+      },
+      {
+        "left": "train-101",
+        "right": "eval-051",
+        "similarity": 0.9975777864456177
+      },
+      {
+        "left": "train-102",
+        "right": "eval-051",
+        "similarity": 0.9977129697799683
+      },
+      {
+        "left": "train-107",
+        "right": "eval-051",
+        "similarity": 0.96405029296875
+      },
+      {
+        "left": "train-109",
+        "right": "eval-051",
+        "similarity": 0.9722856879234314
+      },
+      {
+        "left": "train-113",
+        "right": "eval-051",
+        "similarity": 0.9868770837783813
+      },
+      {
+        "left": "train-115",
+        "right": "eval-051",
+        "similarity": 0.9911430478096008
+      },
+      {
+        "left": "train-119",
+        "right": "eval-051",
+        "similarity": 0.9778760075569153
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-051",
+        "similarity": 0.9959040880203247
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-051",
+        "similarity": 0.9929594397544861
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-051",
+        "similarity": 0.9587917327880859
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-051",
+        "similarity": 0.9939652681350708
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-051",
+        "similarity": 0.9894440770149231
+      },
+      {
+        "left": "hardening-076",
+        "right": "eval-051",
+        "similarity": 0.9554135799407959
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-051",
+        "similarity": 0.9961001873016357
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-051",
+        "similarity": 0.9975056052207947
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-051",
+        "similarity": 0.9945861101150513
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-051",
+        "similarity": 0.9642482995986938
+      },
+      {
+        "left": "hardening-082",
+        "right": "eval-051",
+        "similarity": 0.9909670352935791
+      },
+      {
+        "left": "train-103",
+        "right": "eval-051",
+        "similarity": 0.9977757930755615
+      },
+      {
+        "left": "train-106",
+        "right": "eval-051",
+        "similarity": 0.9921492338180542
+      },
+      {
+        "left": "train-110",
+        "right": "eval-051",
+        "similarity": 0.9939104318618774
+      },
+      {
+        "left": "train-101",
+        "right": "eval-052",
+        "similarity": 0.9613844156265259
+      },
+      {
+        "left": "train-102",
+        "right": "eval-052",
+        "similarity": 0.9602779150009155
+      },
+      {
+        "left": "train-104",
+        "right": "eval-052",
+        "similarity": 0.9883655309677124
+      },
+      {
+        "left": "train-109",
+        "right": "eval-052",
+        "similarity": 0.9508020281791687
+      },
+      {
+        "left": "train-115",
+        "right": "eval-052",
+        "similarity": 0.9620816707611084
+      },
+      {
+        "left": "train-119",
+        "right": "eval-052",
+        "similarity": 0.954778790473938
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-052",
+        "similarity": 0.9627289772033691
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-052",
+        "similarity": 0.9705492258071899
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-052",
+        "similarity": 0.9888474941253662
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-052",
+        "similarity": 0.9655040502548218
+      },
+      {
+        "left": "hardening-076",
+        "right": "eval-052",
+        "similarity": 0.9895294904708862
+      },
+      {
+        "left": "hardening-077",
+        "right": "eval-052",
+        "similarity": 0.9853225350379944
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-052",
+        "similarity": 0.9679874181747437
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-052",
+        "similarity": 0.954844057559967
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-052",
+        "similarity": 0.9683111310005188
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-052",
+        "similarity": 0.9875476360321045
+      },
+      {
+        "left": "train-103",
+        "right": "eval-052",
+        "similarity": 0.9618158340454102
+      },
+      {
+        "left": "train-105",
+        "right": "eval-052",
+        "similarity": 0.9795168042182922
+      },
+      {
+        "left": "train-106",
+        "right": "eval-052",
+        "similarity": 0.9628505706787109
+      },
+      {
+        "left": "train-110",
+        "right": "eval-052",
+        "similarity": 0.9655131101608276
+      },
+      {
+        "left": "train-104",
+        "right": "eval-053",
+        "similarity": 0.9904593229293823
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-053",
+        "similarity": 0.9526544809341431
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-053",
+        "similarity": 0.9927958846092224
+      },
+      {
+        "left": "hardening-076",
+        "right": "eval-053",
+        "similarity": 0.9894291162490845
+      },
+      {
+        "left": "hardening-077",
+        "right": "eval-053",
+        "similarity": 0.9946982860565186
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-053",
+        "similarity": 0.9538062810897827
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-053",
+        "similarity": 0.9524483680725098
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-053",
+        "similarity": 0.9881049394607544
+      },
+      {
+        "left": "train-105",
+        "right": "eval-053",
+        "similarity": 0.9810241460800171
+      },
+      {
+        "left": "train-101",
+        "right": "eval-054",
+        "similarity": 0.9636347889900208
+      },
+      {
+        "left": "train-102",
+        "right": "eval-054",
+        "similarity": 0.961067259311676
+      },
+      {
+        "left": "train-104",
+        "right": "eval-054",
+        "similarity": 0.9887861609458923
+      },
+      {
+        "left": "train-108",
+        "right": "eval-054",
+        "similarity": 0.9500510692596436
+      },
+      {
+        "left": "train-115",
+        "right": "eval-054",
+        "similarity": 0.961505651473999
+      },
+      {
+        "left": "train-119",
+        "right": "eval-054",
+        "similarity": 0.9526925086975098
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-054",
+        "similarity": 0.9608951210975647
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-054",
+        "similarity": 0.9653602242469788
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-054",
+        "similarity": 0.9942950010299683
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-054",
+        "similarity": 0.9618452191352844
+      },
+      {
+        "left": "hardening-076",
+        "right": "eval-054",
+        "similarity": 0.9894416928291321
+      },
+      {
+        "left": "hardening-077",
+        "right": "eval-054",
+        "similarity": 0.9918512105941772
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-054",
+        "similarity": 0.9679975509643555
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-054",
+        "similarity": 0.9531251788139343
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-054",
+        "similarity": 0.9657566547393799
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-054",
+        "similarity": 0.9964568614959717
+      },
+      {
+        "left": "train-103",
+        "right": "eval-054",
+        "similarity": 0.9625771641731262
+      },
+      {
+        "left": "train-105",
+        "right": "eval-054",
+        "similarity": 0.9775581359863281
+      },
+      {
+        "left": "train-106",
+        "right": "eval-054",
+        "similarity": 0.9583021402359009
+      },
+      {
+        "left": "train-110",
+        "right": "eval-054",
+        "similarity": 0.961538553237915
+      },
+      {
+        "left": "train-101",
+        "right": "eval-055",
+        "similarity": 0.980884313583374
+      },
+      {
+        "left": "train-102",
+        "right": "eval-055",
+        "similarity": 0.9880441427230835
+      },
+      {
+        "left": "train-107",
+        "right": "eval-055",
+        "similarity": 0.9611830711364746
+      },
+      {
+        "left": "train-109",
+        "right": "eval-055",
+        "similarity": 0.9831280708312988
+      },
+      {
+        "left": "train-112",
+        "right": "eval-055",
+        "similarity": 0.9632107615470886
+      },
+      {
+        "left": "train-113",
+        "right": "eval-055",
+        "similarity": 0.9850108623504639
+      },
+      {
+        "left": "train-115",
+        "right": "eval-055",
+        "similarity": 0.9898784160614014
+      },
+      {
+        "left": "train-119",
+        "right": "eval-055",
+        "similarity": 0.9849938750267029
+      },
+      {
+        "left": "train-120",
+        "right": "eval-055",
+        "similarity": 0.9523937702178955
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-055",
+        "similarity": 0.9823717474937439
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-055",
+        "similarity": 0.986541748046875
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-055",
+        "similarity": 0.9853924512863159
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-055",
+        "similarity": 0.9784201383590698
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-055",
+        "similarity": 0.9842014908790588
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-055",
+        "similarity": 0.9856985807418823
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-055",
+        "similarity": 0.9898271560668945
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-055",
+        "similarity": 0.9566038250923157
+      },
+      {
+        "left": "hardening-082",
+        "right": "eval-055",
+        "similarity": 0.9788884520530701
+      },
+      {
+        "left": "train-103",
+        "right": "eval-055",
+        "similarity": 0.9793411493301392
+      },
+      {
+        "left": "train-105",
+        "right": "eval-055",
+        "similarity": 0.9513787031173706
+      },
+      {
+        "left": "train-106",
+        "right": "eval-055",
+        "similarity": 0.9913877248764038
+      },
+      {
+        "left": "train-110",
+        "right": "eval-055",
+        "similarity": 0.9914908409118652
+      },
+      {
+        "left": "train-101",
+        "right": "eval-056",
+        "similarity": 0.9984414577484131
+      },
+      {
+        "left": "train-102",
+        "right": "eval-056",
+        "similarity": 0.9972977042198181
+      },
+      {
+        "left": "train-107",
+        "right": "eval-056",
+        "similarity": 0.9562053680419922
+      },
+      {
+        "left": "train-109",
+        "right": "eval-056",
+        "similarity": 0.9686075448989868
+      },
+      {
+        "left": "train-113",
+        "right": "eval-056",
+        "similarity": 0.9842207431793213
+      },
+      {
+        "left": "train-115",
+        "right": "eval-056",
+        "similarity": 0.9902341961860657
+      },
+      {
+        "left": "train-119",
+        "right": "eval-056",
+        "similarity": 0.9763512015342712
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-056",
+        "similarity": 0.9963089227676392
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-056",
+        "similarity": 0.9935630559921265
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-056",
+        "similarity": 0.9651224613189697
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-056",
+        "similarity": 0.9950751662254333
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-056",
+        "similarity": 0.984382688999176
+      },
+      {
+        "left": "hardening-076",
+        "right": "eval-056",
+        "similarity": 0.9569801092147827
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-056",
+        "similarity": 0.996834397315979
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-056",
+        "similarity": 0.9966020584106445
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-056",
+        "similarity": 0.9955911040306091
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-056",
+        "similarity": 0.9668716192245483
+      },
+      {
+        "left": "hardening-082",
+        "right": "eval-056",
+        "similarity": 0.9850692749023438
+      },
+      {
+        "left": "train-103",
+        "right": "eval-056",
+        "similarity": 0.9982547163963318
+      },
+      {
+        "left": "train-106",
+        "right": "eval-056",
+        "similarity": 0.9887503385543823
+      },
+      {
+        "left": "train-110",
+        "right": "eval-056",
+        "similarity": 0.992608904838562
+      },
+      {
+        "left": "train-101",
+        "right": "eval-057",
+        "similarity": 0.990186333656311
+      },
+      {
+        "left": "train-102",
+        "right": "eval-057",
+        "similarity": 0.9918619394302368
+      },
+      {
+        "left": "train-109",
+        "right": "eval-057",
+        "similarity": 0.9733055830001831
+      },
+      {
+        "left": "train-112",
+        "right": "eval-057",
+        "similarity": 0.9503861665725708
+      },
+      {
+        "left": "train-113",
+        "right": "eval-057",
+        "similarity": 0.9834158420562744
+      },
+      {
+        "left": "train-115",
+        "right": "eval-057",
+        "similarity": 0.9874731302261353
+      },
+      {
+        "left": "train-119",
+        "right": "eval-057",
+        "similarity": 0.9800460338592529
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-057",
+        "similarity": 0.991441011428833
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-057",
+        "similarity": 0.9905494451522827
+      },
+      {
+        "left": "hardening-073",
+        "right": "eval-057",
+        "similarity": 0.9516863822937012
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-057",
+        "similarity": 0.9925632476806641
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-057",
+        "similarity": 0.9750789999961853
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-057",
+        "similarity": 0.9928699731826782
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-057",
+        "similarity": 0.9900094270706177
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-057",
+        "similarity": 0.991644561290741
+      },
+      {
+        "left": "hardening-081",
+        "right": "eval-057",
+        "similarity": 0.9583048820495605
+      },
+      {
+        "left": "hardening-082",
+        "right": "eval-057",
+        "similarity": 0.9778769612312317
+      },
+      {
+        "left": "train-103",
+        "right": "eval-057",
+        "similarity": 0.990567147731781
+      },
+      {
+        "left": "train-106",
+        "right": "eval-057",
+        "similarity": 0.9882678985595703
+      },
+      {
+        "left": "train-110",
+        "right": "eval-057",
+        "similarity": 0.9899415373802185
+      },
+      {
+        "left": "train-101",
+        "right": "eval-058",
+        "similarity": 0.9575971364974976
+      },
+      {
+        "left": "train-102",
+        "right": "eval-058",
+        "similarity": 0.9639087915420532
+      },
+      {
+        "left": "train-109",
+        "right": "eval-058",
+        "similarity": 0.9629698991775513
+      },
+      {
+        "left": "train-113",
+        "right": "eval-058",
+        "similarity": 0.9586296081542969
+      },
+      {
+        "left": "train-115",
+        "right": "eval-058",
+        "similarity": 0.9708654880523682
+      },
+      {
+        "left": "train-119",
+        "right": "eval-058",
+        "similarity": 0.973809540271759
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-058",
+        "similarity": 0.9663650989532471
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-058",
+        "similarity": 0.9710739850997925
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-058",
+        "similarity": 0.9705226421356201
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-058",
+        "similarity": 0.9518245458602905
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-058",
+        "similarity": 0.9675469398498535
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-058",
+        "similarity": 0.9637383222579956
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-058",
+        "similarity": 0.9713536500930786
+      },
+      {
+        "left": "train-103",
+        "right": "eval-058",
+        "similarity": 0.9574346542358398
+      },
+      {
+        "left": "train-106",
+        "right": "eval-058",
+        "similarity": 0.9690730571746826
+      },
+      {
+        "left": "train-110",
+        "right": "eval-058",
+        "similarity": 0.9712562561035156
+      },
+      {
+        "left": "train-101",
+        "right": "eval-060",
+        "similarity": 0.95261150598526
+      },
+      {
+        "left": "train-102",
+        "right": "eval-060",
+        "similarity": 0.963162899017334
+      },
+      {
+        "left": "train-107",
+        "right": "eval-060",
+        "similarity": 0.9850491285324097
+      },
+      {
+        "left": "train-112",
+        "right": "eval-060",
+        "similarity": 0.9505587220191956
+      },
+      {
+        "left": "train-113",
+        "right": "eval-060",
+        "similarity": 0.9601693153381348
+      },
+      {
+        "left": "train-115",
+        "right": "eval-060",
+        "similarity": 0.9616087079048157
+      },
+      {
+        "left": "train-119",
+        "right": "eval-060",
+        "similarity": 0.9616226553916931
+      },
+      {
+        "left": "hardening-071",
+        "right": "eval-060",
+        "similarity": 0.9581010341644287
+      },
+      {
+        "left": "hardening-072",
+        "right": "eval-060",
+        "similarity": 0.9606219530105591
+      },
+      {
+        "left": "hardening-074",
+        "right": "eval-060",
+        "similarity": 0.9582377672195435
+      },
+      {
+        "left": "hardening-075",
+        "right": "eval-060",
+        "similarity": 0.98198401927948
+      },
+      {
+        "left": "hardening-078",
+        "right": "eval-060",
+        "similarity": 0.9528038501739502
+      },
+      {
+        "left": "hardening-079",
+        "right": "eval-060",
+        "similarity": 0.965790331363678
+      },
+      {
+        "left": "hardening-080",
+        "right": "eval-060",
+        "similarity": 0.9599940180778503
+      },
+      {
+        "left": "hardening-082",
+        "right": "eval-060",
+        "similarity": 0.976285457611084
+      },
+      {
+        "left": "train-103",
+        "right": "eval-060",
+        "similarity": 0.9545480012893677
+      },
+      {
+        "left": "train-106",
+        "right": "eval-060",
+        "similarity": 0.961816668510437
+      },
+      {
+        "left": "train-110",
+        "right": "eval-060",
+        "similarity": 0.9627222418785095
+      }
+    ],
+    "semantic_checked": true,
+    "caveat": "Synthetic scenarios are not independent real-world observations. Cosine proximity is a review flag, not proof of label equivalence."
+  },
+  "notes": [
+    "The 150 v2 training rows are included in the later 260-row development corpus; do not add these counts together.",
+    "The 48-row v1 corpus used a historical 36/12 split; language/category provenance was not recorded per row.",
+    "Legacy category and text-noise counts are proxies, not retroactively verified annotations.",
+    "Semantic cosine flags are not proof of duplicate meaning; multilingual encoder collapse can create false matches."
+  ]
+}

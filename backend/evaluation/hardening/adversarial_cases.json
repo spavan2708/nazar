@@ -1,0 +1,194 @@
+[
+  {
+    "id": "adv-001",
+    "category": "spacing",
+    "label": "scam",
+    "text": "S e n d your O T P to this caller.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-002",
+    "category": "punctuation",
+    "label": "scam",
+    "text": "Send...your...OTP...to...me!",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-003",
+    "category": "leetspeak",
+    "label": "scam",
+    "text": "5end the 0TP t0 my chat b4 the l0gin ends.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-004",
+    "category": "unicode",
+    "label": "scam",
+    "text": "Ｓｅｎｄ your OTP to me now.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-005",
+    "category": "lookalike",
+    "label": "scam",
+    "text": "Send your pаssword to our operator.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-006",
+    "category": "misspelling",
+    "label": "scam",
+    "text": "Pls snd the verificatoin code frm ur phne.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-007",
+    "category": "emoji",
+    "label": "scam",
+    "text": "🔒 Send your password here ⏳ or lose the account.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-008",
+    "category": "warning",
+    "label": "safe",
+    "text": "Never share authentication codes, even with a caller claiming to be police.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-009",
+    "category": "exception",
+    "label": "scam",
+    "text": "Do not share your OTP with anyone except me; I need it now.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-010",
+    "category": "quote",
+    "label": "safe",
+    "text": "The textbook quotes “give me your PIN” to explain how credential theft works.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-011",
+    "category": "education",
+    "label": "safe",
+    "text": "In this security lesson, students identify why a request for a password is unsafe.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-012",
+    "category": "policy",
+    "label": "safe",
+    "text": "Our policy prohibits support staff from collecting passwords or OTPs.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-013",
+    "category": "development",
+    "label": "safe",
+    "text": "Please send the mock authentication-code fixture from the test repository.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-014",
+    "category": "bank_notice",
+    "label": "safe",
+    "text": "Your monthly statement is ready in your existing banking app. No reply is needed.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-015",
+    "category": "login",
+    "label": "safe",
+    "text": "A new login was detected. Review sessions using your bookmarked account settings.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-016",
+    "category": "coupon",
+    "label": "safe",
+    "text": "The bookstore coupon expires this evening; I might buy a novel.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-017",
+    "category": "incomplete",
+    "label": "safe",
+    "text": "Could you pass the",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-018",
+    "category": "stt",
+    "label": "scam",
+    "text": "uh yeah tell tell me the login coat that came on your phone",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-019",
+    "category": "ocr",
+    "label": "scam",
+    "text": "Bank acc0unt: s e nd the l0gin digits t0 me",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-020",
+    "category": "hindi",
+    "label": "scam",
+    "text": "मुझे आपके फोन पर आया ओटीपी अभी बता दीजिए।",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-021",
+    "category": "tamil",
+    "label": "safe",
+    "text": "கடவுச்சொல்லை யாரிடமும் பகிர வேண்டாம்.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-022",
+    "category": "hinglish",
+    "label": "scam",
+    "text": "Login ka code mujhe bolo, jaldi session band ho raha hai.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-023",
+    "category": "tanglish",
+    "label": "safe",
+    "text": "OTP yaarukkum share panna vendam.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  },
+  {
+    "id": "adv-024",
+    "category": "mixed",
+    "label": "scam",
+    "text": "Support பேசுகிறேன், अपना password इस chat में send pannunga.",
+    "source_type": "synthetic_authored",
+    "purpose": "development_robustness_not_independent_holdout"
+  }
+]

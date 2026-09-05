@@ -1,0 +1,199 @@
+[
+  {
+    "id": "rag-001",
+    "text": "Send the one-time password to our agent now.",
+    "expected_topics": [
+      "otp"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-002",
+    "text": "Read out the OTP from the SMS please.",
+    "expected_topics": [
+      "otp"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-003",
+    "text": "Never share your OTP with anyone.",
+    "expected_topics": [
+      "otp"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-004",
+    "text": "Install AnyDesk and accept my connection.",
+    "expected_topics": [
+      "remote_access"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-005",
+    "text": "Enable screen sharing with the refund technician.",
+    "expected_topics": [
+      "remote_access"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-006",
+    "text": "Your bank KYC expires today. Click this link immediately.",
+    "expected_topics": [
+      "banking_kyc",
+      "phishing"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-007",
+    "text": "Update your KYC with our bank verification team immediately.",
+    "expected_topics": [
+      "banking_kyc"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-008",
+    "text": "Please send me your banking password.",
+    "expected_topics": [
+      "credentials"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-009",
+    "text": "Use a unique password for every account.",
+    "expected_topics": [
+      "credentials"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-010",
+    "text": "Open this link and enter your card details.",
+    "expected_topics": [
+      "phishing"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-011",
+    "text": "Enter your UPI PIN to receive the refund.",
+    "expected_topics": [
+      "payment_upi"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-012",
+    "text": "Your account will be blocked unless you verify immediately.",
+    "expected_topics": [
+      "account_threat"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-013",
+    "text": "Police here: pay the fine to my personal account or face arrest.",
+    "expected_topics": [
+      "government_impersonation"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-014",
+    "text": "Our investment scheme guarantees daily profits.",
+    "expected_topics": [
+      "investment"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-015",
+    "text": "I can recover your lost scam money; pay my fee first.",
+    "expected_topics": [
+      "recovery"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-016",
+    "text": "ओटीपी मुझे अभी बताओ।",
+    "expected_topics": [
+      "otp"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-017",
+    "text": "OTP share pannunga now.",
+    "expected_topics": [
+      "otp"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-018",
+    "text": "உங்கள் கடவுச்சொல்லை எனக்கு அனுப்புங்கள்.",
+    "expected_topics": [
+      "credentials"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-019",
+    "text": "Let the helper operate the handset from their office.",
+    "expected_topics": [
+      "remote_access"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-020",
+    "text": "They promise to retrieve the stolen savings for an advance charge.",
+    "expected_topics": [
+      "recovery"
+    ],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-021",
+    "text": "Hello, see you at lunch.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-022",
+    "text": "Please bring milk home.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-023",
+    "text": "The meeting starts immediately.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-024",
+    "text": "My recovery from the flu is going well.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-025",
+    "text": "We will meet by the river bank tomorrow.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  },
+  {
+    "id": "rag-026",
+    "text": "The code for our puzzle is blue.",
+    "expected_topics": [],
+    "source_type": "synthetic_curated"
+  }
+]

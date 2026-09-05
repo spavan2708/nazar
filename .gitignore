@@ -13,11 +13,18 @@ frontend/.next/
 !backend/.env.example
 frontend/.env.local
 backend/.env
-backend/ml/artifacts/classifier.joblib
-backend/ml/artifacts/embedding_model/
 
 # macOS
 .DS_Store
 
 # IDE
 .vscode/
+
+# Local speech recognition models (never commit)
+backend/stt/models/
+
+# Local ML artifacts
+backend/ml/artifacts/classifier.joblib
+backend/ml/artifacts/embedding_model/
+backend/ml/artifacts/v2*/
+backend/ml/artifacts/research/

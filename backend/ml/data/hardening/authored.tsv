@@ -1,0 +1,111 @@
+language	category	group	label	signals	safety_context	text
+English	otp_request	notification-reader	scam	OTP_REQUEST	false	Keep this call connected and read aloud the six numbers in the notification you just received.
+English	safety	notification-reader	safe		true	If a caller wants the numbers in a sign-in notification, hang up; those numbers belong only in the login you initiated.
+English	credentials	mailbox-secret	scam	CREDENTIAL_REQUEST	false	Our mailbox migration cannot proceed until you type your usual password into this chat for the technician.
+English	benign_support	mailbox-secret	safe		false	The mailbox migration is complete. Sign in through your bookmarked company portal; support does not need your password.
+English	payment_request	charity-pressure	scam	PAYMENT_REQUEST,URGENCY	false	The relief allocation closes in ten minutes; transfer the handling fee to my private wallet to qualify.
+English	legitimate_banking	charity-pressure	safe		false	Your scheduled charity donation was processed. View the receipt in the banking app you already use.
+English	upi_manipulation	collect-refund	scam	PAYMENT_REQUEST	false	To collect your returned purchase money, approve the debit request and enter your UPI PIN. This debit is only a refund test.
+English	safety	collect-refund	safe		true	Receiving returned purchase money does not require approving a debit request. Check who will receive money before entering a PIN.
+English	qr_scam	qr-credit	scam	PAYMENT_REQUEST	false	Scan my QR, choose pay and enter the PIN; the amount will be credited to you after that outgoing transfer.
+English	educational	qr-credit	safe		true	The training slide shows a fake refund QR. Do not scan the example or authorize the payment described on the slide.
+English	remote_access	permission-switch	scam	REMOTE_ACCESS	false	In the help application, switch on unattended access and accept my connection so I can operate your device while you open your wallet.
+English	genuine_support	permission-switch	safe		false	I can explain where the permission settings are. Keep remote control turned off and make the changes yourself.
+English	bank_impersonation	reserve-account	scam	BANK_IMPERSONATION,PAYMENT_REQUEST	false	Speaking for branch risk management: your deposit must be moved into the reserve account I dictate, without consulting the teller.
+English	legitimate_banking	reserve-account	safe		false	Your branch appointment is confirmed. Bring identification to the counter; no transfer is required to attend.
+English	government_impersonation	warrant-vouchers	scam	GOVERNMENT_IMPERSONATION,PAYMENT_REQUEST	false	This is a revenue enforcement call. Photograph prepaid voucher codes and send them here to remove your arrest notice.
+English	safety	warrant-vouchers	safe		true	A demand to settle an arrest notice with shopping vouchers is a warning sign. Contact the agency through independently obtained details.
+English	delivery_scam	locker-deposit	scam	PAYMENT_REQUEST,LINK_REQUEST	false	Your parcel locker is sealed. Pay a refundable access deposit at http://locker-release.example/pay before we destroy the contents.
+English	ordinary	locker-deposit	safe		false	I left your parcel with the building receptionist. Pick it up when you return from work.
+English	job_scam	interview-wallet	scam	PAYMENT_REQUEST	false	You passed the interview without attending. Pay the compulsory recruitment bond to my personal UPI address to receive the offer.
+English	genuine_support	interview-wallet	safe		false	Your interview is on Wednesday. There is no recruitment fee; contact the employer through the address on its careers page.
+English	investment_scam	loss-proof	scam	INVESTMENT_PROMISE,PAYMENT_REQUEST	false	Our private fund cannot lose money. Borrow against your savings and send the deposit; we guarantee four times your capital next month.
+English	educational	loss-proof	safe		true	An investment advertisement promising four times your capital without losses deserves skepticism, even if a friend forwards it.
+English	crypto_scam	seed-unlock	scam	CREDENTIAL_REQUEST	false	To unlock your frozen tokens, paste the twelve recovery words into this support conversation; we will reconstruct the wallet for you.
+English	safety	seed-unlock	safe		true	Keep the twelve recovery words offline. A support representative does not need them to explain a wallet error.
+English	refund_scam	overpayment-return	scam	PAYMENT_REQUEST	false	I sent too much for your furniture. Return the excess to this other wallet immediately, before checking whether my transfer arrived.
+English	benign_support	overpayment-return	safe		false	The furniture payment has not appeared in my account yet. I will wait for confirmed funds before handing it over.
+English	kyc_scam	verification-call	scam	IDENTITY_VERIFICATION,OTP_REQUEST	false	Your customer review can only be completed on this call. Tell me the login code, and ignore the warning printed above it.
+English	legitimate_banking	verification-call	safe		false	Your customer details need updating. Visit a branch or use the profile section of your usual banking app.
+English	tech_support	antivirus-control	scam	REMOTE_ACCESS,PAYMENT_REQUEST	false	The pop-up proves your computer is infected. Give our technician remote control, then buy the repair vouchers while we watch.
+English	software_code	antivirus-control	safe		false	The antivirus pop-up in the UI test is simulated. Please review the component source, not the warning as a real incident.
+English	account_threat	recovery-threat	scam	ACCOUNT_THREAT,CREDENTIAL_REQUEST	false	We will erase your cloud account tonight unless you send its backup recovery keys directly to our operator.
+English	login_notification	recovery-threat	safe		false	A new device signed in to your cloud account. If this was not you, open your saved account settings and review active sessions.
+English	fake_verification	selfie-card	scam	IDENTITY_VERIFICATION,CREDENTIAL_REQUEST	false	For chat verification, hold your debit card up to the camera and show the security digits on its reverse.
+English	benign_support	selfie-card	safe		false	Please cover all card numbers before sending a photograph of the damaged card sleeve. We only need to inspect the sleeve.
+English	phishing_link	benefit-login	scam	LINK_REQUEST,CREDENTIAL_REQUEST	false	Your benefits have moved to http://benefit-desk.example/signin. Enter your email password there to release this month's payment.
+English	safety	benefit-login	safe		true	The example address in this phishing lesson is untrusted. Open benefits services through a saved official address instead.
+English	urgency_pressure	expiring-secret	scam	OTP_REQUEST,URGENCY	false	There are seconds left on that sign-in number. Say it now; we cannot finish until you read it to me.
+English	coupon_expiry	expiring-secret	safe		false	The bakery coupon ends this afternoon. I might use it for a loaf on my way home.
+English	authority_pressure	manager-bypass	scam	PAYMENT_REQUEST	false	I am your managing director. Skip the approval process and buy gift cards for me; send their redemption numbers to this personal chat.
+English	ordinary	manager-bypass	safe		false	The director asked for a meeting summary. I will send the notes after the team has reviewed them.
+English	prize_scam	lottery-tax	scam	PAYMENT_REQUEST	false	Your phone number won a lottery you never entered. Pay the tax to our agent's wallet before we disclose the prize details.
+English	safety	lottery-tax	safe		true	Do not pay an advance charge to collect an unexpected lottery prize. Verify the organizer independently.
+English	recovery_scam	rescue-bond	scam	PAYMENT_REQUEST	false	We have recovered your stolen savings, but our investigator needs a cryptocurrency release bond before returning them.
+English	genuine_support	rescue-bond	safe		false	Keep the transaction reference and report the loss through your bank's established complaint channel. I cannot guarantee recovery.
+English	parcel_customs	customs-call	scam	GOVERNMENT_IMPERSONATION,PAYMENT_REQUEST	false	Customs enforcement found contraband under your name. Stay on video and transfer a security guarantee to this officer's private account.
+English	ordinary	customs-call	safe		false	The customs declaration form asks for the contents and value of the parcel. I listed the books accurately.
+English	family_emergency	new-number-hospital	scam	PAYMENT_REQUEST,URGENCY	false	Mum, my phone broke and this is my new number. Send hospital money to this stranger's wallet now and don't call anyone to check.
+English	ordinary	new-number-hospital	safe		false	Mum, I changed my number. Call the old family contact to confirm before updating your address book.
+English	negation_exception	exception-secret	scam	OTP_REQUEST	false	Never disclose your OTP to anybody except the agent speaking to you now. I am that agent, so tell me the digits.
+English	safety	exception-secret	safe		true	Never disclose your OTP to callers, including anyone who says they are an exception to this rule.
+English	quoted_scam	lesson-quote	safe		true	For tomorrow's lesson, analyze the sentence “send your password to me” as an example of a credential-theft request. Do not follow it.
+English	credentials	lesson-quote	scam	CREDENTIAL_REQUEST	false	Forget the training exercise; send your real password to me so I can sign in to your account.
+English	software_code	mock-token	safe		false	The sample authentication token in this unit test is intentionally invalid. Share the test file in the code review.
+English	otp_request	mock-token	scam	OTP_REQUEST	false	The test has ended. I now need the actual authentication number from your personal banking notification.
+English	benign_support	postal-reference	safe		false	Please provide the six-digit postal code of the delivery address; no banking or login details are needed.
+English	otp_request	postal-reference	scam	OTP_REQUEST	false	Not the postal number: I mean the six digits that appeared when you tried signing in. Read those to this caller.
+English	safety	mixed-clause	safe		true	Don't share authentication codes. Use the official app yourself if you need to confirm a transaction.
+English	credentials	mixed-clause	scam	CREDENTIAL_REQUEST	false	Don't share authentication codes. Instead, send me your account password and I will log in for you.
+Hindi	otp_request	hi-notification	scam	OTP_REQUEST	false	फोन पर जो छह अंक अभी दिखे हैं उन्हें मुझे पढ़कर सुनाइए, तभी आपका काम आगे बढ़ेगा।
+Hindi	safety	hi-notification	safe		true	फोन पर दिखने वाले गुप्त अंक किसी अनजान व्यक्ति को पढ़कर न सुनाएं, भले वह मदद का दावा करे।
+Hindi	payment_request	hi-qr	scam	PAYMENT_REQUEST	false	पैसा पाने के लिए मेरे भेजे क्यूआर पर भुगतान कीजिए और अपना यूपीआई पिन डालिए।
+Hindi	safety	hi-qr	safe		true	पैसा प्राप्त करने के नाम पर भुगतान की अनुमति मांगने वाले से सावधान रहें।
+Hindi	job_scam	hi-job	scam	PAYMENT_REQUEST	false	नौकरी पक्की है, लेकिन नियुक्ति पत्र से पहले मेरे निजी खाते में भर्ती शुल्क जमा करना होगा।
+Hindi	ordinary	hi-job	safe		false	कल नौकरी के साक्षात्कार के लिए जाना है, मैंने अपने प्रमाणपत्र तैयार कर लिए हैं।
+Hindi	remote_access	hi-control	scam	REMOTE_ACCESS	false	सहायता वाला ऐप खोलकर मुझे आपका फोन चलाने की अनुमति दें, बैंक ऐप भी खुला रखें।
+Hindi	safety	hi-control	safe		true	अजनबी की मदद लेने के लिए उसे अपने फोन का नियंत्रण देना जरूरी नहीं है।
+Hindi	investment_scam	hi-profit	scam	INVESTMENT_PROMISE	false	हमारे गुप्त निवेश में नुकसान हो ही नहीं सकता, अगले सप्ताह आपका पैसा तीन गुना मिलेगा।
+Hindi	educational	hi-profit	safe		true	कोई भी निवेश पूरी तरह जोखिम रहित नहीं होता; तय मुनाफे का दावा सच मान लेना ठीक नहीं है।
+Hindi	credentials	hi-password	scam	CREDENTIAL_REQUEST	false	आपके ईमेल की मरम्मत के लिए रोज इस्तेमाल होने वाला पासवर्ड इसी बातचीत में लिख दें।
+Hindi	benign_support	hi-password	safe		false	ईमेल का पासवर्ड भूल गए हैं तो परिचित वेबसाइट पर खुद रीसेट करें, मुझे बताने की जरूरत नहीं है।
+Tamil	otp_request	ta-digits	scam	OTP_REQUEST	false	உங்கள் கைப்பேசியில் இப்போது வந்த ஆறு இலக்கங்களை இந்த அழைப்பில் எனக்குச் சொல்லுங்கள்.
+Tamil	safety	ta-digits	safe		true	கைப்பேசியில் வரும் ரகசிய இலக்கங்களை அழைப்பில் யாரிடமும் சொல்லாதீர்கள்.
+Tamil	remote_access	ta-permission	scam	REMOTE_ACCESS	false	உதவி செயலியைத் திறந்து உங்கள் கைப்பேசியை நான் இயக்க அனுமதி கொடுங்கள், வங்கி செயலியை மூடாதீர்கள்.
+Tamil	safety	ta-permission	safe		true	அறிமுகமில்லாத நபருக்கு உங்கள் கைப்பேசியை இயக்கும் அனுமதி கொடுக்க வேண்டாம்.
+Tamil	payment_request	ta-upi	scam	PAYMENT_REQUEST	false	பணம் பெறுவதற்கு முதலில் இந்த யூபிஐ கோரிக்கையில் பணம் செலுத்தி உங்கள் பின் எண்ணை இடுங்கள்.
+Tamil	educational	ta-upi	safe		true	பணம் பெறுவதற்காக பணம் அனுப்பச் சொல்வது சந்தேகமானது; பெறுபவரின் விவரங்களைச் சரிபாருங்கள்.
+Tamil	job_scam	ta-job	scam	PAYMENT_REQUEST	false	நேர்முகத் தேர்வு தேவையில்லை, வேலை உறுதி; நியமனக் கடிதத்துக்கு முன் என் தனிப்பட்ட கணக்கில் கட்டணம் அனுப்புங்கள்.
+Tamil	ordinary	ta-job	safe		false	நாளைய நேர்முகத் தேர்வுக்காக என் சான்றிதழ்களை ஒரு கோப்பில் வைத்துள்ளேன்.
+Tamil	credentials	ta-mail	scam	CREDENTIAL_REQUEST	false	உங்கள் மின்னஞ்சலை சரிசெய்ய நீங்கள் பயன்படுத்தும் கடவுச்சொல்லை இந்த உரையாடலில் அனுப்புங்கள்.
+Tamil	safety	ta-mail	safe		true	மின்னஞ்சல் கடவுச்சொல்லை உதவி செய்பவர் என்று கூறுபவரிடமும் பகிர வேண்டாம்.
+Tamil	investment_scam	ta-profit	scam	INVESTMENT_PROMISE	false	எங்கள் முதலீட்டில் இழப்பே இல்லை, ஒரு மாதத்தில் உங்கள் சேமிப்பு நான்கு மடங்காகும்.
+Tamil	educational	ta-profit	safe		true	நிச்சய லாபம் என்று விளம்பரம் செய்தாலும் முதலீட்டில் இழப்பு வரலாம் என்பதை நினைவில் கொள்ளுங்கள்.
+Hinglish	otp_request	hl-digits	scam	OTP_REQUEST	false	Phone pe jo chhe ank abhi aaye na, call mat kaatna, ek ek karke mujhe suna do.
+Hinglish	safety	hl-digits	safe		true	Call pe koi chhe ank maange toh mat bolna, asli bank hone ka daawa kare tab bhi nahi.
+Hinglish	remote_access	hl-control	scam	REMOTE_ACCESS	false	Help waali app chalao aur mujhe poora control de do, phir banking kholna.
+Hinglish	benign_support	hl-control	safe		false	Settings ka raasta bata deta hoon, phone ka control tumhare paas hi rehne do.
+Hinglish	payment_request	hl-refund	scam	PAYMENT_REQUEST	false	Refund lene ke liye pehle collect request accept karke apna UPI PIN daalo.
+Hinglish	safety	hl-refund	safe		true	Refund ke liye debit approve karne ki zaroorat nahi, pehle receiver ka naam dekho.
+Hinglish	job_scam	hl-job	scam	PAYMENT_REQUEST	false	Interview skip ho jayega bas registration ke paise mere personal wallet mein bhej do.
+Hinglish	ordinary	hl-job	safe		false	Interview ke baad chai pe milte hain, documents ka folder saath le aana.
+Tanglish	otp_request	tl-digits	scam	OTP_REQUEST	false	Phone la ippo vandha aaru number ah enakku ovvonna sollunga, call cut panna vendam.
+Tanglish	safety	tl-digits	safe		true	Yaar call pannalum login number solladheenga, bank nu sonnaalum share panna koodadhu.
+Tanglish	remote_access	tl-control	scam	REMOTE_ACCESS	false	Support app open panni phone control enakku allow pannunga, bank app um open pannunga.
+Tanglish	benign_support	tl-control	safe		false	Settings enga irukku nu solluren, neengale maathunga, phone access enakku thevai illai.
+Tanglish	payment_request	tl-refund	scam	PAYMENT_REQUEST	false	Refund vara indha collect request accept panni UPI PIN podunga, debit aana apram credit varum.
+Tanglish	safety	tl-refund	safe		true	Refund receive panna outgoing payment approve panna thevai illai, receiver yaarunu paarunga.
+Tanglish	job_scam	tl-job	scam	PAYMENT_REQUEST	false	Interview illama job confirm, offer letter venumna en personal account ku joining fee anuppunga.
+Tanglish	ordinary	tl-job	safe		false	Naalaikku interview mudinju lunch polaam, certificate folder marakkadheenga.
+Mixed Hindi-English	otp_request	mh-digits	scam	OTP_REQUEST	false	Verification complete करने के लिए SMS वाले six digits इस chat में लिखिए, agent इंतजार कर रहा है।
+Mixed Hindi-English	safety	mh-digits	safe		true	SMS वाले secret digits किसी agent को नहीं देने हैं, use them only in your own login.
+Mixed Hindi-English	payment_request	mh-pay	scam	PAYMENT_REQUEST	false	Salary release के लिए पहले personal wallet में processing fee भेजें, otherwise payout रुक जाएगा।
+Mixed Hindi-English	ordinary	mh-pay	safe		false	Salary statement तैयार है, usual employee portal में जाकर download कर सकते हैं।
+Mixed Hindi-English	credentials	mh-secret	scam	CREDENTIAL_REQUEST	false	Mailbox ठीक करने के लिए अपना real password support chat में paste कर दीजिए।
+Mixed Hindi-English	safety	mh-secret	safe		true	Real password support chat में paste मत कीजिए, reset it yourself through the saved portal.
+Mixed Tamil-English	otp_request	mt-digits	scam	OTP_REQUEST	false	Verification முடிக்க SMS வந்த six digits இந்த chat ல சொல்லுங்க, நான் login செய்து தருகிறேன்.
+Mixed Tamil-English	safety	mt-digits	safe		true	SMS secret digits யாரிடமும் சொல்ல வேண்டாம், enter them only in the login you started.
+Mixed Tamil-English	payment_request	mt-pay	scam	PAYMENT_REQUEST	false	Salary release ஆக personal wallet க்கு processing fee அனுப்பணும், இல்லனா payout நிறுத்தப்படும்.
+Mixed Tamil-English	ordinary	mt-pay	safe		false	Salary statement தயாராக உள்ளது, usual employee portal ல download செய்யலாம்.
+Mixed Tamil-English	credentials	mt-secret	scam	CREDENTIAL_REQUEST	false	Mailbox சரிசெய்ய உங்கள் real password இந்த support chat ல paste பண்ணுங்க.
+Mixed Tamil-English	safety	mt-secret	safe		true	Real password support chat ல போடாதீங்க, saved portal மூலம் நீங்களே reset செய்யுங்கள்.

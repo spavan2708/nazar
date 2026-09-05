@@ -1,0 +1,882 @@
+{
+  "model_version": "research-1",
+  "architecture": {
+    "kind": "lr",
+    "C": 100.0,
+    "class_weight": null
+  },
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "dataset_manifest_sha256": "1a2b3bcf3e437f1f772aea95df9f43cefb78d5cc642bdfc49bc87050cdad1c31",
+  "seed": 42,
+  "created_at": "2026-09-05T12:26:07.470502+00:00",
+  "selection": "train-only grouped OOF F1 at .65, then Brier and AP",
+  "cv_results": [
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 0.1,
+        "class_weight": null
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.5238095238095238,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+          [
+            110,
+            0
+          ],
+          [
+            100,
+            0
+          ]
+        ],
+        "roc_auc": 0.7993636363636364,
+        "pr_auc": 0.7764527206277412,
+        "brier": 0.23751110146767784,
+        "log_loss": 0.6680422211692765,
+        "fp": 0,
+        "fn": 100,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 1,
+            "mean_probability": 0.3970140218734741,
+            "observed_fraction": 0.0
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 209,
+            "mean_probability": 0.47495398738167505,
+            "observed_fraction": 0.4784688995215311
+          }
+        ],
+        "ece": 0.005388717424301853
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.5238095238095238,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+          [
+            110,
+            0
+          ],
+          [
+            100,
+            0
+          ]
+        ],
+        "roc_auc": 0.8004545454545455,
+        "pr_auc": 0.7763930427123613,
+        "brier": 0.23789108483585836,
+        "log_loss": 0.6688736152939445,
+        "fp": 0,
+        "fn": 100,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 210,
+            "mean_probability": 0.49741093459583463,
+            "observed_fraction": 0.47619047619047616
+          }
+        ],
+        "ece": 0.021220458405358467
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 1.0,
+        "class_weight": null
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.5904761904761905,
+        "precision": 0.9375,
+        "recall": 0.15,
+        "f1": 0.25862068965517243,
+        "confusion_matrix": [
+          [
+            109,
+            1
+          ],
+          [
+            85,
+            15
+          ]
+        ],
+        "roc_auc": 0.8168181818181819,
+        "pr_auc": 0.7968783411628371,
+        "brier": 0.1952362571929699,
+        "log_loss": 0.57754065353998,
+        "fp": 1,
+        "fn": 85,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 6,
+            "mean_probability": 0.15658204505840936,
+            "observed_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 58,
+            "mean_probability": 0.32600091449145613,
+            "observed_fraction": 0.1206896551724138
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 109,
+            "mean_probability": 0.499073798229935,
+            "observed_fraction": 0.5596330275229358
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 37,
+            "mean_probability": 0.653860778421969,
+            "observed_fraction": 0.8648648648648649
+          }
+        ],
+        "ece": 0.12978882143894832
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 1.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.6142857142857143,
+        "precision": 0.9130434782608695,
+        "recall": 0.21,
+        "f1": 0.34146341463414637,
+        "confusion_matrix": [
+          [
+            108,
+            2
+          ],
+          [
+            79,
+            21
+          ]
+        ],
+        "roc_auc": 0.8168181818181818,
+        "pr_auc": 0.7968700517687198,
+        "brier": 0.19506251316463666,
+        "log_loss": 0.577466210398322,
+        "fp": 2,
+        "fn": 79,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 6,
+            "mean_probability": 0.1666694680849711,
+            "observed_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 52,
+            "mean_probability": 0.33547216539199537,
+            "observed_fraction": 0.11538461538461539
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 107,
+            "mean_probability": 0.5065617274458163,
+            "observed_fraction": 0.5233644859813084
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 45,
+            "mean_probability": 0.6600881589783563,
+            "observed_fraction": 0.8444444444444444
+          }
+        ],
+        "ece": 0.10732617818173908
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 10.0,
+        "class_weight": null
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7142857142857143,
+        "precision": 0.803030303030303,
+        "recall": 0.53,
+        "f1": 0.6385542168674698,
+        "confusion_matrix": [
+          [
+            97,
+            13
+          ],
+          [
+            47,
+            53
+          ]
+        ],
+        "roc_auc": 0.8319090909090909,
+        "pr_auc": 0.8240722468780702,
+        "brier": 0.16775417286828015,
+        "log_loss": 0.4971335379981061,
+        "fp": 13,
+        "fn": 47,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 51,
+            "mean_probability": 0.0998747942731807,
+            "observed_fraction": 0.0784313725490196
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 42,
+            "mean_probability": 0.3036230979930787,
+            "observed_fraction": 0.38095238095238093
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 42,
+            "mean_probability": 0.4892957352456592,
+            "observed_fraction": 0.5476190476190477
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 37,
+            "mean_probability": 0.6951204248376794,
+            "observed_fraction": 0.5945945945945946
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 38,
+            "mean_probability": 0.8694376396505457,
+            "observed_fraction": 0.9210526315789473
+          }
+        ],
+        "ece": 0.059389756781802985
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7142857142857143,
+        "precision": 0.7941176470588235,
+        "recall": 0.54,
+        "f1": 0.6428571428571429,
+        "confusion_matrix": [
+          [
+            96,
+            14
+          ],
+          [
+            46,
+            54
+          ]
+        ],
+        "roc_auc": 0.8323636363636364,
+        "pr_auc": 0.8247909353344687,
+        "brier": 0.16754577763093464,
+        "log_loss": 0.4966856009567296,
+        "fp": 14,
+        "fn": 46,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 50,
+            "mean_probability": 0.10300164553336799,
+            "observed_fraction": 0.08
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 39,
+            "mean_probability": 0.30389974056146085,
+            "observed_fraction": 0.3076923076923077
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 44,
+            "mean_probability": 0.49565445564009925,
+            "observed_fraction": 0.6136363636363636
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 37,
+            "mean_probability": 0.69863648511268,
+            "observed_fraction": 0.5405405405405406
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 40,
+            "mean_probability": 0.8734527885913849,
+            "observed_fraction": 0.925
+          }
+        ],
+        "ece": 0.06857445120057536
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 100.0,
+        "class_weight": null
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7095238095238096,
+        "precision": 0.7468354430379747,
+        "recall": 0.59,
+        "f1": 0.659217877094972,
+        "confusion_matrix": [
+          [
+            90,
+            20
+          ],
+          [
+            41,
+            59
+          ]
+        ],
+        "roc_auc": 0.8237272727272728,
+        "pr_auc": 0.8149006218376328,
+        "brier": 0.19338240171823526,
+        "log_loss": 0.5986033265088246,
+        "fp": 20,
+        "fn": 41,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 77,
+            "mean_probability": 0.05066149270570857,
+            "observed_fraction": 0.19480519480519481
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 26,
+            "mean_probability": 0.28823114645022613,
+            "observed_fraction": 0.34615384615384615
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 26,
+            "mean_probability": 0.4939814221400481,
+            "observed_fraction": 0.6153846153846154
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 19,
+            "mean_probability": 0.7259026671710768,
+            "observed_fraction": 0.47368421052631576
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 62,
+            "mean_probability": 0.9451949875200948,
+            "observed_fraction": 0.8225806451612904
+          }
+        ],
+        "ece": 0.13407513419433165
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr",
+        "C": 100.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7095238095238096,
+        "precision": 0.7532467532467533,
+        "recall": 0.58,
+        "f1": 0.655367231638418,
+        "confusion_matrix": [
+          [
+            91,
+            19
+          ],
+          [
+            42,
+            58
+          ]
+        ],
+        "roc_auc": 0.8235454545454546,
+        "pr_auc": 0.8155617651024041,
+        "brier": 0.1934613759056566,
+        "log_loss": 0.5969849366956727,
+        "fp": 19,
+        "fn": 42,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 76,
+            "mean_probability": 0.04996161211453766,
+            "observed_fraction": 0.17105263157894737
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 26,
+            "mean_probability": 0.2921201426249284,
+            "observed_fraction": 0.38461538461538464
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 26,
+            "mean_probability": 0.503459095954895,
+            "observed_fraction": 0.6538461538461539
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 18,
+            "mean_probability": 0.7172843416531881,
+            "observed_fraction": 0.4444444444444444
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 64,
+            "mean_probability": 0.9429390635341406,
+            "observed_fraction": 0.8125
+          }
+        ],
+        "ece": 0.13703369281981959
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr_sigmoid",
+        "C": 1.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.6857142857142857,
+        "precision": 0.8269230769230769,
+        "recall": 0.43,
+        "f1": 0.5657894736842105,
+        "confusion_matrix": [
+          [
+            101,
+            9
+          ],
+          [
+            57,
+            43
+          ]
+        ],
+        "roc_auc": 0.8175454545454546,
+        "pr_auc": 0.7923207605610495,
+        "brier": 0.17677571120711674,
+        "log_loss": 0.5288779924838692,
+        "fp": 9,
+        "fn": 57,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 30,
+            "mean_probability": 0.12734863262583274,
+            "observed_fraction": 0.1
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 53,
+            "mean_probability": 0.30116470498671205,
+            "observed_fraction": 0.24528301886792453
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 61,
+            "mean_probability": 0.49917932232442197,
+            "observed_fraction": 0.4918032786885246
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 53,
+            "mean_probability": 0.6940149527319219,
+            "observed_fraction": 0.7924528301886793
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 13,
+            "mean_probability": 0.8597707386425593,
+            "observed_fraction": 0.9230769230769231
+          }
+        ],
+        "ece": 0.048915785274834915
+      }
+    },
+    {
+      "spec": {
+        "kind": "lr_sigmoid",
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7095238095238096,
+        "precision": 0.8545454545454545,
+        "recall": 0.47,
+        "f1": 0.6064516129032258,
+        "confusion_matrix": [
+          [
+            102,
+            8
+          ],
+          [
+            53,
+            47
+          ]
+        ],
+        "roc_auc": 0.8281818181818181,
+        "pr_auc": 0.8198262934190113,
+        "brier": 0.17122516889011605,
+        "log_loss": 0.5134490211794843,
+        "fp": 8,
+        "fn": 53,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 30,
+            "mean_probability": 0.11732056979796648,
+            "observed_fraction": 0.1
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 53,
+            "mean_probability": 0.2903351235086618,
+            "observed_fraction": 0.20754716981132076
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 60,
+            "mean_probability": 0.4925918972331995,
+            "observed_fraction": 0.5333333333333333
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 52,
+            "mean_probability": 0.7040263035427613,
+            "observed_fraction": 0.75
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 15,
+            "mean_probability": 0.8623348887088407,
+            "observed_fraction": 1.0
+          }
+        ],
+        "ece": 0.05622606519547571
+      }
+    },
+    {
+      "spec": {
+        "kind": "svm_sigmoid",
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.680952380952381,
+        "precision": 0.8235294117647058,
+        "recall": 0.42,
+        "f1": 0.5562913907284768,
+        "confusion_matrix": [
+          [
+            101,
+            9
+          ],
+          [
+            58,
+            42
+          ]
+        ],
+        "roc_auc": 0.8177272727272727,
+        "pr_auc": 0.7923111610376489,
+        "brier": 0.17708995700459432,
+        "log_loss": 0.5298099459904941,
+        "fp": 9,
+        "fn": 58,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 26,
+            "mean_probability": 0.12259832872255552,
+            "observed_fraction": 0.11538461538461539
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 55,
+            "mean_probability": 0.29608838193792597,
+            "observed_fraction": 0.2
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 64,
+            "mean_probability": 0.4966688379649017,
+            "observed_fraction": 0.53125
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 52,
+            "mean_probability": 0.6922236995991556,
+            "observed_fraction": 0.7692307692307693
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 13,
+            "mean_probability": 0.8564990660239711,
+            "observed_fraction": 0.9230769230769231
+          }
+        ],
+        "ece": 0.059788055648337855
+      }
+    },
+    {
+      "spec": {
+        "kind": "svm_sigmoid",
+        "C": 1.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.7,
+        "precision": 0.8245614035087719,
+        "recall": 0.47,
+        "f1": 0.5987261146496815,
+        "confusion_matrix": [
+          [
+            100,
+            10
+          ],
+          [
+            53,
+            47
+          ]
+        ],
+        "roc_auc": 0.8307272727272728,
+        "pr_auc": 0.8218587821732376,
+        "brier": 0.1706970715792921,
+        "log_loss": 0.5122008213087212,
+        "fp": 10,
+        "fn": 53,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 30,
+            "mean_probability": 0.11799409280894961,
+            "observed_fraction": 0.1
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 52,
+            "mean_probability": 0.29183926262777066,
+            "observed_fraction": 0.19230769230769232
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 62,
+            "mean_probability": 0.490469376212985,
+            "observed_fraction": 0.5483870967741935
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 49,
+            "mean_probability": 0.7038507051232274,
+            "observed_fraction": 0.7346938775510204
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 17,
+            "mean_probability": 0.85678939589982,
+            "observed_fraction": 1.0
+          }
+        ],
+        "ece": 0.06310599444939242
+      }
+    },
+    {
+      "spec": {
+        "kind": "svm_sigmoid",
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "n": 210,
+        "accuracy": 0.6952380952380952,
+        "precision": 0.875,
+        "recall": 0.42,
+        "f1": 0.5675675675675675,
+        "confusion_matrix": [
+          [
+            104,
+            6
+          ],
+          [
+            58,
+            42
+          ]
+        ],
+        "roc_auc": 0.8220909090909091,
+        "pr_auc": 0.8003297610175087,
+        "brier": 0.17928080701803253,
+        "log_loss": 0.5361042425186449,
+        "fp": 6,
+        "fn": 58,
+        "threshold": 0.65
+      },
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 18,
+            "mean_probability": 0.12799566155189346,
+            "observed_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 58,
+            "mean_probability": 0.29885796645828516,
+            "observed_fraction": 0.22413793103448276
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 76,
+            "mean_probability": 0.4876730170825003,
+            "observed_fraction": 0.5526315789473685
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 46,
+            "mean_probability": 0.6941137688234268,
+            "observed_fraction": 0.7391304347826086
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 12,
+            "mean_probability": 0.8269455471290988,
+            "observed_fraction": 0.9166666666666666
+          }
+        ],
+        "ece": 0.07010454634675133
+      }
+    }
+  ],
+  "classifier_sha256": "d18fd7a3c30ade34ef3c02fda980554b7fd19532c157f97b27d3636f9dde9680",
+  "threshold_policy": "unchanged .65/.80; no automatic promotion",
+  "resources": {
+    "embedding_seconds": 8.66914129199722,
+    "training_seconds": 1.3905960420015617,
+    "python": "3.14.7"
+  }
+}

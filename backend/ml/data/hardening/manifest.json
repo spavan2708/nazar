@@ -1,0 +1,23 @@
+{
+  "version": "hardening-1",
+  "seed": 42,
+  "authored_sha256": "984cd634aae5aad03d8b7ed28d43134bd1f0555d47ef3ba491499747b92295df",
+  "policy": "Group-hash train/validation split; original 90-row test remains immutable. Test has been inspected historically and is a regression benchmark, not an independent acceptance set.",
+  "splits": {
+    "train": {
+      "path": "hardening/train.json",
+      "sha256": "f6d4acb4fbdd3ab41039db14efbbbff8f9bc9c7aa8dc9a151968559cdca674e4",
+      "n": 210
+    },
+    "validation": {
+      "path": "hardening/validation.json",
+      "sha256": "7646b82444c0a6baf67179a2261a32125bb00e2ea55cdb7147b916667e3e660b",
+      "n": 50
+    },
+    "test": {
+      "path": "eval_v2.json",
+      "sha256": "aae98f6368793bb5ea0f754e1d0e7c06511cbcd7c2c98e16246dbba77d84508e",
+      "n": 90
+    }
+  }
+}

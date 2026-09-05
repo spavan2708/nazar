@@ -1,4 +1,5 @@
 from schemas.analysis import MLAnalysis, TextAnalysisResponse
+from services.intelligence import describe_sources
 from schemas.semantic import SemanticAnalysis
 from schemas.signals import SignalCode
 from services.text_analyzer import SIGNAL_LABELS, risk_guidance
@@ -18,8 +19,8 @@ def fuse_risk(
     semantic_analysis: SemanticAnalysis | None = None,
 ) -> TextAnalysisResponse:
     semantic = semantic_analysis or SemanticAnalysis(available=False)
-    fused_score = _apply_ml_floor(deterministic.score, ml_analysis)
-    fused_score = _apply_semantic_floor(fused_score, semantic)
+    ml_fused_score = _apply_ml_floor(deterministic.score, ml_analysis)
+    fused_score = _apply_semantic_floor(ml_fused_score, semantic)
     merged_codes = _merge_semantic_signals(deterministic, semantic)
     merged_labels = [
         label for code, label in SIGNAL_LABELS.items() if code in merged_codes
@@ -34,6 +35,8 @@ def fuse_risk(
 
     return deterministic.model_copy(
         update={
+            "intelligence": describe_sources(deterministic, ml_analysis, semantic,
+                ml_raised=ml_fused_score > deterministic.score, llm_raised=fused_score > ml_fused_score),
             "score": fused_score,
             "risk_level": risk_level,
             "recommended_action": recommended_action,

@@ -1,0 +1,34 @@
+{
+  "review_type": "AI-assisted semantic inspection; not native-speaker certification",
+  "pairs": [
+    {
+      "left": "train-116",
+      "right": "h2-control-046",
+      "similarity": 0.9009556174278259,
+      "assessment": "distinct_scenarios",
+      "reason": "Parcel pickup reference/ID notice compared with postal address, email password recovery or shared work-document guidance; shared language and vocabulary do not make them paraphrases."
+    },
+    {
+      "left": "h2-s168-scam",
+      "right": "h2-control-046",
+      "similarity": 0.9259374737739563,
+      "assessment": "distinct_scenarios",
+      "reason": "Parcel pickup reference/ID notice compared with postal address, email password recovery or shared work-document guidance; shared language and vocabulary do not make them paraphrases."
+    },
+    {
+      "left": "h2-s168-safe",
+      "right": "h2-control-046",
+      "similarity": 0.9099318385124207,
+      "assessment": "distinct_scenarios",
+      "reason": "Parcel pickup reference/ID notice compared with postal address, email password recovery or shared work-document guidance; shared language and vocabulary do not make them paraphrases."
+    },
+    {
+      "left": "h2-s184-safe",
+      "right": "h2-control-046",
+      "similarity": 0.9221250414848328,
+      "assessment": "distinct_scenarios",
+      "reason": "Parcel pickup reference/ID notice compared with postal address, email password recovery or shared work-document guidance; shared language and vocabulary do not make them paraphrases."
+    }
+  ],
+  "production_eligible": false
+}

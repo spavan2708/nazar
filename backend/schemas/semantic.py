@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from schemas.signals import SignalCode
 
@@ -6,27 +6,29 @@ from schemas.signals import SignalCode
 class SemanticSignal(BaseModel):
     code: SignalCode
     confidence: float = Field(ge=0.0, le=1.0)
+    evidence_text: str | None = Field(default=None, max_length=300)
 
 
 class SemanticProviderOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     risk_score: float = Field(ge=0.0, le=1.0)
     intent: str | None = None
-    tactics: list[str] = Field(default_factory=list)
-    requested_actions: list[str] = Field(default_factory=list)
+    tactics: list[str] = Field(default_factory=list, max_length=11)
+    requested_actions: list[str] = Field(default_factory=list, max_length=11)
     claimed_identity: str | None = None
-    signals: list[SemanticSignal] = Field(default_factory=list)
+    signals: list[SemanticSignal] = Field(default_factory=list, max_length=11)
     is_safety_warning: bool = False
-    explanation: str
+    explanation: str = Field(min_length=1, max_length=1200)
 
 
 class SemanticAnalysis(BaseModel):
     available: bool
     risk_score: float | None = Field(default=None, ge=0.0, le=1.0)
     intent: str | None = None
-    tactics: list[str] = Field(default_factory=list)
-    requested_actions: list[str] = Field(default_factory=list)
+    tactics: list[str] = Field(default_factory=list, max_length=11)
+    requested_actions: list[str] = Field(default_factory=list, max_length=11)
     claimed_identity: str | None = None
-    signals: list[SemanticSignal] = Field(default_factory=list)
+    signals: list[SemanticSignal] = Field(default_factory=list, max_length=11)
     is_safety_warning: bool | None = None
     explanation: str | None = None
     model_version: str | None = None

@@ -8,7 +8,7 @@ from services.text_analyzer import analyze_text
 
 
 class TextAnalysisTests(unittest.TestCase):
-    def test_suspicious_kyc_message_is_high_risk(self):
+    def test_suspicious_kyc_message_is_critical_risk(self):
         result = analyze_text(
             TextAnalysisRequest(
                 text="Your KYC expires today. Click this link immediately."
@@ -16,7 +16,7 @@ class TextAnalysisTests(unittest.TestCase):
         )
 
         self.assertEqual(result.score, 90)
-        self.assertEqual(result.risk_level, "high")
+        self.assertEqual(result.risk_level, "critical")
         self.assertEqual(len(result.signals), 3)
 
     def test_harmless_message_is_low_risk(self):

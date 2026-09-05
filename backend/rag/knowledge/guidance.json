@@ -1,0 +1,171 @@
+[
+  {
+    "id": "otp-safety",
+    "title": "Keep one-time passwords private",
+    "source_name": "State Bank of India",
+    "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+    "published_or_updated": null,
+    "reviewed_on": "2026-09-05",
+    "source_section": "Customer information / security precautions",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+    "topics": [
+      "otp"
+    ],
+    "signal_codes": [
+      "OTP_REQUEST"
+    ]
+  },
+  {
+    "id": "password-safety",
+    "title": "Protect account passwords",
+    "source_name": "CERT-In",
+    "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+    "published_or_updated": "2023-10",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Safety Tips for Passwords, printed page 14",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Keep passwords private and use a different strong password for each account. Enable multi-factor authentication where available.",
+    "topics": [
+      "credentials"
+    ],
+    "signal_codes": [
+      "CREDENTIAL_REQUEST"
+    ]
+  },
+  {
+    "id": "remote-access-safety",
+    "title": "Unsolicited remote-access requests",
+    "source_name": "State Bank of India",
+    "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+    "published_or_updated": null,
+    "reviewed_on": "2026-09-05",
+    "source_section": "Customer information / third-party applications",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Do not install a third-party application at the request of someone claiming to represent SBI. A request to install remote-control software can expose your device and banking information.",
+    "topics": [
+      "remote_access"
+    ],
+    "signal_codes": [
+      "REMOTE_ACCESS"
+    ]
+  },
+  {
+    "id": "banking-kyc-safety",
+    "title": "Verify banking and KYC requests independently",
+    "source_name": "Delhi Police Cyber Cell",
+    "source_url": "https://cyber.delhipolice.gov.in/Appkyc.html",
+    "published_or_updated": null,
+    "reviewed_on": "2026-09-05",
+    "source_section": "Financial App KYC Frauds: modus operandi and precautions",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Treat unexpected KYC calls asking you to install remote-access software or disclose card details with caution. Verify the request with the bank through an independently obtained official contact.",
+    "topics": [
+      "banking_kyc"
+    ],
+    "signal_codes": [
+      "IDENTITY_VERIFICATION",
+      "BANK_IMPERSONATION"
+    ]
+  },
+  {
+    "id": "phishing-safety",
+    "title": "Check unexpected banking links",
+    "source_name": "CERT-In",
+    "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+    "published_or_updated": "2023-10",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Phishing, printed page 4",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Phishing messages imitate trusted organisations to collect personal or financial information. Check the destination carefully and pause before acting on urgent links asking for sensitive details.",
+    "topics": [
+      "phishing"
+    ],
+    "signal_codes": [
+      "LINK_REQUEST"
+    ]
+  },
+  {
+    "id": "upi-safety",
+    "title": "Receiving money does not require sharing a UPI PIN",
+    "source_name": "CERT-In",
+    "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+    "published_or_updated": "2023-10",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Vishing, printed page 5",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Do not disclose an OTP or UPI PIN to receive money. If a caller asks for payment credentials, use the institution’s independently verified customer-care channel.",
+    "topics": [
+      "payment_upi"
+    ],
+    "signal_codes": [
+      "PAYMENT_REQUEST"
+    ]
+  },
+  {
+    "id": "account-threat-safety",
+    "title": "Pause when threatened with account closure",
+    "source_name": "CERT-In",
+    "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+    "published_or_updated": "2023-10",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Phishing account deactivation example, printed page 4",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "A message threatening immediate account deactivation may be phishing. Pause before following its verification link and independently check the request with your bank.",
+    "topics": [
+      "account_threat"
+    ],
+    "signal_codes": [
+      "ACCOUNT_THREAT"
+    ]
+  },
+  {
+    "id": "government-impersonation-safety",
+    "title": "Verify threats from alleged officials",
+    "source_name": "I4C / National Cybercrime Threat Analytics Unit",
+    "source_url": "https://cybercrime.gov.in/pdf/Advisories/ADVISORYTAU-ADV-003DigitalArrest06.03.2025.pdf",
+    "published_or_updated": "2025-03-06",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Digital Arrest advisory: precautions, pages 1–2",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Do not transfer money under pressure from a caller claiming to be police or another authority. Verify the claim directly with your local police station. Report cyber fraud promptly through cybercrime.gov.in or 1930.",
+    "topics": [
+      "government_impersonation"
+    ],
+    "signal_codes": [
+      "GOVERNMENT_IMPERSONATION"
+    ]
+  },
+  {
+    "id": "investment-safety",
+    "title": "Check investment platforms and brokers",
+    "source_name": "CERT-In",
+    "source_url": "https://www.csk.gov.in/documents/CERT-In_Digital_Safety_Compass_Handbook.pdf",
+    "published_or_updated": "2025-02",
+    "reviewed_on": "2026-09-05",
+    "source_section": "Fake Trading Apps, printed page 17",
+    "provenance_note": "Manually paraphrased from the named official publication; no user evidence. Publication date is null when not established.",
+    "content": "Be cautious of trading apps promising high returns with little risk. Check that the broker is SEBI-registered and use the registered broker’s official app or website instead of transferring funds to personal accounts.",
+    "topics": [
+      "investment"
+    ],
+    "signal_codes": [
+      "INVESTMENT_PROMISE"
+    ]
+  },
+  {
+    "id": "recovery-safety",
+    "title": "Beware of paid recovery offers",
+    "source_name": "US Federal Trade Commission",
+    "source_url": "https://consumer.ftc.gov/articles/refund-and-recovery-scams",
+    "published_or_updated": null,
+    "reviewed_on": "2026-09-05",
+    "source_section": "How To Avoid Refund and Recovery Scams",
+    "provenance_note": "Manually paraphrased from official government guidance. US source used only for general recovery-scam precautions; no US reporting or legal advice.",
+    "content": "Do not pay an unsolicited contact who promises to recover money lost to a scam for an upfront fee. Independently verify organisations that contact you, and do not disclose financial credentials to obtain a refund.",
+    "topics": [
+      "recovery"
+    ],
+    "signal_codes": []
+  }
+]

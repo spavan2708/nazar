@@ -1,0 +1,2 @@
+# Optional QR decoding only; Apache-2.0 OpenCV. No model download.
+opencv-python-headless==4.13.0.92

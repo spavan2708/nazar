@@ -1,0 +1,243 @@
+{
+  "counts": {
+    "train": 456,
+    "validation": 49
+  },
+  "breakdown": {
+    "train": {
+      "label": {
+        "scam": 205,
+        "safe": 251
+      },
+      "language": {
+        "English": 209,
+        "Hindi": 21,
+        "Tamil": 51,
+        "Hinglish": 63,
+        "Tanglish": 80,
+        "Mixed": 3,
+        "Mixed Hindi-English": 13,
+        "Mixed Tamil-English": 16
+      },
+      "category": {
+        "otp": 7,
+        "euphemistic": 2,
+        "credential": 7,
+        "remote_access": 17,
+        "bank_impersonation": 6,
+        "government_impersonation": 8,
+        "payment": 6,
+        "account_threat": 4,
+        "investment": 11,
+        "link": 4,
+        "ocr": 2,
+        "transcription": 2,
+        "educational": 13,
+        "hard_negative": 12,
+        "ordinary": 40,
+        "safety": 107,
+        "otp_request": 5,
+        "credentials": 3,
+        "benign_support": 50,
+        "payment_request": 11,
+        "legitimate_banking": 4,
+        "upi_manipulation": 2,
+        "qr_scam": 1,
+        "genuine_support": 3,
+        "delivery_scam": 1,
+        "job_scam": 9,
+        "investment_scam": 1,
+        "crypto_scam": 1,
+        "refund_scam": 2,
+        "kyc_scam": 2,
+        "tech_support": 3,
+        "software_code": 2,
+        "login_notification": 1,
+        "phishing_link": 1,
+        "urgency_pressure": 1,
+        "coupon_expiry": 1,
+        "authority_pressure": 1,
+        "recovery_scam": 1,
+        "parcel_customs": 1,
+        "family_emergency": 2,
+        "quoted_scam": 2,
+        "implicit_sensitive": 6,
+        "fake_verification": 1,
+        "prize_scam": 1,
+        "negation_exception": 1,
+        "implicit_otp": 21,
+        "qr_fraud": 2,
+        "crypto": 1,
+        "phishing": 11,
+        "credential_request": 12,
+        "contradiction": 6,
+        "account_recovery": 2,
+        "upi": 4,
+        "refund": 1,
+        "delivery": 1,
+        "kyc": 4,
+        "prize": 2,
+        "fake_support": 2,
+        "quoted_education": 5,
+        "login_notice": 10,
+        "ordinary_support": 2,
+        "benign_verification": 2
+      },
+      "source_type": {
+        "synthetic_manual": 96,
+        "synthetic_authored": 207,
+        "synthetic_translated": 90,
+        "synthetic_augmented": 63
+      }
+    },
+    "validation": {
+      "label": {
+        "scam": 22,
+        "safe": 27
+      },
+      "language": {
+        "English": 7,
+        "Mixed Hindi-English": 6,
+        "Hindi": 5,
+        "Hinglish": 11,
+        "Tanglish": 11,
+        "Tamil": 9
+      },
+      "category": {
+        "credential_request": 2,
+        "benign_support": 6,
+        "family_emergency": 2,
+        "implicit_otp": 7,
+        "payment_request": 1,
+        "safety": 16,
+        "tech_support": 1,
+        "qr_fraud": 4,
+        "genuine_delivery": 5,
+        "payment": 3,
+        "government": 2
+      },
+      "source_type": {
+        "synthetic_authored": 31,
+        "synthetic_translated": 18
+      }
+    }
+  },
+  "normalized_duplicate_records": [
+    {
+      "left": "h2-s119-safe",
+      "right": "h2-s119-safe-punctuation"
+    },
+    {
+      "left": "train-114",
+      "right": "train-114-punctuation"
+    },
+    {
+      "left": "h2-s065-safe",
+      "right": "h2-s065-safe-punctuation"
+    },
+    {
+      "left": "h2-s036-safe",
+      "right": "h2-s036-safe-punctuation"
+    },
+    {
+      "left": "hardening-019",
+      "right": "hardening-019-punctuation"
+    },
+    {
+      "left": "hardening-001",
+      "right": "hardening-001-punctuation"
+    },
+    {
+      "left": "hardening-011",
+      "right": "hardening-011-punctuation"
+    },
+    {
+      "left": "train-066",
+      "right": "train-066-lowercase"
+    },
+    {
+      "left": "hardening-050",
+      "right": "hardening-050-lowercase"
+    },
+    {
+      "left": "train-146",
+      "right": "train-146-lowercase"
+    },
+    {
+      "left": "train-033",
+      "right": "train-033-lowercase"
+    },
+    {
+      "left": "h2-s060-safe",
+      "right": "h2-s060-safe-lowercase"
+    },
+    {
+      "left": "hardening-025",
+      "right": "hardening-025-lowercase"
+    },
+    {
+      "left": "hardening-007",
+      "right": "hardening-007-lowercase"
+    },
+    {
+      "left": "train-098",
+      "right": "train-098-spacing"
+    },
+    {
+      "left": "h2-s029-scam",
+      "right": "h2-s029-scam-spacing"
+    },
+    {
+      "left": "h2-s200-scam",
+      "right": "h2-s200-scam-spacing"
+    },
+    {
+      "left": "h2-control-043",
+      "right": "h2-control-043-spacing"
+    },
+    {
+      "left": "hardening-108",
+      "right": "hardening-108-spacing"
+    },
+    {
+      "left": "hardening-014",
+      "right": "hardening-014-spacing"
+    },
+    {
+      "left": "h2-s082-safe",
+      "right": "h2-s082-safe-spacing"
+    },
+    {
+      "left": "h2-control-055",
+      "right": "h2-control-055-unicode"
+    },
+    {
+      "left": "hardening-046",
+      "right": "hardening-046-unicode"
+    },
+    {
+      "left": "h2-s156-safe",
+      "right": "h2-s156-safe-unicode"
+    },
+    {
+      "left": "train-002",
+      "right": "train-002-unicode"
+    },
+    {
+      "left": "train-062",
+      "right": "train-062-unicode"
+    },
+    {
+      "left": "h2-s127-safe",
+      "right": "h2-s127-safe-unicode"
+    },
+    {
+      "left": "h2-s193-safe",
+      "right": "h2-s193-safe-unicode"
+    }
+  ],
+  "blocking_cross_split_overlaps": [],
+  "semantic_review_candidates": [],
+  "semantic_checked": true,
+  "caveat": "Synthetic scenarios are not independent real-world observations. Cosine proximity is a review flag, not proof of label equivalence."
+}

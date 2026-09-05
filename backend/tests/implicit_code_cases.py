@@ -1,0 +1,21 @@
+ATTACKS = [
+'sir code aya hoga phone pe woh 6 digit wala bhej do jaldi verification expire ho jayega',
+'6 digit code bhej do', 'phone pe jo code aya hai send karo', 'verification number bata do',
+'code jaldi bhejo expire ho jayega', 'jo six digits aaye hain woh batao',
+'phone me verification number aya hoga share kar do', 'number jo message me aya hai mujhe send karo',
+'verification ke liye phone wala code chahiye', '6-digit code send krdo jldi',
+'verification no bta do', 'verifiction code bhejo', 'six digit number batao',
+'code kisi aur ko mat dena, bas mujhe bhej do',
+'OTP strangers ko share mat karo, verification ke liye mujhe bata do',
+'Send me the six digits that arrived on your phone before it expires',
+'फोन पर आया छह अंकों का कोड जल्दी भेज दो',
+'போனில் வந்த சரிபார்ப்பு எண்ணை அனுப்பவும்',
+'phone la vandha verification number anuppunga',
+]
+SAFE = ['6 digit code kisi ko mat bhejna', 'OTP ya verification code kabhi share mat karo',
+'bank wale bhi phone ka code nahi maangte', 'agar koi six digit number mange to mat dena',
+'sir phone pe 6 digit code aya hoga kisi ko mat bhejna, verification code kabhi share nahi karna',
+'फोन पर आया कोड मत भेजना', 'சரிபார்ப்பு எண்ணை பகிர வேண்டாம்',
+'verification number anuppa vendam', 'Send the six digit postal code', 'Send me the project code quickly',
+'jaldi lunch bhej do', 'The six digit code arrived on my phone',
+'Never share your six digit code', 'verification code share nahi karna']

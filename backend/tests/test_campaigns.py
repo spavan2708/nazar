@@ -4,7 +4,7 @@ from unittest.mock import patch
 from fastapi import HTTPException
 
 from main import retrieve_campaign
-from schemas.analysis import SignalCode, TextAnalysisResponse
+from schemas.analysis import MLAnalysis, SignalCode, TextAnalysisResponse
 from schemas.campaign import Interaction, InteractionRequest
 from schemas.semantic import SemanticAnalysis
 from services import campaign_service
@@ -13,6 +13,10 @@ from services import campaign_service
 class CampaignTests(unittest.TestCase):
     def setUp(self):
         campaign_service._campaigns.clear()
+        # Exact formula tests need fixed individual scores, independent of the
+        # installed ML artifact. Real v2 integration is covered in test_ml_v12.
+        self.enterContext(patch("services.analysis_service.predict_scam_probability",
+            return_value=MLAnalysis(available=False)))
         semantic_patcher = patch("services.analysis_service.analyze_semantics")
         semantic = semantic_patcher.start()
         semantic.return_value = SemanticAnalysis(available=False)

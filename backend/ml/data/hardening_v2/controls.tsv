@@ -1,0 +1,57 @@
+language	category	cluster_id	safety_context	text
+English	quoted_education	classroom-quoted-request	true	The lesson quotes a scam: "Send me the verification number before it expires." Students should explain why the recipient must refuse.
+English	quoted_education	classroom-remote-example	true	Example of a dangerous instruction, not something to follow: "Install the tool and give the caller full control." Close the call instead.
+English	software_code	code-review-request	false	Please send the six digit test fixture code from the sandbox repository; it is dummy data used by the unit tests, not an account credential.
+English	legitimate_banking	bank-transaction-notice	false	Your scheduled transfer was processed. The statement reference is available in your banking app; this notification requires no reply.
+English	login_notice	self-login-number	false	A sign-in code was requested for your account. Enter it only in the app if you initiated the sign-in; otherwise ignore the request.
+English	ordinary	family-lunch-plan	false	Can you send the lunch menu to the family group? We need to choose before the restaurant closes.
+English	benign_support	serial-not-secret	false	Please read the serial number printed under the router to the support agent you called. The serial identifies the hardware and is not a login code.
+English	genuine_delivery	delivery-pickup-notice	false	Your parcel is ready at the pickup counter. Bring the collection reference from your order confirmation and a photo ID.
+English	ordinary	math-six-digits	false	The worksheet asks for six digits of pi after the decimal point. Send your answer to the study group when you finish.
+English	cybersecurity_education	otp-definition	true	OTP means one-time password. A message can ask for that secret without using the abbreviation, for example by asking for numbers from a login alert.
+Hinglish	quoted_education	classroom-quoted-request	true	Class me scam ka example tha: "verification number bhejo jaldi". Is instruction ko follow nahi karna, red flags identify karne hain.
+Hinglish	quoted_education	classroom-remote-example	true	Awareness poster par "support app install karke full control do" ek scam example hai. Poster aisa karne ko nahi keh raha.
+Hinglish	software_code	code-review-request	false	Sandbox ke six digit dummy code ka test fail hua. Test fixture bhej do review karna hai, kisi real account ka code nahi chahiye.
+Hinglish	legitimate_banking	bank-transaction-notice	false	Scheduled transfer process ho gaya. Statement ka reference app me dekh lo, bank ko is message ka reply nahi dena hai.
+Hinglish	login_notice	self-login-number	false	Login number aaya hai to sirf apni shuru ki hui sign-in screen pe daalo. Login tumne start nahi kiya to message ignore karo.
+Hinglish	ordinary	family-lunch-plan	false	Lunch ka menu family group me bhej do jldi. Restaurant band hone se pehle sabko order decide karna hai.
+Hinglish	benign_support	serial-not-secret	false	Router ke neeche printed serial number batao. Support ka call tumne khud kiya hai aur serial hardware ID hai, login secret nahi.
+Hinglish	genuine_delivery	delivery-pickup-notice	false	Parcel pickup counter pe aa gaya hai. Original order ka collection reference aur ID le aana, koi online payment baaki nahi.
+Hinglish	ordinary	math-six-digits	false	Pi ke decimal ke baad six digits homework me chahiye. Apna answer study group me bhejo, kal discuss karenge.
+Hinglish	cybersecurity_education	otp-definition	true	OTP ek baar ka login password hota hai. Koi sirf phone pe aaye numbers bole tab bhi sensitive code maang sakta hai, kisi ko mat dena.
+Tanglish	quoted_education	classroom-quoted-request	true	Class example la "verification number seekiram anuppunga" nu scam message irundhuchu. Adhai follow panna sollala, risk identify panna sollirukkanga.
+Tanglish	quoted_education	classroom-remote-example	true	Awareness poster la "support tool install panni full control kudunga" nu dangerous example kaattirukkanga. Adhai seiya vendam.
+Tanglish	software_code	code-review-request	false	Sandbox six digit dummy code test fail aagudhu. Test fixture anuppunga review panren; real login secret thevai illa.
+Tanglish	legitimate_banking	bank-transaction-notice	false	Scheduled transfer process aagiyachu. Statement reference app la irukku, indha notification ku reply thevai illa.
+Tanglish	login_notice	self-login-number	false	Sign-in number neenga request pannirundha unga app la mattum enter pannunga. Neenga start pannala na message ignore pannalaam.
+Tanglish	ordinary	family-lunch-plan	false	Lunch menu family group ku seekiram anuppunga. Restaurant close aaguradhukku munnaadi order decide pannanum.
+Tanglish	benign_support	serial-not-secret	false	Router keezha print pannirukkura serial number sollunga. Neenga call panna support ku hardware ID dhaan venum, login code illa.
+Tanglish	genuine_delivery	delivery-pickup-notice	false	Parcel pickup counter la ready ah irukku. Original order collection reference um ID um kondu vaanga, online payment edhuvum pending illa.
+Tanglish	ordinary	math-six-digits	false	Pi oda decimal ku appuram six digits worksheet ku venum. Answer ah study group ku anuppunga, naalaikku discuss pannalaam.
+Tanglish	cybersecurity_education	otp-definition	true	OTP oru murai use aagura login secret. Phone la vandha numbers nu mattum sonnaalum adhu secret request ah irukkalaam; yaarukkum solla vendam.
+Hindi	quoted_education	classroom-quoted-request	true	कक्षा में धोखाधड़ी का उदाहरण था: "सत्यापन नंबर तुरंत भेजें"। इसे करने का निर्देश नहीं है; छात्रों को इसका जोखिम समझाना है।
+Hindi	software_code	code-review-request	false	सैंडबॉक्स के छह अंकों वाले नकली कोड का परीक्षण विफल है। समीक्षा के लिए परीक्षण फाइल भेजें, वास्तविक खाते का कोड नहीं चाहिए।
+Hindi	legitimate_banking	bank-transaction-notice	false	आपका निर्धारित लेनदेन पूरा हुआ। विवरण बैंकिंग ऐप में उपलब्ध है और इस सूचना का जवाब देना आवश्यक नहीं है।
+Hindi	login_notice	self-login-number	false	यदि आपने साइन इन शुरू किया था तो आया हुआ नंबर अपनी ऐप में भरें। आपने अनुरोध नहीं किया था तो संदेश को अनदेखा करें।
+Hindi	ordinary	family-lunch-plan	false	दोपहर के खाने का मेनू परिवार के समूह में जल्दी भेज दो। रेस्तरां बंद होने से पहले सबको अपना खाना चुनना है।
+Hindi	benign_support	serial-not-secret	false	राउटर के नीचे छपा सीरियल नंबर बताएं। आपने सहायता के लिए स्वयं कॉल किया है और यह उपकरण की पहचान है, लॉगिन कोड नहीं।
+Hindi	genuine_delivery	delivery-pickup-notice	false	पार्सल संग्रह काउंटर पर तैयार है। मूल ऑर्डर का संग्रह संदर्भ और पहचान पत्र साथ लाएं।
+Hindi	ordinary	math-six-digits	false	गणित के अभ्यास में पाई के दशमलव के बाद छह अंक लिखने हैं। अपना उत्तर अध्ययन समूह में भेज देना।
+Hindi	cybersecurity_education	otp-definition	true	ओटीपी एक बार उपयोग होने वाला लॉगिन रहस्य है। केवल फोन पर आए अंक कहकर मांगने वाला भी वही रहस्य मांग सकता है।
+Tamil	quoted_education	classroom-quoted-request	true	வகுப்பில் மோசடி உதாரணமாக "சரிபார்ப்பு எண்ணை உடனே அனுப்புங்கள்" என்று காட்டப்பட்டது. அதைச் செய்யச் சொல்லவில்லை; அதன் ஆபத்தை விளக்க வேண்டும்.
+Tamil	software_code	code-review-request	false	சோதனைச் சூழலின் ஆறு இலக்க போலிக் குறியீடு தோல்வியடைகிறது. சோதனைக் கோப்பை மதிப்பாய்வுக்கு அனுப்புங்கள்; உண்மையான கணக்கின் குறியீடு தேவையில்லை.
+Tamil	legitimate_banking	bank-transaction-notice	false	உங்கள் திட்டமிட்ட பரிமாற்றம் முடிந்தது. விவரங்கள் வங்கிச் செயலியில் உள்ளன; இந்த அறிவிப்பிற்கு பதில் தேவையில்லை.
+Tamil	login_notice	self-login-number	false	நீங்கள் உள்நுழைவைத் தொடங்கியிருந்தால் வந்த எண்ணை உங்கள் செயலியில் உள்ளிடுங்கள். நீங்கள் கேட்கவில்லை என்றால் செய்தியைப் புறக்கணிக்கலாம்.
+Tamil	ordinary	family-lunch-plan	false	மதிய உணவுப் பட்டியலை குடும்பக் குழுவிற்கு விரைவாக அனுப்புங்கள். உணவகம் மூடும் முன் அனைவரும் உணவைத் தேர்வு செய்ய வேண்டும்.
+Tamil	benign_support	serial-not-secret	false	ரூட்டரின் கீழ் அச்சிட்ட வரிசை எண்ணைச் சொல்லுங்கள். உதவிக்காக நீங்கள் அழைத்துள்ளீர்கள்; இது சாதன அடையாளம், உள்நுழைவு குறியீடு அல்ல.
+Tamil	genuine_delivery	delivery-pickup-notice	false	பார்சல் சேகரிப்பு மையத்தில் தயாராக உள்ளது. அசல் ஆர்டரின் குறிப்பு எண்ணையும் அடையாள அட்டையையும் கொண்டு வாருங்கள்.
+Tamil	ordinary	math-six-digits	false	கணிதப் பயிற்சியில் பையின் தசமத்திற்குப் பிறகு ஆறு எண்கள் தேவை. உங்கள் பதிலை படிப்புக் குழுவிற்கு அனுப்புங்கள்.
+Tamil	cybersecurity_education	otp-definition	true	ஓடிபி ஒருமுறை பயன்படுத்தும் உள்நுழைவு ரகசியம். போனில் வந்த எண்கள் என்று மட்டும் கேட்டாலும் அதே ரகசியத்தைக் கேட்கலாம்.
+Mixed Hindi-English	quoted_education	classroom-quoted-request	true	Awareness class का example है: "verification no send krdo"। यह instruction follow नहीं करना, unsafe request पहचाननी है।
+Mixed Hindi-English	software_code	code-review-request	false	Unit test में six digit dummy code fail हुआ है. Sandbox fixture review के लिए भेजो, real account secret नहीं चाहिए.
+Mixed Hindi-English	ordinary	family-lunch-plan	false	Lunch menu जल्दी family group में भेज दो. Restaurant closing से पहले order decide करना है.
+Mixed Hindi-English	login_notice	self-login-number	false	अगर sign-in आपने शुरू किया तो verification number अपनी app में भरें. Otherwise इस login notice को ignore करें.
+Mixed Tamil-English	quoted_education	classroom-quoted-request	true	Awareness class example: "verification no anuppunga" என்று உள்ளது. Instruction follow panna வேண்டாம், unsafe request identify செய்ய வேண்டும்.
+Mixed Tamil-English	software_code	code-review-request	false	Unit test la six digit dummy code fail ஆகுது. Sandbox fixture review க்கு அனுப்புங்கள், real account secret வேண்டாம்.
+Mixed Tamil-English	ordinary	family-lunch-plan	false	Lunch menu family group க்கு சீக்கிரம் அனுப்புங்கள். Restaurant close aaguradhukku முன் order decide செய்யணும்.
+Mixed Tamil-English	login_notice	self-login-number	false	Sign-in நீங்க start pannirundha verification number உங்கள் app la போடுங்கள். Otherwise இந்த login notice ignore pannalaam.

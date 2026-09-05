@@ -1,0 +1,366 @@
+{
+  "note": "V3 and real local V4 measured independently; V5 is never invoked. Selected tiny challenge, not a real-world accuracy estimate.",
+  "v4_model_version": "v1",
+  "rows": [
+    {
+      "category": "explicit",
+      "text": "send me the otp",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5769750475883484,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "I need the OTP.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5709375143051147,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "I need your OTP.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5927849411964417,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "Need the verification code quickly.",
+      "expected_sensitive": true,
+      "v3_score": 80,
+      "v3_signals": [
+        "OTP_REQUEST",
+        "URGENCY"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.506466805934906,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "Can I get the OTP?",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5706384778022766,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "euphemistic",
+      "text": "What's the code that came to your phone?",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.42941758036613464,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "euphemistic",
+      "text": "Tell me the code you received.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.47574251890182495,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "I'll need that verification number.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5949892997741699,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "euphemistic",
+      "text": "Give me the six-digit code.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "OTP_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.4357539117336273,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "euphemistic",
+      "text": "Need that code before it expires.",
+      "expected_sensitive": true,
+      "v3_score": 80,
+      "v3_signals": [
+        "OTP_REQUEST",
+        "URGENCY"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.4325254559516907,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "credential",
+      "text": "I require your password.",
+      "expected_sensitive": true,
+      "v3_score": 45,
+      "v3_signals": [
+        "CREDENTIAL_REQUEST"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.6308005452156067,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "regression",
+      "text": "it might expire and we might not be able to do it for another 2 days, i need the otp really quick",
+      "expected_sensitive": true,
+      "v3_score": 80,
+      "v3_signals": [
+        "OTP_REQUEST",
+        "URGENCY"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.515084445476532,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "implicit",
+      "text": "I need the OTP really quick",
+      "expected_sensitive": true,
+      "v3_score": 80,
+      "v3_signals": [
+        "OTP_REQUEST",
+        "URGENCY"
+      ],
+      "v3_sensitive": true,
+      "v4_available": true,
+      "v4_probability": 0.5622066259384155,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "Never give anyone your OTP.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.38014528155326843,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "You do not need to share your verification code.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.3919191360473633,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "A real bank will never ask for your OTP.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.39509284496307373,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "Do not send the code you receive to callers.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.37754368782043457,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "Nobody needs your OTP to help you.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.37294384837150574,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "safety",
+      "text": "Never share your OTP, even if someone says it expires soon.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.45203691720962524,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign",
+      "text": "quick",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.43575021624565125,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "ambiguous",
+      "text": "I need it really quick",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.48529863357543945,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign",
+      "text": "I need lunch",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.33689358830451965,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign",
+      "text": "this expires next month",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.41979390382766724,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign-code",
+      "text": "send me the project code",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.34959617257118225,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign-code",
+      "text": "what is your postal PIN code",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.5262359380722046,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign-code",
+      "text": "Can you send me the project verification code from our test environment?",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.38032233715057373,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign",
+      "text": "We need to finish this quickly.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.439880907535553,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign",
+      "text": "My coupon expires tomorrow.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.4885975420475006,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "benign-code",
+      "text": "The postal PIN code is 600042.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.48719820380210876,
+      "v4_band": "below threshold"
+    },
+    {
+      "category": "educational",
+      "text": "OTP means one-time password.",
+      "expected_sensitive": false,
+      "v3_score": 0,
+      "v3_signals": [],
+      "v3_sensitive": false,
+      "v4_available": true,
+      "v4_probability": 0.5311321020126343,
+      "v4_band": "below threshold"
+    }
+  ]
+}

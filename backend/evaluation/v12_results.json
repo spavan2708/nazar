@@ -1,0 +1,6009 @@
+{
+  "metadata": {
+    "model_version": "v2",
+    "timestamp": "2026-09-05T11:02:04.525160+00:00",
+    "seed": 42,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_dimension": 384,
+    "training_embeddings_sha256": "16c82dfe35aa9086ada25568738c5f0b086c7e69409068de719b75340360ca82",
+    "classifier_sha256": "92df25090eae3a41ff43ee8e75e95323e9b37229d30a886b9395c73a515c0793",
+    "v1_classifier_sha256": "ae25004a66f73a9c9d38fbfd8b11b8028369b3a168388a30e38084ae700e3fb0",
+    "v1_metadata": {
+      "model_version": "v1",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "classifier": "LogisticRegression",
+      "random_seed": 42,
+      "dataset_size": 48,
+      "label_distribution": {
+        "scam": 24,
+        "safe": 24
+      },
+      "train_size": 36,
+      "test_size": 12,
+      "metrics": {
+        "accuracy": 0.6666666666666666,
+        "precision": 0.625,
+        "recall": 0.8333333333333334,
+        "f1": 0.7142857142857143,
+        "confusion_matrix": [
+          [
+            3,
+            3
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      "challenge_predictions": [
+        {
+          "text": "Pass me the number that just appeared on your handset.",
+          "scam_probability": 0.5954765677452087
+        },
+        {
+          "text": "To restore access, download the support tool and let our technician connect.",
+          "scam_probability": 0.5422427654266357
+        },
+        {
+          "text": "Never reveal verification numbers to callers.",
+          "scam_probability": 0.3342694938182831
+        },
+        {
+          "text": "Would you like to join us for coffee after work?",
+          "scam_probability": 0.3776945471763611
+        }
+      ],
+      "limitations": "Prototype dataset created for architecture validation; probabilities are not production-calibrated and the dataset is not representative of real-world prevalence."
+    },
+    "dataset_hashes": {
+      "train_v2.json": "1e319c7e487fe9aee71fd2970c3daf0588f28a584b3ec33d2fc831a7000f31b4",
+      "eval_v2.json": "aae98f6368793bb5ea0f754e1d0e7c06511cbcd7c2c98e16246dbba77d84508e"
+    },
+    "counts": {
+      "train": 150,
+      "eval": 90
+    },
+    "breakdown": {
+      "train": {
+        "label": {
+          "scam": 75,
+          "safe": 75
+        },
+        "language": {
+          "English": 80,
+          "Hindi": 20,
+          "Tamil": 20,
+          "Hinglish": 10,
+          "Tanglish": 10,
+          "Mixed": 10
+        },
+        "category": {
+          "otp": 9,
+          "implicit_sensitive": 5,
+          "euphemistic": 2,
+          "credential": 8,
+          "remote_access": 9,
+          "bank_impersonation": 5,
+          "government_impersonation": 6,
+          "payment": 8,
+          "account_threat": 6,
+          "investment": 8,
+          "link": 7,
+          "ocr": 2,
+          "transcription": 2,
+          "safety": 22,
+          "educational": 15,
+          "hard_negative": 17,
+          "ordinary": 19
+        }
+      },
+      "eval": {
+        "label": {
+          "scam": 45,
+          "safe": 45
+        },
+        "language": {
+          "English": 40,
+          "Hindi": 10,
+          "Tamil": 10,
+          "Hinglish": 10,
+          "Tanglish": 10,
+          "Mixed": 10
+        },
+        "category": {
+          "implicit_sensitive": 7,
+          "euphemistic": 2,
+          "otp": 1,
+          "credential": 3,
+          "remote_access": 7,
+          "bank_impersonation": 1,
+          "government_impersonation": 4,
+          "payment": 5,
+          "account_threat": 3,
+          "investment": 6,
+          "link": 4,
+          "ocr": 2,
+          "transcription": 2,
+          "safety": 15,
+          "educational": 9,
+          "hard_negative": 10,
+          "ordinary": 9
+        }
+      }
+    },
+    "packages": {
+      "numpy": "2.5.2",
+      "scikit-learn": "1.9.0",
+      "sentence-transformers": "6.0.1",
+      "torch": "2.14.0",
+      "joblib": "1.6.0"
+    },
+    "selected": {
+      "kind": "lr",
+      "C": 100.0,
+      "class_weight": null
+    },
+    "cv_results": [
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 0.1,
+          "class_weight": null
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              75,
+              0
+            ],
+            [
+              75,
+              0
+            ]
+          ],
+          "roc_auc": 0.8120888888888889,
+          "pr_auc": 0.829638361724131,
+          "brier": 0.23864031281778258,
+          "log_loss": 0.6703902518893057,
+          "fp": 0,
+          "fn": 75,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 150,
+              "mean_probability": 0.5022342336177826,
+              "observed_fraction": 0.5
+            }
+          ],
+          "ece": 0.0022342336177826327
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 0.1,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              75,
+              0
+            ],
+            [
+              75,
+              0
+            ]
+          ],
+          "roc_auc": 0.8120888888888889,
+          "pr_auc": 0.829638361724131,
+          "brier": 0.23864031281778258,
+          "log_loss": 0.6703902518893057,
+          "fp": 0,
+          "fn": 75,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 150,
+              "mean_probability": 0.5022342336177826,
+              "observed_fraction": 0.5
+            }
+          ],
+          "ece": 0.0022342336177826327
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 1.0,
+          "class_weight": null
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.64,
+          "precision": 0.9565217391304348,
+          "recall": 0.29333333333333333,
+          "f1": 0.4489795918367347,
+          "confusion_matrix": [
+            [
+              74,
+              1
+            ],
+            [
+              53,
+              22
+            ]
+          ],
+          "roc_auc": 0.8604444444444445,
+          "pr_auc": 0.8705978769111886,
+          "brier": 0.19007703777276588,
+          "log_loss": 0.5682184141360838,
+          "fp": 1,
+          "fn": 53,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.17633210122585297,
+              "observed_fraction": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 27,
+              "mean_probability": 0.3342127987632045,
+              "observed_fraction": 0.07407407407407407
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 84,
+              "mean_probability": 0.49556499613182886,
+              "observed_fraction": 0.4642857142857143
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 37,
+              "mean_probability": 0.6720276861577421,
+              "observed_fraction": 0.8918918918918919
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8067269325256348,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.12103857348362602
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 1.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.64,
+          "precision": 0.9565217391304348,
+          "recall": 0.29333333333333333,
+          "f1": 0.4489795918367347,
+          "confusion_matrix": [
+            [
+              74,
+              1
+            ],
+            [
+              53,
+              22
+            ]
+          ],
+          "roc_auc": 0.8604444444444445,
+          "pr_auc": 0.8705978769111886,
+          "brier": 0.19007703777276588,
+          "log_loss": 0.5682184141360838,
+          "fp": 1,
+          "fn": 53,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.17633210122585297,
+              "observed_fraction": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 27,
+              "mean_probability": 0.3342127987632045,
+              "observed_fraction": 0.07407407407407407
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 84,
+              "mean_probability": 0.49556499613182886,
+              "observed_fraction": 0.4642857142857143
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 37,
+              "mean_probability": 0.6720276861577421,
+              "observed_fraction": 0.8918918918918919
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8067269325256348,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.12103857348362602
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 10.0,
+          "class_weight": null
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7866666666666666,
+          "precision": 0.9056603773584906,
+          "recall": 0.64,
+          "f1": 0.75,
+          "confusion_matrix": [
+            [
+              70,
+              5
+            ],
+            [
+              27,
+              48
+            ]
+          ],
+          "roc_auc": 0.8894222222222222,
+          "pr_auc": 0.8987455530632105,
+          "brier": 0.139661903621384,
+          "log_loss": 0.44002492696531675,
+          "fp": 5,
+          "fn": 27,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 27,
+              "mean_probability": 0.11416393142469504,
+              "observed_fraction": 0.07407407407407407
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 29,
+              "mean_probability": 0.30002658531583587,
+              "observed_fraction": 0.1724137931034483
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 30,
+              "mean_probability": 0.48977113564809166,
+              "observed_fraction": 0.43333333333333335
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 34,
+              "mean_probability": 0.6938178504214567,
+              "observed_fraction": 0.7941176470588235
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 30,
+              "mean_probability": 0.9035866101582845,
+              "observed_fraction": 0.9333333333333333
+            }
+          ],
+          "ece": 0.07185950648660461
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 10.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7866666666666666,
+          "precision": 0.9056603773584906,
+          "recall": 0.64,
+          "f1": 0.75,
+          "confusion_matrix": [
+            [
+              70,
+              5
+            ],
+            [
+              27,
+              48
+            ]
+          ],
+          "roc_auc": 0.8894222222222222,
+          "pr_auc": 0.8987455530632105,
+          "brier": 0.139661903621384,
+          "log_loss": 0.44002492696531675,
+          "fp": 5,
+          "fn": 27,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 27,
+              "mean_probability": 0.11416393142469504,
+              "observed_fraction": 0.07407407407407407
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 29,
+              "mean_probability": 0.30002658531583587,
+              "observed_fraction": 0.1724137931034483
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 30,
+              "mean_probability": 0.48977113564809166,
+              "observed_fraction": 0.43333333333333335
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 34,
+              "mean_probability": 0.6938178504214567,
+              "observed_fraction": 0.7941176470588235
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 30,
+              "mean_probability": 0.9035866101582845,
+              "observed_fraction": 0.9333333333333333
+            }
+          ],
+          "ece": 0.07185950648660461
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 100.0,
+          "class_weight": null
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.82,
+          "precision": 0.8636363636363636,
+          "recall": 0.76,
+          "f1": 0.8085106382978723,
+          "confusion_matrix": [
+            [
+              66,
+              9
+            ],
+            [
+              18,
+              57
+            ]
+          ],
+          "roc_auc": 0.8846222222222222,
+          "pr_auc": 0.8934807766099109,
+          "brier": 0.14108880697083345,
+          "log_loss": 0.45447011907657925,
+          "fp": 9,
+          "fn": 18,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 47,
+              "mean_probability": 0.0586070580063685,
+              "observed_fraction": 0.10638297872340426
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 17,
+              "mean_probability": 0.27809398402186003,
+              "observed_fraction": 0.35294117647058826
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 16,
+              "mean_probability": 0.525630870833993,
+              "observed_fraction": 0.3125
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 20,
+              "mean_probability": 0.7039040923118591,
+              "observed_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 50,
+              "mean_probability": 0.9480014383792877,
+              "observed_fraction": 0.88
+            }
+          ],
+          "ece": 0.07499969700933434
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr",
+          "C": 100.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.82,
+          "precision": 0.8636363636363636,
+          "recall": 0.76,
+          "f1": 0.8085106382978723,
+          "confusion_matrix": [
+            [
+              66,
+              9
+            ],
+            [
+              18,
+              57
+            ]
+          ],
+          "roc_auc": 0.8846222222222222,
+          "pr_auc": 0.8934807766099109,
+          "brier": 0.14108880697083345,
+          "log_loss": 0.45447011907657925,
+          "fp": 9,
+          "fn": 18,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 47,
+              "mean_probability": 0.0586070580063685,
+              "observed_fraction": 0.10638297872340426
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 17,
+              "mean_probability": 0.27809398402186003,
+              "observed_fraction": 0.35294117647058826
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 16,
+              "mean_probability": 0.525630870833993,
+              "observed_fraction": 0.3125
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 20,
+              "mean_probability": 0.7039040923118591,
+              "observed_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 50,
+              "mean_probability": 0.9480014383792877,
+              "observed_fraction": 0.88
+            }
+          ],
+          "ece": 0.07499969700933434
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr_sigmoid",
+          "C": 1.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7066666666666667,
+          "precision": 0.8604651162790697,
+          "recall": 0.49333333333333335,
+          "f1": 0.6271186440677966,
+          "confusion_matrix": [
+            [
+              69,
+              6
+            ],
+            [
+              38,
+              37
+            ]
+          ],
+          "roc_auc": 0.8629333333333334,
+          "pr_auc": 0.8712891792489272,
+          "brier": 0.1629032546893154,
+          "log_loss": 0.5004985992668319,
+          "fp": 6,
+          "fn": 38,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 14,
+              "mean_probability": 0.11791294282733866,
+              "observed_fraction": 0.14285714285714285
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 34,
+              "mean_probability": 0.3003851467435949,
+              "observed_fraction": 0.14705882352941177
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 51,
+              "mean_probability": 0.48465560022501764,
+              "observed_fraction": 0.47058823529411764
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 32,
+              "mean_probability": 0.6997200647355571,
+              "observed_fraction": 0.78125
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 19,
+              "mean_probability": 0.8661037939194899,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.07621823496778166
+        }
+      },
+      {
+        "spec": {
+          "kind": "lr_sigmoid",
+          "C": 10.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7266666666666667,
+          "precision": 0.9047619047619048,
+          "recall": 0.5066666666666667,
+          "f1": 0.6495726495726496,
+          "confusion_matrix": [
+            [
+              71,
+              4
+            ],
+            [
+              37,
+              38
+            ]
+          ],
+          "roc_auc": 0.8819555555555556,
+          "pr_auc": 0.8920321966696082,
+          "brier": 0.15051096737364833,
+          "log_loss": 0.4702358753621991,
+          "fp": 4,
+          "fn": 37,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 19,
+              "mean_probability": 0.12662191571649223,
+              "observed_fraction": 0.10526315789473684
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 35,
+              "mean_probability": 0.3084324411217293,
+              "observed_fraction": 0.11428571428571428
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 41,
+              "mean_probability": 0.4885558290432737,
+              "observed_fraction": 0.5365853658536586
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 33,
+              "mean_probability": 0.6832329582991292,
+              "observed_fraction": 0.7575757575757576
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 22,
+              "mean_probability": 0.8757534043219223,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.09571266885430735
+        }
+      },
+      {
+        "spec": {
+          "kind": "svm_sigmoid",
+          "C": 0.1,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7066666666666667,
+          "precision": 0.8604651162790697,
+          "recall": 0.49333333333333335,
+          "f1": 0.6271186440677966,
+          "confusion_matrix": [
+            [
+              69,
+              6
+            ],
+            [
+              38,
+              37
+            ]
+          ],
+          "roc_auc": 0.8590222222222222,
+          "pr_auc": 0.868776964187824,
+          "brier": 0.16484239097687994,
+          "log_loss": 0.5053495127817549,
+          "fp": 6,
+          "fn": 38,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 14,
+              "mean_probability": 0.12030305267375087,
+              "observed_fraction": 0.14285714285714285
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 35,
+              "mean_probability": 0.307663462003239,
+              "observed_fraction": 0.14285714285714285
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 51,
+              "mean_probability": 0.4899292988547641,
+              "observed_fraction": 0.49019607843137253
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 31,
+              "mean_probability": 0.6984299206993982,
+              "observed_fraction": 0.7741935483870968
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 19,
+              "mean_probability": 0.8611718032195399,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.07389328258823519
+        }
+      },
+      {
+        "spec": {
+          "kind": "svm_sigmoid",
+          "C": 1.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.7333333333333333,
+          "precision": 0.9069767441860465,
+          "recall": 0.52,
+          "f1": 0.6610169491525424,
+          "confusion_matrix": [
+            [
+              71,
+              4
+            ],
+            [
+              36,
+              39
+            ]
+          ],
+          "roc_auc": 0.8871111111111112,
+          "pr_auc": 0.8960319497185233,
+          "brier": 0.14773652421197922,
+          "log_loss": 0.46371753387461295,
+          "fp": 4,
+          "fn": 36,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 21,
+              "mean_probability": 0.13000673333299353,
+              "observed_fraction": 0.09523809523809523
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 35,
+              "mean_probability": 0.3104588033435233,
+              "observed_fraction": 0.11428571428571428
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 40,
+              "mean_probability": 0.5006242728105805,
+              "observed_fraction": 0.575
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 32,
+              "mean_probability": 0.6866893971085566,
+              "observed_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 22,
+              "mean_probability": 0.8771841881854381,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.10199410504693006
+        }
+      },
+      {
+        "spec": {
+          "kind": "svm_sigmoid",
+          "C": 10.0,
+          "class_weight": "balanced"
+        },
+        "metrics": {
+          "n": 150,
+          "accuracy": 0.72,
+          "precision": 0.9024390243902439,
+          "recall": 0.49333333333333335,
+          "f1": 0.6379310344827587,
+          "confusion_matrix": [
+            [
+              71,
+              4
+            ],
+            [
+              38,
+              37
+            ]
+          ],
+          "roc_auc": 0.863111111111111,
+          "pr_auc": 0.8744406337951431,
+          "brier": 0.1608800086967059,
+          "log_loss": 0.49432962006402403,
+          "fp": 4,
+          "fn": 38,
+          "threshold": 0.65
+        },
+        "calibration": {
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 15,
+              "mean_probability": 0.1495384682040786,
+              "observed_fraction": 0.06666666666666667
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 41,
+              "mean_probability": 0.31275971305523814,
+              "observed_fraction": 0.21951219512195122
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6000000000000001,
+              "n": 39,
+              "mean_probability": 0.5144400391304086,
+              "observed_fraction": 0.46153846153846156
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.8,
+              "n": 39,
+              "mean_probability": 0.6841330562352099,
+              "observed_fraction": 0.7948717948717948
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 16,
+              "mean_probability": 0.8845644885895647,
+              "observed_fraction": 1.0
+            }
+          ],
+          "ece": 0.08863443849203767
+        }
+      }
+    ],
+    "selection_policy": "training grouped OOF F1 at .65, then Brier, then AP",
+    "evaluation_metrics": {
+      "v1": {
+        "n": 90,
+        "accuracy": 0.5111111111111111,
+        "precision": 1.0,
+        "recall": 0.022222222222222223,
+        "f1": 0.043478260869565216,
+        "confusion_matrix": [
+          [
+            45,
+            0
+          ],
+          [
+            44,
+            1
+          ]
+        ],
+        "roc_auc": 0.774320987654321,
+        "pr_auc": 0.7746146859918068,
+        "brier": 0.21803434193134308,
+        "log_loss": 0.627793550491333,
+        "fp": 0,
+        "fn": 44,
+        "threshold": 0.65
+      },
+      "v2": {
+        "n": 90,
+        "accuracy": 0.7888888888888889,
+        "precision": 0.8611111111111112,
+        "recall": 0.6888888888888889,
+        "f1": 0.7654320987654321,
+        "confusion_matrix": [
+          [
+            40,
+            5
+          ],
+          [
+            14,
+            31
+          ]
+        ],
+        "roc_auc": 0.8898765432098766,
+        "pr_auc": 0.9080781973590013,
+        "brier": 0.1391637623310089,
+        "log_loss": 0.42890557646751404,
+        "fp": 5,
+        "fn": 14,
+        "threshold": 0.65
+      },
+      "V3": {
+        "n": 90,
+        "accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+          [
+            45,
+            0
+          ],
+          [
+            45,
+            0
+          ]
+        ],
+        "roc_auc": 0.46716049382716046,
+        "pr_auc": 0.49523809523809526,
+        "brier": 0.4928333333333334,
+        "log_loss": 17.265655377103624,
+        "fp": 0,
+        "fn": 45,
+        "threshold": 0.65
+      }
+    }
+  },
+  "results": {
+    "v1": {
+      "metrics": {
+        "n": 90,
+        "accuracy": 0.5111111111111111,
+        "precision": 1.0,
+        "recall": 0.022222222222222223,
+        "f1": 0.043478260869565216,
+        "confusion_matrix": [
+          [
+            45,
+            0
+          ],
+          [
+            44,
+            1
+          ]
+        ],
+        "roc_auc": 0.774320987654321,
+        "pr_auc": 0.7746146859918068,
+        "brier": 0.21803434193134308,
+        "log_loss": 0.627793550491333,
+        "fp": 0,
+        "fn": 44,
+        "threshold": 0.65
+      },
+      "subgroups": {
+        "English": {
+          "n": 40,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              20,
+              0
+            ],
+            [
+              20,
+              0
+            ]
+          ],
+          "roc_auc": 0.8325,
+          "pr_auc": 0.8289380491985991,
+          "brier": 0.2100619524717331,
+          "log_loss": 0.6112874150276184,
+          "fp": 0,
+          "fn": 20,
+          "threshold": 0.65
+        },
+        "Hindi": {
+          "n": 10,
+          "accuracy": 0.6,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "roc_auc": 0.8800000000000001,
+          "pr_auc": 0.8766666666666667,
+          "brier": 0.19654347002506256,
+          "log_loss": 0.5843616724014282,
+          "fp": 0,
+          "fn": 4,
+          "threshold": 0.65
+        },
+        "Hinglish": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.6399999999999999,
+          "pr_auc": 0.7087301587301587,
+          "brier": 0.2361832559108734,
+          "log_loss": 0.6649438142776489,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Mixed": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier": 0.19310997426509857,
+          "log_loss": 0.5773509740829468,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Tamil": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.4800000000000001,
+          "pr_auc": 0.5342857142857143,
+          "brier": 0.25513672828674316,
+          "log_loss": 0.7034608125686646,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Tanglish": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.64,
+          "pr_auc": 0.6277777777777778,
+          "brier": 0.24108776450157166,
+          "log_loss": 0.6748753190040588,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Hinglish/Tanglish": {
+          "n": 20,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              10,
+              0
+            ],
+            [
+              10,
+              0
+            ]
+          ],
+          "roc_auc": 0.61,
+          "pr_auc": 0.5801984126984128,
+          "brier": 0.23863554000854492,
+          "log_loss": 0.6699095368385315,
+          "fp": 0,
+          "fn": 10,
+          "threshold": 0.65
+        },
+        "safety": {
+          "n": 15,
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              15,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.25859183073043823,
+          "log_loss": 0.7106866240501404,
+          "fp": 0,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "hard_negative": {
+          "n": 10,
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              10,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.22961798310279846,
+          "log_loss": 0.651790976524353,
+          "fp": 0,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "implicit_sensitive": {
+          "n": 7,
+          "accuracy": 0.14285714285714285,
+          "precision": 1.0,
+          "recall": 0.14285714285714285,
+          "f1": 0.25,
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.1832791119813919,
+          "log_loss": 0.5569830536842346,
+          "fp": 0,
+          "fn": 6,
+          "threshold": 0.65
+        }
+      },
+      "thresholds": [
+        {
+          "n": 90,
+          "accuracy": 0.7111111111111111,
+          "precision": 0.6792452830188679,
+          "recall": 0.8,
+          "f1": 0.7346938775510204,
+          "confusion_matrix": [
+            [
+              28,
+              17
+            ],
+            [
+              9,
+              36
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 17,
+          "fn": 9,
+          "threshold": 0.5
+        },
+        {
+          "n": 90,
+          "accuracy": 0.6555555555555556,
+          "precision": 0.7692307692307693,
+          "recall": 0.4444444444444444,
+          "f1": 0.5633802816901409,
+          "confusion_matrix": [
+            [
+              39,
+              6
+            ],
+            [
+              25,
+              20
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 6,
+          "fn": 25,
+          "threshold": 0.55
+        },
+        {
+          "n": 90,
+          "accuracy": 0.6,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333333333333333,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              36,
+              9
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 0,
+          "fn": 36,
+          "threshold": 0.6
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5111111111111111,
+          "precision": 1.0,
+          "recall": 0.022222222222222223,
+          "f1": 0.043478260869565216,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              44,
+              1
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 0,
+          "fn": 44,
+          "threshold": 0.65
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.7
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.774320987654321,
+          "pr_auc": 0.7746146859918068,
+          "brier": 0.21803434193134308,
+          "log_loss": 0.627793550491333,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.75
+        }
+      ],
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 10,
+            "mean_probability": 0.35043948888778687,
+            "observed_fraction": 0.0
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 71,
+            "mean_probability": 0.5105206370353699,
+            "observed_fraction": 0.5070422535211268
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 9,
+            "mean_probability": 0.6222727298736572,
+            "observed_fraction": 1.0
+          }
+        ],
+        "ece": 0.07945450610584684
+      },
+      "false_positives": [],
+      "false_negatives": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.6352695226669312
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.5290402770042419
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.5152254700660706
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.537345826625824
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5575440526008606
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.5012117028236389
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5186432003974915
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.5376713275909424
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.6084951758384705
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5168052315711975
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.5102569460868835
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.47387465834617615
+        },
+        {
+          "id": "eval-013",
+          "text": "yeah so the thing is I need those digits from the bank message, say them slowly please.",
+          "language": "English",
+          "category": "transcription",
+          "label": "scam",
+          "value": 0.6006962060928345
+        },
+        {
+          "id": "eval-014",
+          "text": "We require your security code here in the conversation before extending the login session.",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5157893896102905
+        },
+        {
+          "id": "eval-015",
+          "text": "Read the fresh six numerals displayed under the sign-in alert to the person on this call.",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.5096713900566101
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.4830319881439209
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.6057966351509094
+        },
+        {
+          "id": "eval-018",
+          "text": "Send the complete list of backup authentication keys so we can migrate your email securely.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.6189181208610535
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5005683898925781
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.5723260641098022
+        },
+        {
+          "id": "eval-042",
+          "text": "सत्यापन के दौरान हमारा सहायक आपका टैबलेट चलाएगा, कनेक्शन की अनुमति दें।",
+          "language": "Hindi",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5584345459938049
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5768061876296997
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4914979040622711
+        },
+        {
+          "id": "eval-045",
+          "text": "इनाम लेने के लिए इस वेबसाइट पर ईमेल का गुप्त पासवर्ड भर दें।",
+          "language": "Hindi",
+          "category": "link",
+          "label": "scam",
+          "value": 0.6211575865745544
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.45625075697898865
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.45549044013023376
+        },
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.44387176632881165
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.45000597834587097
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.48458239436149597
+        },
+        {
+          "id": "eval-061",
+          "text": "Insurance payout ruk gaya, notification ke security digits mujhe padh kar suna do.",
+          "language": "Hinglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5868278741836548
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5123646259307861
+        },
+        {
+          "id": "eval-063",
+          "text": "Tumhara email aaj delete hoga, backup keys operator ko bhej do.",
+          "language": "Hinglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.5697363615036011
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.570617139339447
+        },
+        {
+          "id": "eval-065",
+          "text": "Private robot har mahine fixed profit dega, savings idhar transfer karo.",
+          "language": "Hinglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5422842502593994
+        },
+        {
+          "id": "eval-071",
+          "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+          "language": "Tanglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5751156210899353
+        },
+        {
+          "id": "eval-072",
+          "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+          "language": "Tanglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5183789730072021
+        },
+        {
+          "id": "eval-073",
+          "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+          "language": "Tanglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.5597944259643555
+        },
+        {
+          "id": "eval-074",
+          "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+          "language": "Tanglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.5499395132064819
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4501586854457855
+        },
+        {
+          "id": "eval-081",
+          "text": "Insurance பணம் பெற SMS में आए digits मुझे बताओ.",
+          "language": "Mixed",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.6155604720115662
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5621240139007568
+        },
+        {
+          "id": "eval-083",
+          "text": "Buyer refund கிடைக்க पहले release deposit मेरे wallet में भेजो.",
+          "language": "Mixed",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.6420811414718628
+        },
+        {
+          "id": "eval-084",
+          "text": "Email பாதுகாக்க backup secrets इस conversation में डालो.",
+          "language": "Mixed",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.5332175493240356
+        },
+        {
+          "id": "eval-085",
+          "text": "Monthly லாபம் guaranteed है, transfer all savings into our robot fund.",
+          "language": "Mixed",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5514211058616638
+        }
+      ],
+      "lowest_scams": [
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.44387176632881165
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.45000597834587097
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4501586854457855
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.45549044013023376
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.45625075697898865
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.47387465834617615
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.4830319881439209
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.48458239436149597
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4914979040622711
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5005683898925781
+        }
+      ],
+      "highest_benign": [
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5955309867858887
+        },
+        {
+          "id": "eval-050",
+          "text": "पुलिस बताकर निजी खाते में पैसे मांगने वाले की पहचान स्वतंत्र रूप से जांचें।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.59340500831604
+        },
+        {
+          "id": "eval-066",
+          "text": "Bank notification ke digits caller ko padhne ki zaroorat nahi hoti.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5819989442825317
+        },
+        {
+          "id": "eval-067",
+          "text": "Staging server ke fake login tokens ki documentation bhej dena.",
+          "language": "Hinglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.5632880330085754
+        },
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.554805338382721
+        },
+        {
+          "id": "eval-031",
+          "text": "D0n't read bank digits to strangers, keep y0ur login private.",
+          "language": "English",
+          "category": "ocr",
+          "label": "safe",
+          "value": 0.5514737367630005
+        },
+        {
+          "id": "eval-077",
+          "text": "Staging server fake login tokens documentation mattum anuppunga.",
+          "language": "Tanglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.5474239587783813
+        },
+        {
+          "id": "eval-027",
+          "text": "A login notification may contain a one-use secret which should stay with its recipient.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.53815758228302
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5306705832481384
+        },
+        {
+          "id": "eval-070",
+          "text": "Court ka naam lekar voucher maange toh public office se khud jaanch karo.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5251728296279907
+        }
+      ],
+      "predictions": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.6352695226669312
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.5290402770042419
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.5152254700660706
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.537345826625824
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5575440526008606
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.5012117028236389
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5186432003974915
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.5376713275909424
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.6084951758384705
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5168052315711975
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.5102569460868835
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.47387465834617615
+        },
+        {
+          "id": "eval-013",
+          "text": "yeah so the thing is I need those digits from the bank message, say them slowly please.",
+          "language": "English",
+          "category": "transcription",
+          "label": "scam",
+          "value": 0.6006962060928345
+        },
+        {
+          "id": "eval-014",
+          "text": "We require your security code here in the conversation before extending the login session.",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5157893896102905
+        },
+        {
+          "id": "eval-015",
+          "text": "Read the fresh six numerals displayed under the sign-in alert to the person on this call.",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.5096713900566101
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.4830319881439209
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.6057966351509094
+        },
+        {
+          "id": "eval-018",
+          "text": "Send the complete list of backup authentication keys so we can migrate your email securely.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.6189181208610535
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5005683898925781
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.5723260641098022
+        },
+        {
+          "id": "eval-021",
+          "text": "A caller asking you to read a banking notification is a reason to end the conversation.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4723628759384155
+        },
+        {
+          "id": "eval-022",
+          "text": "A passphrase can contain several words instead of a short sequence of letters.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.34570813179016113
+        },
+        {
+          "id": "eval-023",
+          "text": "Please send the mock verification snippet used in the staging server unit tests.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.4710083603858948
+        },
+        {
+          "id": "eval-024",
+          "text": "The picnic has moved indoors because the park is flooded.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.3206118047237396
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5306705832481384
+        },
+        {
+          "id": "eval-026",
+          "text": "The postal sorting code printed on this envelope needs to be corrected.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.46193182468414307
+        },
+        {
+          "id": "eval-027",
+          "text": "A login notification may contain a one-use secret which should stay with its recipient.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.53815758228302
+        },
+        {
+          "id": "eval-028",
+          "text": "Could you water the balcony plants while I am visiting my family?",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.38845571875572205
+        },
+        {
+          "id": "eval-029",
+          "text": "Do not pay a supposed investigator using prepaid shopping vouchers.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.42915892601013184
+        },
+        {
+          "id": "eval-030",
+          "text": "My museum discount voucher becomes invalid tomorrow, so I booked a visit today.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.47555485367774963
+        },
+        {
+          "id": "eval-031",
+          "text": "D0n't read bank digits to strangers, keep y0ur login private.",
+          "language": "English",
+          "category": "ocr",
+          "label": "safe",
+          "value": 0.5514737367630005
+        },
+        {
+          "id": "eval-032",
+          "text": "no no I don't want your password, contact the branch yourself and ask them.",
+          "language": "English",
+          "category": "transcription",
+          "label": "safe",
+          "value": 0.5202275514602661
+        },
+        {
+          "id": "eval-033",
+          "text": "We need the verification number in the fake data generator documented before release.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.5198268294334412
+        },
+        {
+          "id": "eval-034",
+          "text": "Investment losses remain possible even when an advertisement claims otherwise.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.43160906434059143
+        },
+        {
+          "id": "eval-035",
+          "text": "The orchestra rehearsal will run thirty minutes longer this evening.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.2508208155632019
+        },
+        {
+          "id": "eval-036",
+          "text": "An online buyer should not need your backup login keys to pay you.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5156953930854797
+        },
+        {
+          "id": "eval-037",
+          "text": "The example card security code in the tutorial is invented for demonstration.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.4622216820716858
+        },
+        {
+          "id": "eval-038",
+          "text": "A help desk can explain device permissions without receiving your personal login token.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.48444148898124695
+        },
+        {
+          "id": "eval-039",
+          "text": "Please send me the photograph of the handwritten recipe after dinner.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.366527795791626
+        },
+        {
+          "id": "eval-040",
+          "text": "Verify court notices through public office contact details instead of paying a caller.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.46338528394699097
+        },
+        {
+          "id": "eval-041",
+          "text": "बीमा का पैसा भेजने से पहले मुझे संदेश में आया सुरक्षा अंक बताना जरूरी है।",
+          "language": "Hindi",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.6524792909622192
+        },
+        {
+          "id": "eval-042",
+          "text": "सत्यापन के दौरान हमारा सहायक आपका टैबलेट चलाएगा, कनेक्शन की अनुमति दें।",
+          "language": "Hindi",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5584345459938049
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.5768061876296997
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4914979040622711
+        },
+        {
+          "id": "eval-045",
+          "text": "इनाम लेने के लिए इस वेबसाइट पर ईमेल का गुप्त पासवर्ड भर दें।",
+          "language": "Hindi",
+          "category": "link",
+          "label": "scam",
+          "value": 0.6211575865745544
+        },
+        {
+          "id": "eval-046",
+          "text": "किसी फोन करने वाले को संदेश के सुरक्षा अंक पढ़कर सुनाना ठीक नहीं है।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4544423520565033
+        },
+        {
+          "id": "eval-047",
+          "text": "डेमो सर्वर का सत्यापन नंबर केवल प्रशिक्षण सामग्री के लिए है।",
+          "language": "Hindi",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.44675254821777344
+        },
+        {
+          "id": "eval-048",
+          "text": "इस रविवार परिवार के साथ संग्रहालय देखने जाएंगे।",
+          "language": "Hindi",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.35707178711891174
+        },
+        {
+          "id": "eval-049",
+          "text": "विज्ञापन में भरोसा दिलाने पर भी निवेश में नुकसान हो सकता है।",
+          "language": "Hindi",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.4275039732456207
+        },
+        {
+          "id": "eval-050",
+          "text": "पुलिस बताकर निजी खाते में पैसे मांगने वाले की पहचान स्वतंत्र रूप से जांचें।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.59340500831604
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.45625075697898865
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.45549044013023376
+        },
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.44387176632881165
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.45000597834587097
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.48458239436149597
+        },
+        {
+          "id": "eval-056",
+          "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4478459656238556
+        },
+        {
+          "id": "eval-057",
+          "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+          "language": "Tamil",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.4519491493701935
+        },
+        {
+          "id": "eval-058",
+          "text": "இந்த ஞாயிறு குடும்பத்துடன் அருங்காட்சியகத்திற்குச் செல்கிறோம்.",
+          "language": "Tamil",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.44943803548812866
+        },
+        {
+          "id": "eval-059",
+          "text": "விளம்பரம் உறுதி அளித்தாலும் முதலீட்டில் இழப்பு ஏற்படலாம்.",
+          "language": "Tamil",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.49635034799575806
+        },
+        {
+          "id": "eval-060",
+          "text": "அதிகாரி என்று கூறி தனிப்பட்ட கணக்கில் பணம் கேட்பவரை தனியாக சரிபாருங்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.47812536358833313
+        },
+        {
+          "id": "eval-061",
+          "text": "Insurance payout ruk gaya, notification ke security digits mujhe padh kar suna do.",
+          "language": "Hinglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5868278741836548
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5123646259307861
+        },
+        {
+          "id": "eval-063",
+          "text": "Tumhara email aaj delete hoga, backup keys operator ko bhej do.",
+          "language": "Hinglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.5697363615036011
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.570617139339447
+        },
+        {
+          "id": "eval-065",
+          "text": "Private robot har mahine fixed profit dega, savings idhar transfer karo.",
+          "language": "Hinglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5422842502593994
+        },
+        {
+          "id": "eval-066",
+          "text": "Bank notification ke digits caller ko padhne ki zaroorat nahi hoti.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5819989442825317
+        },
+        {
+          "id": "eval-067",
+          "text": "Staging server ke fake login tokens ki documentation bhej dena.",
+          "language": "Hinglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.5632880330085754
+        },
+        {
+          "id": "eval-068",
+          "text": "Sunday ko family ke saath museum chalna hai.",
+          "language": "Hinglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.36701682209968567
+        },
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.554805338382721
+        },
+        {
+          "id": "eval-070",
+          "text": "Court ka naam lekar voucher maange toh public office se khud jaanch karo.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5251728296279907
+        },
+        {
+          "id": "eval-071",
+          "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+          "language": "Tanglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.5751156210899353
+        },
+        {
+          "id": "eval-072",
+          "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+          "language": "Tanglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5183789730072021
+        },
+        {
+          "id": "eval-073",
+          "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+          "language": "Tanglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.5597944259643555
+        },
+        {
+          "id": "eval-074",
+          "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+          "language": "Tanglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.5499395132064819
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.4501586854457855
+        },
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5955309867858887
+        },
+        {
+          "id": "eval-077",
+          "text": "Staging server fake login tokens documentation mattum anuppunga.",
+          "language": "Tanglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.5474239587783813
+        },
+        {
+          "id": "eval-078",
+          "text": "Sunday family oda museum pogalaam.",
+          "language": "Tanglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.360525518655777
+        },
+        {
+          "id": "eval-079",
+          "text": "Guarantee sonnaalum investment risk pogadhu.",
+          "language": "Tanglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.5030356645584106
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5122281312942505
+        },
+        {
+          "id": "eval-081",
+          "text": "Insurance பணம் பெற SMS में आए digits मुझे बताओ.",
+          "language": "Mixed",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.6155604720115662
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.5621240139007568
+        },
+        {
+          "id": "eval-083",
+          "text": "Buyer refund கிடைக்க पहले release deposit मेरे wallet में भेजो.",
+          "language": "Mixed",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.6420811414718628
+        },
+        {
+          "id": "eval-084",
+          "text": "Email பாதுகாக்க backup secrets इस conversation में डालो.",
+          "language": "Mixed",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.5332175493240356
+        },
+        {
+          "id": "eval-085",
+          "text": "Monthly லாபம் guaranteed है, transfer all savings into our robot fund.",
+          "language": "Mixed",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5514211058616638
+        },
+        {
+          "id": "eval-086",
+          "text": "Notification digits யாருக்கும் படிக்காதீர்கள், caller को बताना जरूरी नहीं.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4635668694972992
+        },
+        {
+          "id": "eval-087",
+          "text": "यह staging token போலியானது, only for developer demonstrations.",
+          "language": "Mixed",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.3607160747051239
+        },
+        {
+          "id": "eval-088",
+          "text": "Museum போகலாம் Sunday को, bring the children too.",
+          "language": "Mixed",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.3869404196739197
+        },
+        {
+          "id": "eval-089",
+          "text": "Guaranteed returns என்றாலும் नुकसान का risk रहता है.",
+          "language": "Mixed",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.5240268111228943
+        },
+        {
+          "id": "eval-090",
+          "text": "Court अधिकारी என்று कहने वाले को independently verify before paying.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5244221687316895
+        }
+      ]
+    },
+    "v2": {
+      "metrics": {
+        "n": 90,
+        "accuracy": 0.7888888888888889,
+        "precision": 0.8611111111111112,
+        "recall": 0.6888888888888889,
+        "f1": 0.7654320987654321,
+        "confusion_matrix": [
+          [
+            40,
+            5
+          ],
+          [
+            14,
+            31
+          ]
+        ],
+        "roc_auc": 0.8898765432098766,
+        "pr_auc": 0.9080781973590013,
+        "brier": 0.1391637623310089,
+        "log_loss": 0.42890557646751404,
+        "fp": 5,
+        "fn": 14,
+        "threshold": 0.65
+      },
+      "subgroups": {
+        "English": {
+          "n": 40,
+          "accuracy": 0.775,
+          "precision": 1.0,
+          "recall": 0.55,
+          "f1": 0.7096774193548387,
+          "confusion_matrix": [
+            [
+              20,
+              0
+            ],
+            [
+              9,
+              11
+            ]
+          ],
+          "roc_auc": 0.915,
+          "pr_auc": 0.9344146825396825,
+          "brier": 0.12394040822982788,
+          "log_loss": 0.3855252265930176,
+          "fp": 0,
+          "fn": 9,
+          "threshold": 0.65
+        },
+        "Hindi": {
+          "n": 10,
+          "accuracy": 0.9,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "roc_auc": 0.9600000000000001,
+          "pr_auc": 0.9666666666666666,
+          "brier": 0.0818130150437355,
+          "log_loss": 0.23566007614135742,
+          "fp": 0,
+          "fn": 1,
+          "threshold": 0.65
+        },
+        "Hinglish": {
+          "n": 10,
+          "accuracy": 0.7,
+          "precision": 0.75,
+          "recall": 0.6,
+          "f1": 0.6666666666666666,
+          "confusion_matrix": [
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "roc_auc": 0.6799999999999999,
+          "pr_auc": 0.7753968253968253,
+          "brier": 0.2641860842704773,
+          "log_loss": 0.8694790005683899,
+          "fp": 1,
+          "fn": 2,
+          "threshold": 0.65
+        },
+        "Mixed": {
+          "n": 10,
+          "accuracy": 0.9,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "roc_auc": 0.9600000000000001,
+          "pr_auc": 0.9666666666666666,
+          "brier": 0.06835432350635529,
+          "log_loss": 0.22300663590431213,
+          "fp": 0,
+          "fn": 1,
+          "threshold": 0.65
+        },
+        "Tamil": {
+          "n": 10,
+          "accuracy": 0.8,
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333334,
+          "confusion_matrix": [
+            [
+              3,
+              2
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "roc_auc": 0.92,
+          "pr_auc": 0.9428571428571428,
+          "brier": 0.17525748908519745,
+          "log_loss": 0.5125994086265564,
+          "fp": 2,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "Tanglish": {
+          "n": 10,
+          "accuracy": 0.7,
+          "precision": 0.6666666666666666,
+          "recall": 0.8,
+          "f1": 0.7272727272727273,
+          "confusion_matrix": [
+            [
+              3,
+              2
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "roc_auc": 0.92,
+          "pr_auc": 0.9428571428571428,
+          "brier": 0.16710123419761658,
+          "log_loss": 0.4773038923740387,
+          "fp": 2,
+          "fn": 1,
+          "threshold": 0.65
+        },
+        "Hinglish/Tanglish": {
+          "n": 20,
+          "accuracy": 0.7,
+          "precision": 0.7,
+          "recall": 0.7,
+          "f1": 0.7,
+          "confusion_matrix": [
+            [
+              7,
+              3
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "roc_auc": 0.78,
+          "pr_auc": 0.8273304473304474,
+          "brier": 0.21564364433288574,
+          "log_loss": 0.6733914613723755,
+          "fp": 3,
+          "fn": 3,
+          "threshold": 0.65
+        },
+        "safety": {
+          "n": 15,
+          "accuracy": 0.8,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              12,
+              3
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.17963089048862457,
+          "log_loss": 0.48777085542678833,
+          "fp": 3,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "hard_negative": {
+          "n": 10,
+          "accuracy": 0.9,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              9,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.09814745932817459,
+          "log_loss": 0.3231923282146454,
+          "fp": 1,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "implicit_sensitive": {
+          "n": 7,
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.006035133730620146,
+          "log_loss": 0.04395391419529915,
+          "fp": 0,
+          "fn": 0,
+          "threshold": 0.65
+        }
+      },
+      "thresholds": [
+        {
+          "n": 90,
+          "accuracy": 0.8111111111111111,
+          "precision": 0.8333333333333334,
+          "recall": 0.7777777777777778,
+          "f1": 0.8045977011494253,
+          "confusion_matrix": [
+            [
+              38,
+              7
+            ],
+            [
+              10,
+              35
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 7,
+          "fn": 10,
+          "threshold": 0.5
+        },
+        {
+          "n": 90,
+          "accuracy": 0.8111111111111111,
+          "precision": 0.85,
+          "recall": 0.7555555555555555,
+          "f1": 0.8,
+          "confusion_matrix": [
+            [
+              39,
+              6
+            ],
+            [
+              11,
+              34
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 6,
+          "fn": 11,
+          "threshold": 0.55
+        },
+        {
+          "n": 90,
+          "accuracy": 0.8111111111111111,
+          "precision": 0.868421052631579,
+          "recall": 0.7333333333333333,
+          "f1": 0.7951807228915663,
+          "confusion_matrix": [
+            [
+              40,
+              5
+            ],
+            [
+              12,
+              33
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 5,
+          "fn": 12,
+          "threshold": 0.6
+        },
+        {
+          "n": 90,
+          "accuracy": 0.7888888888888889,
+          "precision": 0.8611111111111112,
+          "recall": 0.6888888888888889,
+          "f1": 0.7654320987654321,
+          "confusion_matrix": [
+            [
+              40,
+              5
+            ],
+            [
+              14,
+              31
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 5,
+          "fn": 14,
+          "threshold": 0.65
+        },
+        {
+          "n": 90,
+          "accuracy": 0.7777777777777778,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "f1": 0.75,
+          "confusion_matrix": [
+            [
+              40,
+              5
+            ],
+            [
+              15,
+              30
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 5,
+          "fn": 15,
+          "threshold": 0.7
+        },
+        {
+          "n": 90,
+          "accuracy": 0.7666666666666667,
+          "precision": 0.8529411764705882,
+          "recall": 0.6444444444444445,
+          "f1": 0.7341772151898734,
+          "confusion_matrix": [
+            [
+              40,
+              5
+            ],
+            [
+              16,
+              29
+            ]
+          ],
+          "roc_auc": 0.8898765432098766,
+          "pr_auc": 0.9080781973590013,
+          "brier": 0.1391637623310089,
+          "log_loss": 0.42890557646751404,
+          "fp": 5,
+          "fn": 16,
+          "threshold": 0.75
+        }
+      ],
+      "calibration": {
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 26,
+            "mean_probability": 0.04091079533100128,
+            "observed_fraction": 0.15384615384615385
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 14,
+            "mean_probability": 0.27506810426712036,
+            "observed_fraction": 0.21428571428571427
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6000000000000001,
+            "n": 12,
+            "mean_probability": 0.4761541783809662,
+            "observed_fraction": 0.4166666666666667
+          },
+          {
+            "lower": 0.6000000000000001,
+            "upper": 0.8,
+            "n": 10,
+            "mean_probability": 0.7271419763565063,
+            "observed_fraction": 0.6
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 28,
+            "mean_probability": 0.9363136291503906,
+            "observed_fraction": 0.9642857142857143
+          }
+        ],
+        "ece": 0.07284178965621525
+      },
+      "false_positives": [
+        {
+          "id": "eval-056",
+          "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7679223418235779
+        },
+        {
+          "id": "eval-057",
+          "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+          "language": "Tamil",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.7599979639053345
+        },
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.8868719935417175
+        },
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7831041812896729
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7753075361251831
+        }
+      ],
+      "false_negatives": [
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.1429574340581894
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.07022033631801605
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.6166176199913025
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.3436073958873749
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.4397515058517456
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.5429050922393799
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.4451476037502289
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.11124376952648163
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.6069025993347168
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.20180802047252655
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.023122671991586685
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.31861844658851624
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5668390989303589
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.49179625511169434
+        }
+      ],
+      "lowest_scams": [
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.023122671991586685
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.07022033631801605
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.11124376952648163
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.1429574340581894
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.20180802047252655
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.31861844658851624
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.3436073958873749
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.4397515058517456
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.4451476037502289
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.49179625511169434
+        }
+      ],
+      "highest_benign": [
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.8868719935417175
+        },
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7831041812896729
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7753075361251831
+        },
+        {
+          "id": "eval-056",
+          "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7679223418235779
+        },
+        {
+          "id": "eval-057",
+          "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+          "language": "Tamil",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.7599979639053345
+        },
+        {
+          "id": "eval-089",
+          "text": "Guaranteed returns என்றாலும் नुकसान का risk रहता है.",
+          "language": "Mixed",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.5654904842376709
+        },
+        {
+          "id": "eval-060",
+          "text": "அதிகாரி என்று கூறி தனிப்பட்ட கணக்கில் பணம் கேட்பவரை தனியாக சரிபாருங்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5324210524559021
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.45550453662872314
+        },
+        {
+          "id": "eval-032",
+          "text": "no no I don't want your password, contact the branch yourself and ask them.",
+          "language": "English",
+          "category": "transcription",
+          "label": "safe",
+          "value": 0.440641850233078
+        },
+        {
+          "id": "eval-070",
+          "text": "Court ka naam lekar voucher maange toh public office se khud jaanch karo.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4159262180328369
+        }
+      ],
+      "predictions": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.9963865280151367
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.9753609895706177
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.1429574340581894
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.07022033631801605
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.8084943890571594
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.9022032022476196
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.6166176199913025
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.764637291431427
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.9959748387336731
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.3436073958873749
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.4397515058517456
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.5429050922393799
+        },
+        {
+          "id": "eval-013",
+          "text": "yeah so the thing is I need those digits from the bank message, say them slowly please.",
+          "language": "English",
+          "category": "transcription",
+          "label": "scam",
+          "value": 0.9100765585899353
+        },
+        {
+          "id": "eval-014",
+          "text": "We require your security code here in the conversation before extending the login session.",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.9792446494102478
+        },
+        {
+          "id": "eval-015",
+          "text": "Read the fresh six numerals displayed under the sign-in alert to the person on this call.",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.9163075685501099
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.9544269442558289
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.4451476037502289
+        },
+        {
+          "id": "eval-018",
+          "text": "Send the complete list of backup authentication keys so we can migrate your email securely.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.9948152899742126
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.11124376952648163
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.6069025993347168
+        },
+        {
+          "id": "eval-021",
+          "text": "A caller asking you to read a banking notification is a reason to end the conversation.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0783725157380104
+        },
+        {
+          "id": "eval-022",
+          "text": "A passphrase can contain several words instead of a short sequence of letters.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.005194448865950108
+        },
+        {
+          "id": "eval-023",
+          "text": "Please send the mock verification snippet used in the staging server unit tests.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.04847860336303711
+        },
+        {
+          "id": "eval-024",
+          "text": "The picnic has moved indoors because the park is flooded.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0012315677013248205
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.45550453662872314
+        },
+        {
+          "id": "eval-026",
+          "text": "The postal sorting code printed on this envelope needs to be corrected.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.20254094898700714
+        },
+        {
+          "id": "eval-027",
+          "text": "A login notification may contain a one-use secret which should stay with its recipient.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.29016637802124023
+        },
+        {
+          "id": "eval-028",
+          "text": "Could you water the balcony plants while I am visiting my family?",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.00702042318880558
+        },
+        {
+          "id": "eval-029",
+          "text": "Do not pay a supposed investigator using prepaid shopping vouchers.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.002363596111536026
+        },
+        {
+          "id": "eval-030",
+          "text": "My museum discount voucher becomes invalid tomorrow, so I booked a visit today.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.056934550404548645
+        },
+        {
+          "id": "eval-031",
+          "text": "D0n't read bank digits to strangers, keep y0ur login private.",
+          "language": "English",
+          "category": "ocr",
+          "label": "safe",
+          "value": 0.0008180618169717491
+        },
+        {
+          "id": "eval-032",
+          "text": "no no I don't want your password, contact the branch yourself and ask them.",
+          "language": "English",
+          "category": "transcription",
+          "label": "safe",
+          "value": 0.440641850233078
+        },
+        {
+          "id": "eval-033",
+          "text": "We need the verification number in the fake data generator documented before release.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.16416600346565247
+        },
+        {
+          "id": "eval-034",
+          "text": "Investment losses remain possible even when an advertisement claims otherwise.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.2457265704870224
+        },
+        {
+          "id": "eval-035",
+          "text": "The orchestra rehearsal will run thirty minutes longer this evening.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.009344314225018024
+        },
+        {
+          "id": "eval-036",
+          "text": "An online buyer should not need your backup login keys to pay you.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0005485709989443421
+        },
+        {
+          "id": "eval-037",
+          "text": "The example card security code in the tutorial is invented for demonstration.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.20423409342765808
+        },
+        {
+          "id": "eval-038",
+          "text": "A help desk can explain device permissions without receiving your personal login token.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.23068691790103912
+        },
+        {
+          "id": "eval-039",
+          "text": "Please send me the photograph of the handwritten recipe after dinner.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.40568938851356506
+        },
+        {
+          "id": "eval-040",
+          "text": "Verify court notices through public office contact details instead of paying a caller.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.012974507175385952
+        },
+        {
+          "id": "eval-041",
+          "text": "बीमा का पैसा भेजने से पहले मुझे संदेश में आया सुरक्षा अंक बताना जरूरी है।",
+          "language": "Hindi",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.963155210018158
+        },
+        {
+          "id": "eval-042",
+          "text": "सत्यापन के दौरान हमारा सहायक आपका टैबलेट चलाएगा, कनेक्शन की अनुमति दें।",
+          "language": "Hindi",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.9150017499923706
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.20180802047252655
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.970748782157898
+        },
+        {
+          "id": "eval-045",
+          "text": "इनाम लेने के लिए इस वेबसाइट पर ईमेल का गुप्त पासवर्ड भर दें।",
+          "language": "Hindi",
+          "category": "link",
+          "label": "scam",
+          "value": 0.9953175783157349
+        },
+        {
+          "id": "eval-046",
+          "text": "किसी फोन करने वाले को संदेश के सुरक्षा अंक पढ़कर सुनाना ठीक नहीं है।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.00088864954886958
+        },
+        {
+          "id": "eval-047",
+          "text": "डेमो सर्वर का सत्यापन नंबर केवल प्रशिक्षण सामग्री के लिए है।",
+          "language": "Hindi",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.41173624992370605
+        },
+        {
+          "id": "eval-048",
+          "text": "इस रविवार परिवार के साथ संग्रहालय देखने जाएंगे।",
+          "language": "Hindi",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.003039710223674774
+        },
+        {
+          "id": "eval-049",
+          "text": "विज्ञापन में भरोसा दिलाने पर भी निवेश में नुकसान हो सकता है।",
+          "language": "Hindi",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.019171401858329773
+        },
+        {
+          "id": "eval-050",
+          "text": "पुलिस बताकर निजी खाते में पैसे मांगने वाले की पहचान स्वतंत्र रूप से जांचें।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.04068945348262787
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.7992883324623108
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.8833682537078857
+        },
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.9188717603683472
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.9455116987228394
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.682603120803833
+        },
+        {
+          "id": "eval-056",
+          "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7679223418235779
+        },
+        {
+          "id": "eval-057",
+          "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+          "language": "Tamil",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.7599979639053345
+        },
+        {
+          "id": "eval-058",
+          "text": "இந்த ஞாயிறு குடும்பத்துடன் அருங்காட்சியகத்திற்குச் செல்கிறோம்.",
+          "language": "Tamil",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.2444830983877182
+        },
+        {
+          "id": "eval-059",
+          "text": "விளம்பரம் உறுதி அளித்தாலும் முதலீட்டில் இழப்பு ஏற்படலாம்.",
+          "language": "Tamil",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.2790149450302124
+        },
+        {
+          "id": "eval-060",
+          "text": "அதிகாரி என்று கூறி தனிப்பட்ட கணக்கில் பணம் கேட்பவரை தனியாக சரிபாருங்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.5324210524559021
+        },
+        {
+          "id": "eval-061",
+          "text": "Insurance payout ruk gaya, notification ke security digits mujhe padh kar suna do.",
+          "language": "Hinglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.9931449890136719
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.023122671991586685
+        },
+        {
+          "id": "eval-063",
+          "text": "Tumhara email aaj delete hoga, backup keys operator ko bhej do.",
+          "language": "Hinglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.9365615844726562
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.31861844658851624
+        },
+        {
+          "id": "eval-065",
+          "text": "Private robot har mahine fixed profit dega, savings idhar transfer karo.",
+          "language": "Hinglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.7150387167930603
+        },
+        {
+          "id": "eval-066",
+          "text": "Bank notification ke digits caller ko padhne ki zaroorat nahi hoti.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.39879050850868225
+        },
+        {
+          "id": "eval-067",
+          "text": "Staging server ke fake login tokens ki documentation bhej dena.",
+          "language": "Hinglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.13944858312606812
+        },
+        {
+          "id": "eval-068",
+          "text": "Sunday ko family ke saath museum chalna hai.",
+          "language": "Hinglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.00029228514176793396
+        },
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.8868719935417175
+        },
+        {
+          "id": "eval-070",
+          "text": "Court ka naam lekar voucher maange toh public office se khud jaanch karo.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.4159262180328369
+        },
+        {
+          "id": "eval-071",
+          "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+          "language": "Tanglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.9909541010856628
+        },
+        {
+          "id": "eval-072",
+          "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+          "language": "Tanglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.8353243470191956
+        },
+        {
+          "id": "eval-073",
+          "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+          "language": "Tanglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.9863842129707336
+        },
+        {
+          "id": "eval-074",
+          "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+          "language": "Tanglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.8213740587234497
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.5668390989303589
+        },
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7831041812896729
+        },
+        {
+          "id": "eval-077",
+          "text": "Staging server fake login tokens documentation mattum anuppunga.",
+          "language": "Tanglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.31563082337379456
+        },
+        {
+          "id": "eval-078",
+          "text": "Sunday family oda museum pogalaam.",
+          "language": "Tanglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.002018866827711463
+        },
+        {
+          "id": "eval-079",
+          "text": "Guarantee sonnaalum investment risk pogadhu.",
+          "language": "Tanglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.3318290710449219
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.7753075361251831
+        },
+        {
+          "id": "eval-081",
+          "text": "Insurance பணம் பெற SMS में आए digits मुझे बताओ.",
+          "language": "Mixed",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.9944716691970825
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.49179625511169434
+        },
+        {
+          "id": "eval-083",
+          "text": "Buyer refund கிடைக்க पहले release deposit मेरे wallet में भेजो.",
+          "language": "Mixed",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.881072998046875
+        },
+        {
+          "id": "eval-084",
+          "text": "Email பாதுகாக்க backup secrets इस conversation में डालो.",
+          "language": "Mixed",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.8681906461715698
+        },
+        {
+          "id": "eval-085",
+          "text": "Monthly லாபம் guaranteed है, transfer all savings into our robot fund.",
+          "language": "Mixed",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.9971634745597839
+        },
+        {
+          "id": "eval-086",
+          "text": "Notification digits யாருக்கும் படிக்காதீர்கள், caller को बताना जरूरी नहीं.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2438158094882965
+        },
+        {
+          "id": "eval-087",
+          "text": "यह staging token போலியானது, only for developer demonstrations.",
+          "language": "Mixed",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0023802490904927254
+        },
+        {
+          "id": "eval-088",
+          "text": "Museum போகலாம் Sunday को, bring the children too.",
+          "language": "Mixed",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.12035297602415085
+        },
+        {
+          "id": "eval-089",
+          "text": "Guaranteed returns என்றாலும் नुकसान का risk रहता है.",
+          "language": "Mixed",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.5654904842376709
+        },
+        {
+          "id": "eval-090",
+          "text": "Court अधिकारी என்று कहने वाले को independently verify before paying.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.00040715353679843247
+        }
+      ]
+    },
+    "V3": {
+      "metrics": {
+        "n": 90,
+        "accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+          [
+            45,
+            0
+          ],
+          [
+            45,
+            0
+          ]
+        ],
+        "roc_auc": 0.46716049382716046,
+        "pr_auc": 0.49523809523809526,
+        "brier": 0.4928333333333334,
+        "log_loss": 17.265655377103624,
+        "fp": 0,
+        "fn": 45,
+        "threshold": 0.65
+      },
+      "subgroups": {
+        "English": {
+          "n": 40,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              20,
+              0
+            ],
+            [
+              20,
+              0
+            ]
+          ],
+          "roc_auc": 0.47625,
+          "pr_auc": 0.5,
+          "brier": 0.48862500000000003,
+          "log_loss": 17.16122256603784,
+          "fp": 0,
+          "fn": 20,
+          "threshold": 0.65
+        },
+        "Hindi": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.5,
+          "pr_auc": 0.5,
+          "brier": 0.5,
+          "log_loss": 18.021826694558577,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Hinglish": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.6,
+          "pr_auc": 0.6000000000000001,
+          "brier": 0.4640000000000001,
+          "log_loss": 14.57840514689027,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Mixed": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.3,
+          "pr_auc": 0.5,
+          "brier": 0.513,
+          "log_loss": 18.07980854408387,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Tamil": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.5,
+          "pr_auc": 0.5,
+          "brier": 0.5,
+          "log_loss": 18.021826694558577,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Tanglish": {
+          "n": 10,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "roc_auc": 0.4,
+          "pr_auc": 0.5,
+          "brier": 0.504,
+          "log_loss": 18.044141049689998,
+          "fp": 0,
+          "fn": 5,
+          "threshold": 0.65
+        },
+        "Hinglish/Tanglish": {
+          "n": 20,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              10,
+              0
+            ],
+            [
+              10,
+              0
+            ]
+          ],
+          "roc_auc": 0.5,
+          "pr_auc": 0.5,
+          "brier": 0.484,
+          "log_loss": 16.311273098290137,
+          "fp": 0,
+          "fn": 10,
+          "threshold": 0.65
+        },
+        "safety": {
+          "n": 15,
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              15,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.007999999999999998,
+          "log_loss": 0.04462871026284212,
+          "fp": 0,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "hard_negative": {
+          "n": 10,
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              10,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.020249999999999997,
+          "log_loss": 0.05978370007556224,
+          "fp": 0,
+          "fn": 0,
+          "threshold": 0.65
+        },
+        "implicit_sensitive": {
+          "n": 7,
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ],
+          "roc_auc": null,
+          "pr_auc": null,
+          "brier": 0.9003571428571429,
+          "log_loss": 31.00863257584581,
+          "fp": 0,
+          "fn": 7,
+          "threshold": 0.65
+        }
+      },
+      "thresholds": [
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.5
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.55
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.6
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.65
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.7
+        },
+        {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.75
+        }
+      ],
+      "calibration": null,
+      "false_positives": [],
+      "false_negatives": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-013",
+          "text": "yeah so the thing is I need those digits from the bank message, say them slowly please.",
+          "language": "English",
+          "category": "transcription",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-014",
+          "text": "We require your security code here in the conversation before extending the login session.",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.45
+        },
+        {
+          "id": "eval-015",
+          "text": "Read the fresh six numerals displayed under the sign-in alert to the person on this call.",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-018",
+          "text": "Send the complete list of backup authentication keys so we can migrate your email securely.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-041",
+          "text": "बीमा का पैसा भेजने से पहले मुझे संदेश में आया सुरक्षा अंक बताना जरूरी है।",
+          "language": "Hindi",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-042",
+          "text": "सत्यापन के दौरान हमारा सहायक आपका टैबलेट चलाएगा, कनेक्शन की अनुमति दें।",
+          "language": "Hindi",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-045",
+          "text": "इनाम लेने के लिए इस वेबसाइट पर ईमेल का गुप्त पासवर्ड भर दें।",
+          "language": "Hindi",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-061",
+          "text": "Insurance payout ruk gaya, notification ke security digits mujhe padh kar suna do.",
+          "language": "Hinglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.2
+        },
+        {
+          "id": "eval-063",
+          "text": "Tumhara email aaj delete hoga, backup keys operator ko bhej do.",
+          "language": "Hinglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-065",
+          "text": "Private robot har mahine fixed profit dega, savings idhar transfer karo.",
+          "language": "Hinglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-071",
+          "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+          "language": "Tanglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-072",
+          "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+          "language": "Tanglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-073",
+          "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+          "language": "Tanglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-074",
+          "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+          "language": "Tanglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-081",
+          "text": "Insurance பணம் பெற SMS में आए digits मुझे बताओ.",
+          "language": "Mixed",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-083",
+          "text": "Buyer refund கிடைக்க पहले release deposit मेरे wallet में भेजो.",
+          "language": "Mixed",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-084",
+          "text": "Email பாதுகாக்க backup secrets इस conversation में डालो.",
+          "language": "Mixed",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-085",
+          "text": "Monthly லாபம் guaranteed है, transfer all savings into our robot fund.",
+          "language": "Mixed",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        }
+      ],
+      "lowest_scams": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        }
+      ],
+      "highest_benign": [
+        {
+          "id": "eval-033",
+          "text": "We need the verification number in the fake data generator documented before release.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.45
+        },
+        {
+          "id": "eval-089",
+          "text": "Guaranteed returns என்றாலும் नुकसान का risk रहता है.",
+          "language": "Mixed",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.3
+        },
+        {
+          "id": "eval-040",
+          "text": "Verify court notices through public office contact details instead of paying a caller.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        },
+        {
+          "id": "eval-090",
+          "text": "Court अधिकारी என்று कहने वाले को independently verify before paying.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        },
+        {
+          "id": "eval-021",
+          "text": "A caller asking you to read a banking notification is a reason to end the conversation.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-022",
+          "text": "A passphrase can contain several words instead of a short sequence of letters.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-023",
+          "text": "Please send the mock verification snippet used in the staging server unit tests.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-024",
+          "text": "The picnic has moved indoors because the park is flooded.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        }
+      ],
+      "predictions": [
+        {
+          "id": "eval-001",
+          "text": "Could I have the authentication digits from the notification to complete your insurance payout?",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-002",
+          "text": "What are the numbers below the padlock symbol in the message you just got?",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-003",
+          "text": "The fraud reversal cannot proceed until you dictate your current one-time login secret.",
+          "language": "English",
+          "category": "otp",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-004",
+          "text": "For identity matching, reply with the passphrase you normally use to enter your mailbox.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-005",
+          "text": "Accept my connection invite in the assistance program so I can operate your tablet during verification.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-006",
+          "text": "Branch compliance requires a transfer of your entire balance to the auditor's holding wallet.",
+          "language": "English",
+          "category": "bank_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-007",
+          "text": "A court investigator instructs you to purchase prepaid vouchers to suspend prosecution.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-008",
+          "text": "The buyer overpaid; pay a release deposit through this collect request before the sale proceeds arrive.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-009",
+          "text": "Your insurance profile will be deleted unless you reveal the recovery keys to this chat operator.",
+          "language": "English",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-010",
+          "text": "A private arbitrage robot promises a fixed twenty percent every month and guarantees your principal.",
+          "language": "English",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-011",
+          "text": "A delivery surcharge must be paid at http://parcel-clearance.example/secure-card to prevent disposal.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-012",
+          "text": "Acc0unt h0ld: tell the caller y0ur l0gin c0de to resume service.",
+          "language": "English",
+          "category": "ocr",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-013",
+          "text": "yeah so the thing is I need those digits from the bank message, say them slowly please.",
+          "language": "English",
+          "category": "transcription",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-014",
+          "text": "We require your security code here in the conversation before extending the login session.",
+          "language": "English",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.45
+        },
+        {
+          "id": "eval-015",
+          "text": "Read the fresh six numerals displayed under the sign-in alert to the person on this call.",
+          "language": "English",
+          "category": "euphemistic",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-016",
+          "text": "Turn on remote management and approve our assistant's permission to control the computer.",
+          "language": "English",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-017",
+          "text": "A missing relative's emergency release requires an immediate transfer to my personal account.",
+          "language": "English",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-018",
+          "text": "Send the complete list of backup authentication keys so we can migrate your email securely.",
+          "language": "English",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-019",
+          "text": "The municipal tax squad will seal your shop unless you remit the penalty to this private QR.",
+          "language": "English",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-020",
+          "text": "Your reward points vanish tonight; enter your banking secrets at http://points-claim.example/signin.",
+          "language": "English",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-021",
+          "text": "A caller asking you to read a banking notification is a reason to end the conversation.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-022",
+          "text": "A passphrase can contain several words instead of a short sequence of letters.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-023",
+          "text": "Please send the mock verification snippet used in the staging server unit tests.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-024",
+          "text": "The picnic has moved indoors because the park is flooded.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-025",
+          "text": "You can receive a refund without approving anyone's request to take control of your tablet.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-026",
+          "text": "The postal sorting code printed on this envelope needs to be corrected.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-027",
+          "text": "A login notification may contain a one-use secret which should stay with its recipient.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-028",
+          "text": "Could you water the balcony plants while I am visiting my family?",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-029",
+          "text": "Do not pay a supposed investigator using prepaid shopping vouchers.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-030",
+          "text": "My museum discount voucher becomes invalid tomorrow, so I booked a visit today.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-031",
+          "text": "D0n't read bank digits to strangers, keep y0ur login private.",
+          "language": "English",
+          "category": "ocr",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-032",
+          "text": "no no I don't want your password, contact the branch yourself and ask them.",
+          "language": "English",
+          "category": "transcription",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-033",
+          "text": "We need the verification number in the fake data generator documented before release.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.45
+        },
+        {
+          "id": "eval-034",
+          "text": "Investment losses remain possible even when an advertisement claims otherwise.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-035",
+          "text": "The orchestra rehearsal will run thirty minutes longer this evening.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-036",
+          "text": "An online buyer should not need your backup login keys to pay you.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-037",
+          "text": "The example card security code in the tutorial is invented for demonstration.",
+          "language": "English",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-038",
+          "text": "A help desk can explain device permissions without receiving your personal login token.",
+          "language": "English",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-039",
+          "text": "Please send me the photograph of the handwritten recipe after dinner.",
+          "language": "English",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-040",
+          "text": "Verify court notices through public office contact details instead of paying a caller.",
+          "language": "English",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        },
+        {
+          "id": "eval-041",
+          "text": "बीमा का पैसा भेजने से पहले मुझे संदेश में आया सुरक्षा अंक बताना जरूरी है।",
+          "language": "Hindi",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-042",
+          "text": "सत्यापन के दौरान हमारा सहायक आपका टैबलेट चलाएगा, कनेक्शन की अनुमति दें।",
+          "language": "Hindi",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-043",
+          "text": "नगर कर अधिकारी बोल रहा हूँ, दुकान सील होने से बचाने को निजी खाते में रकम डालें।",
+          "language": "Hindi",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-044",
+          "text": "हमारा रोबोट हर महीने निश्चित लाभ देता है, पूरी जमा पूंजी भेज दीजिए।",
+          "language": "Hindi",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-045",
+          "text": "इनाम लेने के लिए इस वेबसाइट पर ईमेल का गुप्त पासवर्ड भर दें।",
+          "language": "Hindi",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-046",
+          "text": "किसी फोन करने वाले को संदेश के सुरक्षा अंक पढ़कर सुनाना ठीक नहीं है।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-047",
+          "text": "डेमो सर्वर का सत्यापन नंबर केवल प्रशिक्षण सामग्री के लिए है।",
+          "language": "Hindi",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-048",
+          "text": "इस रविवार परिवार के साथ संग्रहालय देखने जाएंगे।",
+          "language": "Hindi",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-049",
+          "text": "विज्ञापन में भरोसा दिलाने पर भी निवेश में नुकसान हो सकता है।",
+          "language": "Hindi",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-050",
+          "text": "पुलिस बताकर निजी खाते में पैसे मांगने वाले की पहचान स्वतंत्र रूप से जांचें।",
+          "language": "Hindi",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-051",
+          "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+          "language": "Tamil",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-052",
+          "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+          "language": "Tamil",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-053",
+          "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+          "language": "Tamil",
+          "category": "government_impersonation",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-054",
+          "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+          "language": "Tamil",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-055",
+          "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+          "language": "Tamil",
+          "category": "link",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-056",
+          "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-057",
+          "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+          "language": "Tamil",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-058",
+          "text": "இந்த ஞாயிறு குடும்பத்துடன் அருங்காட்சியகத்திற்குச் செல்கிறோம்.",
+          "language": "Tamil",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-059",
+          "text": "விளம்பரம் உறுதி அளித்தாலும் முதலீட்டில் இழப்பு ஏற்படலாம்.",
+          "language": "Tamil",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-060",
+          "text": "அதிகாரி என்று கூறி தனிப்பட்ட கணக்கில் பணம் கேட்பவரை தனியாக சரிபாருங்கள்.",
+          "language": "Tamil",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-061",
+          "text": "Insurance payout ruk gaya, notification ke security digits mujhe padh kar suna do.",
+          "language": "Hinglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-062",
+          "text": "Tablet verify karna hai, meri assistance connection request accept kar lo.",
+          "language": "Hinglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.2
+        },
+        {
+          "id": "eval-063",
+          "text": "Tumhara email aaj delete hoga, backup keys operator ko bhej do.",
+          "language": "Hinglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-064",
+          "text": "Buyer ka payment atka hai, collect request se release deposit pay karo.",
+          "language": "Hinglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-065",
+          "text": "Private robot har mahine fixed profit dega, savings idhar transfer karo.",
+          "language": "Hinglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-066",
+          "text": "Bank notification ke digits caller ko padhne ki zaroorat nahi hoti.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-067",
+          "text": "Staging server ke fake login tokens ki documentation bhej dena.",
+          "language": "Hinglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-068",
+          "text": "Sunday ko family ke saath museum chalna hai.",
+          "language": "Hinglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-069",
+          "text": "Guaranteed bolne se investment ka risk khatam nahi hota.",
+          "language": "Hinglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-070",
+          "text": "Court ka naam lekar voucher maange toh public office se khud jaanch karo.",
+          "language": "Hinglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-071",
+          "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+          "language": "Tanglish",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-072",
+          "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+          "language": "Tanglish",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-073",
+          "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+          "language": "Tanglish",
+          "category": "account_threat",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-074",
+          "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+          "language": "Tanglish",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-075",
+          "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+          "language": "Tanglish",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-076",
+          "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-077",
+          "text": "Staging server fake login tokens documentation mattum anuppunga.",
+          "language": "Tanglish",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-078",
+          "text": "Sunday family oda museum pogalaam.",
+          "language": "Tanglish",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-079",
+          "text": "Guarantee sonnaalum investment risk pogadhu.",
+          "language": "Tanglish",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-080",
+          "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+          "language": "Tanglish",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        },
+        {
+          "id": "eval-081",
+          "text": "Insurance பணம் பெற SMS में आए digits मुझे बताओ.",
+          "language": "Mixed",
+          "category": "implicit_sensitive",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-082",
+          "text": "Verification के लिए tablet control வேண்டும், accept my remote session.",
+          "language": "Mixed",
+          "category": "remote_access",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-083",
+          "text": "Buyer refund கிடைக்க पहले release deposit मेरे wallet में भेजो.",
+          "language": "Mixed",
+          "category": "payment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-084",
+          "text": "Email பாதுகாக்க backup secrets इस conversation में डालो.",
+          "language": "Mixed",
+          "category": "credential",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-085",
+          "text": "Monthly லாபம் guaranteed है, transfer all savings into our robot fund.",
+          "language": "Mixed",
+          "category": "investment",
+          "label": "scam",
+          "value": 0.0
+        },
+        {
+          "id": "eval-086",
+          "text": "Notification digits யாருக்கும் படிக்காதீர்கள், caller को बताना जरूरी नहीं.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-087",
+          "text": "यह staging token போலியானது, only for developer demonstrations.",
+          "language": "Mixed",
+          "category": "hard_negative",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-088",
+          "text": "Museum போகலாம் Sunday को, bring the children too.",
+          "language": "Mixed",
+          "category": "ordinary",
+          "label": "safe",
+          "value": 0.0
+        },
+        {
+          "id": "eval-089",
+          "text": "Guaranteed returns என்றாலும் नुकसान का risk रहता है.",
+          "language": "Mixed",
+          "category": "educational",
+          "label": "safe",
+          "value": 0.3
+        },
+        {
+          "id": "eval-090",
+          "text": "Court अधिकारी என்று कहने वाले को independently verify before paying.",
+          "language": "Mixed",
+          "category": "safety",
+          "label": "safe",
+          "value": 0.2
+        }
+      ],
+      "reference_operating_points": {
+        "any_nonzero_signal_score": {
+          "n": 90,
+          "accuracy": 0.4666666666666667,
+          "precision": 0.2857142857142857,
+          "recall": 0.044444444444444446,
+          "f1": 0.07692307692307693,
+          "confusion_matrix": [
+            [
+              40,
+              5
+            ],
+            [
+              43,
+              2
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 5,
+          "fn": 43,
+          "threshold": 0.01
+        },
+        "medium_or_higher": {
+          "n": 90,
+          "accuracy": 0.4888888888888889,
+          "precision": 0.3333333333333333,
+          "recall": 0.022222222222222223,
+          "f1": 0.041666666666666664,
+          "confusion_matrix": [
+            [
+              43,
+              2
+            ],
+            [
+              44,
+              1
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 2,
+          "fn": 44,
+          "threshold": 0.3
+        },
+        "high_or_higher": {
+          "n": 90,
+          "accuracy": 0.5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              45,
+              0
+            ],
+            [
+              45,
+              0
+            ]
+          ],
+          "roc_auc": 0.46716049382716046,
+          "pr_auc": 0.49523809523809526,
+          "brier": 0.4928333333333334,
+          "log_loss": 17.265655377103624,
+          "fp": 0,
+          "fn": 45,
+          "threshold": 0.65
+        }
+      }
+    }
+  }
+}

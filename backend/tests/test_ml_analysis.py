@@ -47,7 +47,7 @@ class MLAnalysisTests(unittest.TestCase):
         result = analyze_text("Your KYC expires today. Click this link immediately.")
 
         self.assertEqual(result.score, 90)
-        self.assertEqual(result.risk_level, "high")
+        self.assertEqual(result.risk_level, "critical")
         self.assertFalse(result.ml.available)
 
     def test_low_ml_probability_cannot_downgrade_critical_pattern(self):
@@ -64,7 +64,7 @@ class MLAnalysisTests(unittest.TestCase):
         )
 
         self.assertEqual(result.score, 100)
-        self.assertEqual(result.risk_level, "high")
+        self.assertEqual(result.risk_level, "critical")
 
     def test_high_ml_confidence_can_raise_weak_deterministic_result(self):
         deterministic = analyze_text_deterministically(

@@ -1,0 +1,460 @@
+{
+  "version": "recovery-v1",
+  "source_hash": "a3fe25a203696b7b2fce2214211107f1db4e814cd1a92601d3e69e6bdcf07cd3",
+  "base_manifest_sha256": "0297c0d9c93707d7e1c62c951829d1a21fd4c0e514c9e5dd95ba1c66e03b9b72",
+  "splits": {
+    "train": "6f17185d03cc5e9fd9f30dcc98b3ccbf17e9385e8828f8dd8be4d7176f2d387e",
+    "validation": "b57b730fb28cc9fa88f907596b63f655fc8a3d8cd459558e356023954fc21ca8"
+  },
+  "draft_rows": 80,
+  "kept": [
+    {
+      "id": "recovery-001-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-001-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-002-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-002-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-003-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-003-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-004-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-004-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-005-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-005-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-006-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-006-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-007-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-007-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-008-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-008-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-009-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-009-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-010-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-010-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-011-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-011-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-012-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-012-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-013-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-013-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-014-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-014-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-015-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-015-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-016-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-016-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-018-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-018-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-020-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-020-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-021-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-021-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-022-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-022-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-023-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-023-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-024-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-024-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-025-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-025-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-026-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-026-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-027-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-027-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-028-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-028-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-029-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-029-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-030-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-030-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-031-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-031-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-032-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-032-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-033-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-033-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-034-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-034-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-035-scam",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-035-safe",
+      "split": "validation"
+    },
+    {
+      "id": "recovery-037-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-037-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-038-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-038-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-039-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-039-safe",
+      "split": "train"
+    },
+    {
+      "id": "recovery-040-scam",
+      "split": "train"
+    },
+    {
+      "id": "recovery-040-safe",
+      "split": "train"
+    }
+  ],
+  "quarantined_groups": [
+    "r-guaranteed-weekly",
+    "r-school-inspector"
+  ],
+  "overlap": [
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-060",
+      "exact": false,
+      "near": false,
+      "cosine": 0.9617552757263184
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-052",
+      "exact": false,
+      "near": false,
+      "cosine": 0.9706827998161316
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-053",
+      "exact": false,
+      "near": false,
+      "cosine": 0.9671126008033752
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-054",
+      "exact": false,
+      "near": false,
+      "cosine": 0.9716466665267944
+    }
+  ],
+  "semantic_review": [
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-051",
+      "cosine": 0.9158082604408264
+    },
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-055",
+      "cosine": 0.9358905553817749
+    },
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-056",
+      "cosine": 0.9051098227500916
+    },
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-057",
+      "cosine": 0.9060642719268799
+    },
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-058",
+      "cosine": 0.9018408060073853
+    },
+    {
+      "id": "recovery-017-safe",
+      "protected": "eval-059",
+      "cosine": 0.93414306640625
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-051",
+      "cosine": 0.9421859383583069
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-055",
+      "cosine": 0.9364390969276428
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-056",
+      "cosine": 0.9404007196426392
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-057",
+      "cosine": 0.9253294467926025
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-058",
+      "cosine": 0.9115849733352661
+    },
+    {
+      "id": "recovery-019-scam",
+      "protected": "eval-060",
+      "cosine": 0.9400634169578552
+    },
+    {
+      "id": "recovery-019-safe",
+      "protected": "eval-051",
+      "cosine": 0.9019802212715149
+    },
+    {
+      "id": "recovery-019-safe",
+      "protected": "eval-055",
+      "cosine": 0.9170386791229248
+    },
+    {
+      "id": "recovery-019-safe",
+      "protected": "eval-059",
+      "cosine": 0.9368183016777039
+    },
+    {
+      "id": "recovery-019-safe",
+      "protected": "eval-060",
+      "cosine": 0.9043779969215393
+    }
+  ],
+  "duplicates": [],
+  "provenance": "Synthetic/adapted; no native review. No changes to frozen test or existing grouped test.",
+  "counts": {
+    "train": {
+      "n": 456,
+      "language": {
+        "English": 209,
+        "Hindi": 21,
+        "Tamil": 51,
+        "Hinglish": 63,
+        "Tanglish": 80,
+        "Mixed": 3,
+        "Mixed Hindi-English": 13,
+        "Mixed Tamil-English": 16
+      },
+      "label": {
+        "scam": 205,
+        "safe": 251
+      }
+    },
+    "validation": {
+      "n": 49,
+      "language": {
+        "English": 7,
+        "Mixed Hindi-English": 6,
+        "Hindi": 5,
+        "Hinglish": 11,
+        "Tanglish": 11,
+        "Tamil": 9
+      },
+      "label": {
+        "scam": 22,
+        "safe": 27
+      }
+    }
+  }
+}

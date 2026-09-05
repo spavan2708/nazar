@@ -1,0 +1,124 @@
+{
+  "chunk_count": 10,
+  "chunking": "paragraphs, max 800 characters, word boundaries, zero overlap",
+  "chunks": [
+    {
+      "chunk_id": "account-threat-safety-1",
+      "signal_codes": [
+        "ACCOUNT_THREAT"
+      ],
+      "source_id": "account-threat-safety",
+      "text": "A message threatening immediate account deactivation may be phishing. Pause before following its verification link and independently check the request with your bank.",
+      "topics": [
+        "account_threat"
+      ]
+    },
+    {
+      "chunk_id": "banking-kyc-safety-1",
+      "signal_codes": [
+        "IDENTITY_VERIFICATION",
+        "BANK_IMPERSONATION"
+      ],
+      "source_id": "banking-kyc-safety",
+      "text": "Treat unexpected KYC calls asking you to install remote-access software or disclose card details with caution. Verify the request with the bank through an independently obtained official contact.",
+      "topics": [
+        "banking_kyc"
+      ]
+    },
+    {
+      "chunk_id": "government-impersonation-safety-1",
+      "signal_codes": [
+        "GOVERNMENT_IMPERSONATION"
+      ],
+      "source_id": "government-impersonation-safety",
+      "text": "Do not transfer money under pressure from a caller claiming to be police or another authority. Verify the claim directly with your local police station. Report cyber fraud promptly through cybercrime.gov.in or 1930.",
+      "topics": [
+        "government_impersonation"
+      ]
+    },
+    {
+      "chunk_id": "investment-safety-1",
+      "signal_codes": [
+        "INVESTMENT_PROMISE"
+      ],
+      "source_id": "investment-safety",
+      "text": "Be cautious of trading apps promising high returns with little risk. Check that the broker is SEBI-registered and use the registered broker’s official app or website instead of transferring funds to personal accounts.",
+      "topics": [
+        "investment"
+      ]
+    },
+    {
+      "chunk_id": "otp-safety-1",
+      "signal_codes": [
+        "OTP_REQUEST"
+      ],
+      "source_id": "otp-safety",
+      "text": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+      "topics": [
+        "otp"
+      ]
+    },
+    {
+      "chunk_id": "password-safety-1",
+      "signal_codes": [
+        "CREDENTIAL_REQUEST"
+      ],
+      "source_id": "password-safety",
+      "text": "Keep passwords private and use a different strong password for each account. Enable multi-factor authentication where available.",
+      "topics": [
+        "credentials"
+      ]
+    },
+    {
+      "chunk_id": "phishing-safety-1",
+      "signal_codes": [
+        "LINK_REQUEST"
+      ],
+      "source_id": "phishing-safety",
+      "text": "Phishing messages imitate trusted organisations to collect personal or financial information. Check the destination carefully and pause before acting on urgent links asking for sensitive details.",
+      "topics": [
+        "phishing"
+      ]
+    },
+    {
+      "chunk_id": "recovery-safety-1",
+      "signal_codes": [],
+      "source_id": "recovery-safety",
+      "text": "Do not pay an unsolicited contact who promises to recover money lost to a scam for an upfront fee. Independently verify organisations that contact you, and do not disclose financial credentials to obtain a refund.",
+      "topics": [
+        "recovery"
+      ]
+    },
+    {
+      "chunk_id": "remote-access-safety-1",
+      "signal_codes": [
+        "REMOTE_ACCESS"
+      ],
+      "source_id": "remote-access-safety",
+      "text": "Do not install a third-party application at the request of someone claiming to represent SBI. A request to install remote-control software can expose your device and banking information.",
+      "topics": [
+        "remote_access"
+      ]
+    },
+    {
+      "chunk_id": "upi-safety-1",
+      "signal_codes": [
+        "PAYMENT_REQUEST"
+      ],
+      "source_id": "upi-safety",
+      "text": "Do not disclose an OTP or UPI PIN to receive money. If a caller asks for payment credentials, use the institution’s independently verified customer-care channel.",
+      "topics": [
+        "payment_upi"
+      ]
+    }
+  ],
+  "document_count": 10,
+  "embedding_dimension": 384,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_version": "7e9cb54eb139d6f0da198a0b70bf9a36d43eb8e7bf733bc6b0a4616344572129",
+  "knowledge_sha256": "1b3fc061b5d1aaadaf4b45cd4b1cfe851702ef9dfa3b20b4f5369da396dd067b",
+  "numpy_version": "2.5.2",
+  "schema_version": 1,
+  "sentence_transformers_version": "6.0.1",
+  "vectors_sha256": "f2e6b944e8a13e6f482bf91a9fba6535f82b5c6059deb734398ce360f916d2c6"
+}

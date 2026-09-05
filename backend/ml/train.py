@@ -36,6 +36,8 @@ CHALLENGE_SET = (
 
 
 def train() -> dict:
+    if CLASSIFIER_PATH.exists() or EMBEDDING_MODEL_PATH.exists():
+        raise FileExistsError("Existing model artifacts must not be overwritten. Use versioned research training.")
     records = json.loads(DATASET_PATH.read_text())
     texts = [record["text"] for record in records]
     labels = [1 if record["label"] == "scam" else 0 for record in records]

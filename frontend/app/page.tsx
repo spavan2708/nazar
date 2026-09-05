@@ -1,166 +1,90 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { apiFetch } from "./api";
 
-type AnalysisResult = {
-  score: number;
-  risk_level: string;
-  signals: string[];
-  explanation: string;
-  recommended_action: string;
-};
+import { useEffect, useState, useSyncExternalStore } from "react";
+import AudioAnalyzer from "./audio-analyzer";
+import LinkChecker from "./link-checker";
+import ScreenshotAnalyzer from "./screenshot-analyzer";
+import MessageAnalyzer from "./message-analyzer";
+import CampaignTracker from "./campaign-tracker";
+import { AnalyzerTabs, Icon, SectionHeading, type TabOption } from "./components/ui";
+
+type Mode = "message" | "link" | "screenshot" | "audio";
+const modes: TabOption<Mode>[] = [
+  { value: "message", label: "Message", icon: "message" }, { value: "link", label: "Link", icon: "link" },
+  { value: "screenshot", label: "Screenshot", icon: "image" }, { value: "audio", label: "Call", icon: "audio" },
+];
+function subscribeNavigation(onChange: () => void) {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
+function navigationSnapshot() { return window.location.hash; }
 
 export default function Home() {
-  const [backendStatus, setBackendStatus] = useState<
-    "checking" | "online" | "error" | "network-error"
-  >("checking");
-  const [text, setText] = useState("");
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
-  const [analysisError, setAnalysisError] = useState("");
-
+  const hash = useSyncExternalStore(subscribeNavigation, navigationSnapshot, () => "");
+  const investigating = hash === "#investigation";
   useEffect(() => {
-    const checkBackend = async () => {
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    target?.scrollIntoView({ block: "start" });
+    target?.focus({ preventScroll: true });
+  }, [hash]);
+  const [backendStatus, setBackendStatus] = useState<"checking" | "online" | "error" | "network-error">("checking");
+  const [mode, setMode] = useState<Mode>("message");
+  useEffect(() => {
+    let active = true;
+    const controller = new AbortController();
+    async function checkBackend() {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/health`,
-        );
-        if (!response.ok) {
-          setBackendStatus("error");
-          return;
-        }
-
+        const response = await apiFetch(`/health`, { signal: controller.signal });
+        if (!response.ok) { if (active) setBackendStatus("error"); return; }
         const data = await response.json();
-        setBackendStatus(data.status === "healthy" ? "online" : "error");
-      } catch {
-        setBackendStatus("network-error");
-      }
-    };
-
-    checkBackend();
-  }, []);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsAnalyzing(true);
-    setAnalysis(null);
-    setAnalysisError("");
-
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/analyze/text`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text }),
-        },
-      );
-
-      if (!response.ok) {
-        throw new Error(`Analysis request failed (${response.status})`);
-      }
-
-      setAnalysis((await response.json()) as AnalysisResult);
-    } catch (error) {
-      setAnalysisError(
-        error instanceof Error ? error.message : "Could not analyze the text.",
-      );
-    } finally {
-      setIsAnalyzing(false);
+        if (active) setBackendStatus(data.status === "healthy" ? "online" : "error");
+      } catch { if (active) setBackendStatus("network-error"); }
     }
-  };
-
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-950 px-6 text-white">
-      <section className="max-w-2xl text-center">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
-          Nazar
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          One warning before one wrong click.
-        </h1>
-        <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-          Nazar detects suspicious messages, calls, links, apps, and payment
-          requests.
-        </p>
-        <p className="mt-8 text-sm text-slate-400" aria-live="polite">
-          <span
-            className={`mr-2 inline-block size-2 rounded-full ${
-              backendStatus === "online"
-                ? "bg-emerald-400"
-                : backendStatus === "checking"
-                  ? "bg-slate-500"
-                  : "bg-amber-400"
-            }`}
-          />
-          {backendStatus === "checking"
-            ? "Checking backend..."
-            : backendStatus === "online"
-              ? "Backend online"
-              : backendStatus === "error"
-                ? "Backend reachable, but returned an error"
-                : "Network or CORS failure"}
-        </p>
-
-        <form
-          className="mt-12 border-t border-slate-800 pt-8 text-left"
-          onSubmit={handleSubmit}
-        >
-          <h2 className="text-xl font-semibold">Check something suspicious</h2>
-          <textarea
-            className="mt-4 min-h-32 w-full resize-y rounded-lg border border-slate-700 bg-slate-900 p-4 text-sm text-white outline-none placeholder:text-slate-500 focus:border-emerald-400"
-            placeholder="Paste a suspicious message, email, or caller transcript..."
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-          />
-          <div className="mt-3 flex items-center gap-3">
-            <button
-              type="submit"
-              disabled={!text.trim() || isAnalyzing}
-              className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              {isAnalyzing ? "Analyzing..." : "Check for scam signs"}
-            </button>
-          </div>
-
-          {analysisError && (
-            <p className="mt-4 text-sm text-red-400" role="alert">
-              {analysisError}
-            </p>
-          )}
-
-          {analysis && (
-            <div className="mt-6 rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <div className="flex gap-6">
-                <p>
-                  <span className="block text-xs uppercase text-slate-500">Risk score</span>
-                  <span className="text-2xl font-semibold">{analysis.score}</span>
-                </p>
-                <p>
-                  <span className="block text-xs uppercase text-slate-500">Risk level</span>
-                  <span className="text-2xl font-semibold capitalize">{analysis.risk_level}</span>
-                </p>
-              </div>
-              <h3 className="mt-5 font-semibold">Detected signals</h3>
-              {analysis.signals.length > 0 ? (
-                <ul className="mt-2 list-inside list-disc text-sm text-slate-300">
-                  {analysis.signals.map((signal) => (
-                    <li key={signal}>{signal}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-2 text-sm text-slate-300">None detected</p>
-              )}
-              <h3 className="mt-5 font-semibold">Explanation</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-300">{analysis.explanation}</p>
-              <h3 className="mt-5 font-semibold">Recommended action</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                {analysis.recommended_action}
-              </p>
-            </div>
-          )}
-        </form>
+    void checkBackend();
+    return () => { active = false; controller.abort(); };
+  }, []);
+  const status = backendStatus === "checking" ? "Connecting…" : backendStatus === "online" ? "Ready to check" : "Service unavailable";
+  return <>
+    <a className="skip-link" href={investigating ? "#investigation" : "#analyze"}>Skip to workspace</a>
+    <header className="site-header"><div className="container header-inner">
+      <a className="wordmark" href="#top" aria-label="Nazar home"><Icon name="eye" />NAZAR</a>
+      <nav aria-label="Main navigation" className="site-nav"><a href="#analyze" aria-current={!investigating && hash !== "#how-it-works" ? "page" : undefined}>Analyze</a><a href="#investigation" aria-current={investigating ? "page" : undefined}>Investigation</a><a className="nav-how" href="#how-it-works" aria-current={hash === "#how-it-works" ? "location" : undefined}>How Nazar works</a></nav>
+      <p className="system-status" role="status"><span className="status-dot" data-online={backendStatus === "online"} />{status}</p>
+    </div></header>
+    <main id="top" tabIndex={-1}>
+      <div hidden={investigating}>
+      <section className="container hero" aria-labelledby="hero-title">
+        <div className="hero-copy"><p className="eyebrow">Digital safety, made understandable.</p><h1 id="hero-title">One warning before<br />one wrong click.</h1><p>Check one suspicious message, link, screenshot or call. Have several related interactions? Connect them in an investigation.</p><div className="button-row"><a className="n-button n-button-primary" href="#analyze">Check something suspicious<Icon /></a><a className="n-button n-button-ghost" href="#investigation">Start an investigation</a></div></div>
+        <div className="hero-art" aria-label="Illustration of Nazar features, not a live analysis">
+          <div className="demo-card demo-main"><div className="demo-label"><Icon name="eye" /> A little clarity, before a decision.</div><h3>Recognize the request behind the message.</h3><p className="muted">Understand what you’re being asked to share, install or send.</p><ul className="chip-list"><li className="chip">OTP request</li><li className="chip">Urgency</li></ul></div>
+          <div className="demo-card demo-floating"><div><p className="caption">Connect the sequence</p><p>Remote access → OTP request</p></div><Icon /></div>
+          <div className="demo-card demo-bottom"><p className="caption muted">Go beyond a score</p><p className="supporting">Signals. Explanations. Trusted guidance.</p></div>
+          <p className="hero-footnote">Illustrative product features · Your result comes from your evidence.</p>
+        </div>
       </section>
+      <section id="analyze" tabIndex={-1} className="container workspace-section" aria-labelledby="workspace-title">
+        <div className="workspace-heading"><div><p className="eyebrow">Check one piece of evidence</p><h2 id="workspace-title">What do you want to check?</h2><p className="supporting muted">Add evidence, analyze it, then review the warning and safe next steps.</p></div><p className="caption muted" role="status">{status}</p></div>
+        <div className="n-card workspace-card">
+          <p className="workspace-label caption">1 / Choose evidence type</p>
+          <AnalyzerTabs id="analyzer" label="Choose evidence type" options={modes} value={mode} onChange={setMode} />
+          {modes.map(option => <div key={option.value} id={`analyzer-panel-${option.value}`} role="tabpanel" aria-labelledby={`analyzer-tab-${option.value}`} hidden={mode !== option.value} className="workspace-panel">
+            {option.value === "message" ? <MessageAnalyzer /> : option.value === "link" ? <LinkChecker /> : option.value === "screenshot" ? <ScreenshotAnalyzer /> : <AudioAnalyzer />}
+          </div>)}
+        </div>
+        {(backendStatus === "error" || backendStatus === "network-error") && <p className="n-notice" role="status">{backendStatus === "error" ? "The analysis service responded with an error." : "The analysis service could not be reached. Check the connection and backend availability."} Your input stays here while you reconnect.</p>}
+      </section>
+      <section className="narrative-band" aria-labelledby="sequence-title"><div className="container narrative-inner"><div><p className="eyebrow">For multiple related interactions</p><h2 id="sequence-title">More than one suspicious interaction?</h2><p>One message can be ambiguous. A sequence can reveal a pattern.</p><a className="n-button n-button-outline" href="#investigation">Start an investigation<Icon /></a></div><div><ol className="narrative-steps" aria-label="Illustrative sequence"><li><span className="sequence-number">01</span><span className="sequence-label">Impersonation</span><Icon /></li><li><span className="sequence-number">02</span><span className="sequence-label">Verification</span><Icon /></li><li><span className="sequence-number">03</span><span className="sequence-label">Remote access</span><Icon /></li><li><span className="sequence-number">04</span><span className="sequence-label">OTP request</span><Icon /></li></ol><p className="caption">Illustrative sequence. Detected stages depend on the evidence you add.</p></div></div></section>
+      </div>
+      <div id="investigation" tabIndex={-1} hidden={!investigating} className="container section investigation-view"><CampaignTracker /></div>
+      <section id="how-it-works" tabIndex={-1} hidden={investigating} className="container section" aria-label="How Nazar works"><SectionHeading eyebrow="Designed to explain" title="A clearer picture. A considered next step.">Nazar brings different kinds of analysis together while keeping their limitations visible.</SectionHeading><div className="how-grid">
+        <div className="how-item"><span className="caption">01 / Add</span><h3>Add something suspicious.</h3><p className="supporting muted">Paste a message or link, or choose a screenshot or recording. Keep the original wording.</p></div>
+        <div className="how-item"><span className="caption">02 / Analyze</span><h3>Nazar examines it.</h3><p className="supporting muted">Select the analyze button. Nazar checks requests, pressure tactics and links using available analysis sources.</p></div>
+        <div className="how-item"><span className="caption">03 / Review</span><h3>Understand the warning.</h3><p className="supporting muted">Read practical next steps and relevant official guidance. A score supports your judgment; it cannot confirm fraud or guarantee safety.</p></div>
+      </div></section>
     </main>
-  );
+    <footer className="site-footer"><div className="container footer-inner"><div><a href="#top" className="wordmark"><Icon name="eye" />NAZAR</a><p>One warning before one wrong click.</p><p>Clarity before action. Always verify important requests through a channel you trust.</p></div><nav className="footer-links" aria-label="Footer navigation"><a href="#analyze">Analyze</a><a href="#investigation">Investigation</a><a href="#how-it-works">How it works</a></nav></div></footer>
+  </>;
 }

@@ -1,0 +1,844 @@
+{
+  "documents": 10,
+  "chunks": 10,
+  "sources": [
+    {
+      "id": "account-threat-safety",
+      "source": "CERT-In",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "banking-kyc-safety",
+      "source": "Delhi Police Cyber Cell",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "government-impersonation-safety",
+      "source": "I4C / National Cybercrime Threat Analytics Unit",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "investment-safety",
+      "source": "CERT-In",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "otp-safety",
+      "source": "State Bank of India",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "password-safety",
+      "source": "CERT-In",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "phishing-safety",
+      "source": "CERT-In",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "recovery-safety",
+      "source": "US Federal Trade Commission",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "remote-access-safety",
+      "source": "State Bank of India",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    },
+    {
+      "id": "upi-safety",
+      "source": "CERT-In",
+      "reviewed_on": "2026-09-05",
+      "review_due": false
+    }
+  ],
+  "cases": [
+    {
+      "id": "rag-001",
+      "expected_topics": [
+        "otp"
+      ],
+      "retrieved_topics": [
+        "credentials",
+        "otp"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "password-safety",
+            "chunk_id": "password-safety-1",
+            "title": "Protect account passwords",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "Keep passwords private and use a different strong password for each account. Enable multi-factor authentication where available.",
+            "topics": [
+              "credentials"
+            ],
+            "matched_signals": [
+              "CREDENTIAL_REQUEST"
+            ],
+            "matched_topics": [
+              "credentials"
+            ],
+            "matched_stages": [
+              "CREDENTIAL_HARVESTING"
+            ],
+            "similarity": 0.49727097153663635,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          },
+          {
+            "source_id": "otp-safety",
+            "chunk_id": "otp-safety-1",
+            "title": "Keep one-time passwords private",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+            "topics": [
+              "otp"
+            ],
+            "matched_signals": [
+              "OTP_REQUEST"
+            ],
+            "matched_topics": [
+              "otp"
+            ],
+            "matched_stages": [
+              "AUTHENTICATION_TAKEOVER"
+            ],
+            "similarity": 0.15399208664894104,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-002",
+      "expected_topics": [
+        "otp"
+      ],
+      "retrieved_topics": [
+        "otp"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "otp-safety",
+            "chunk_id": "otp-safety-1",
+            "title": "Keep one-time passwords private",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+            "topics": [
+              "otp"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "otp"
+            ],
+            "matched_stages": [],
+            "similarity": 0.47585517168045044,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-003",
+      "expected_topics": [
+        "otp"
+      ],
+      "retrieved_topics": [
+        "otp"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "otp-safety",
+            "chunk_id": "otp-safety-1",
+            "title": "Keep one-time passwords private",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+            "topics": [
+              "otp"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "otp"
+            ],
+            "matched_stages": [],
+            "similarity": 0.355579674243927,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-004",
+      "expected_topics": [
+        "remote_access"
+      ],
+      "retrieved_topics": [
+        "remote_access"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "remote-access-safety",
+            "chunk_id": "remote-access-safety-1",
+            "title": "Unsolicited remote-access requests",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not install a third-party application at the request of someone claiming to represent SBI. A request to install remote-control software can expose your device and banking information.",
+            "topics": [
+              "remote_access"
+            ],
+            "matched_signals": [
+              "REMOTE_ACCESS"
+            ],
+            "matched_topics": [
+              "remote_access"
+            ],
+            "matched_stages": [
+              "REMOTE_ACCESS"
+            ],
+            "similarity": 0.20513556897640228,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-005",
+      "expected_topics": [
+        "remote_access"
+      ],
+      "retrieved_topics": [
+        "remote_access"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "remote-access-safety",
+            "chunk_id": "remote-access-safety-1",
+            "title": "Unsolicited remote-access requests",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not install a third-party application at the request of someone claiming to represent SBI. A request to install remote-control software can expose your device and banking information.",
+            "topics": [
+              "remote_access"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "remote_access"
+            ],
+            "matched_stages": [],
+            "similarity": 0.3034396767616272,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-006",
+      "expected_topics": [
+        "banking_kyc",
+        "phishing"
+      ],
+      "retrieved_topics": [
+        "banking_kyc",
+        "phishing"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "banking-kyc-safety",
+            "chunk_id": "banking-kyc-safety-1",
+            "title": "Verify banking and KYC requests independently",
+            "source_name": "Delhi Police Cyber Cell",
+            "source_url": "https://cyber.delhipolice.gov.in/Appkyc.html",
+            "guidance": "Treat unexpected KYC calls asking you to install remote-access software or disclose card details with caution. Verify the request with the bank through an independently obtained official contact.",
+            "topics": [
+              "banking_kyc"
+            ],
+            "matched_signals": [
+              "BANK_IMPERSONATION",
+              "IDENTITY_VERIFICATION"
+            ],
+            "matched_topics": [
+              "banking_kyc"
+            ],
+            "matched_stages": [
+              "VERIFICATION_PRETEXT"
+            ],
+            "similarity": 0.4247437119483948,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          },
+          {
+            "source_id": "phishing-safety",
+            "chunk_id": "phishing-safety-1",
+            "title": "Check unexpected banking links",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "Phishing messages imitate trusted organisations to collect personal or financial information. Check the destination carefully and pause before acting on urgent links asking for sensitive details.",
+            "topics": [
+              "phishing"
+            ],
+            "matched_signals": [
+              "LINK_REQUEST"
+            ],
+            "matched_topics": [
+              "phishing"
+            ],
+            "matched_stages": [
+              "LINK_REDIRECTION"
+            ],
+            "similarity": 0.10764738917350769,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-007",
+      "expected_topics": [
+        "banking_kyc"
+      ],
+      "retrieved_topics": [
+        "banking_kyc"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "banking-kyc-safety",
+            "chunk_id": "banking-kyc-safety-1",
+            "title": "Verify banking and KYC requests independently",
+            "source_name": "Delhi Police Cyber Cell",
+            "source_url": "https://cyber.delhipolice.gov.in/Appkyc.html",
+            "guidance": "Treat unexpected KYC calls asking you to install remote-access software or disclose card details with caution. Verify the request with the bank through an independently obtained official contact.",
+            "topics": [
+              "banking_kyc"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "banking_kyc"
+            ],
+            "matched_stages": [],
+            "similarity": 0.538132905960083,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-008",
+      "expected_topics": [
+        "credentials"
+      ],
+      "retrieved_topics": [
+        "credentials"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "password-safety",
+            "chunk_id": "password-safety-1",
+            "title": "Protect account passwords",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "Keep passwords private and use a different strong password for each account. Enable multi-factor authentication where available.",
+            "topics": [
+              "credentials"
+            ],
+            "matched_signals": [
+              "CREDENTIAL_REQUEST"
+            ],
+            "matched_topics": [
+              "credentials"
+            ],
+            "matched_stages": [
+              "CREDENTIAL_HARVESTING"
+            ],
+            "similarity": 0.397826611995697,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-009",
+      "expected_topics": [
+        "credentials"
+      ],
+      "retrieved_topics": [
+        "credentials"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "password-safety",
+            "chunk_id": "password-safety-1",
+            "title": "Protect account passwords",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "Keep passwords private and use a different strong password for each account. Enable multi-factor authentication where available.",
+            "topics": [
+              "credentials"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "credentials"
+            ],
+            "matched_stages": [],
+            "similarity": 0.7521156072616577,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-010",
+      "expected_topics": [
+        "phishing"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-011",
+      "expected_topics": [
+        "payment_upi"
+      ],
+      "retrieved_topics": [
+        "payment_upi"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "upi-safety",
+            "chunk_id": "upi-safety-1",
+            "title": "Receiving money does not require sharing a UPI PIN",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "Do not disclose an OTP or UPI PIN to receive money. If a caller asks for payment credentials, use the institution\u2019s independently verified customer-care channel.",
+            "topics": [
+              "payment_upi"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "payment_upi"
+            ],
+            "matched_stages": [],
+            "similarity": 0.5229989290237427,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-012",
+      "expected_topics": [
+        "account_threat"
+      ],
+      "retrieved_topics": [
+        "account_threat",
+        "banking_kyc"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "account-threat-safety",
+            "chunk_id": "account-threat-safety-1",
+            "title": "Pause when threatened with account closure",
+            "source_name": "CERT-In",
+            "source_url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+            "guidance": "A message threatening immediate account deactivation may be phishing. Pause before following its verification link and independently check the request with your bank.",
+            "topics": [
+              "account_threat"
+            ],
+            "matched_signals": [
+              "ACCOUNT_THREAT"
+            ],
+            "matched_topics": [
+              "account_threat"
+            ],
+            "matched_stages": [],
+            "similarity": 0.6836751699447632,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          },
+          {
+            "source_id": "banking-kyc-safety",
+            "chunk_id": "banking-kyc-safety-1",
+            "title": "Verify banking and KYC requests independently",
+            "source_name": "Delhi Police Cyber Cell",
+            "source_url": "https://cyber.delhipolice.gov.in/Appkyc.html",
+            "guidance": "Treat unexpected KYC calls asking you to install remote-access software or disclose card details with caution. Verify the request with the bank through an independently obtained official contact.",
+            "topics": [
+              "banking_kyc"
+            ],
+            "matched_signals": [
+              "IDENTITY_VERIFICATION"
+            ],
+            "matched_topics": [],
+            "matched_stages": [
+              "VERIFICATION_PRETEXT"
+            ],
+            "similarity": 0.3448427617549896,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-013",
+      "expected_topics": [
+        "government_impersonation"
+      ],
+      "retrieved_topics": [
+        "government_impersonation"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "government-impersonation-safety",
+            "chunk_id": "government-impersonation-safety-1",
+            "title": "Verify threats from alleged officials",
+            "source_name": "I4C / National Cybercrime Threat Analytics Unit",
+            "source_url": "https://cybercrime.gov.in/pdf/Advisories/ADVISORYTAU-ADV-003DigitalArrest06.03.2025.pdf",
+            "guidance": "Do not transfer money under pressure from a caller claiming to be police or another authority. Verify the claim directly with your local police station. Report cyber fraud promptly through cybercrime.gov.in or 1930.",
+            "topics": [
+              "government_impersonation"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "government_impersonation"
+            ],
+            "matched_stages": [],
+            "similarity": 0.4623678922653198,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-014",
+      "expected_topics": [
+        "investment"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-015",
+      "expected_topics": [
+        "recovery"
+      ],
+      "retrieved_topics": [
+        "recovery"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "recovery-safety",
+            "chunk_id": "recovery-safety-1",
+            "title": "Beware of paid recovery offers",
+            "source_name": "US Federal Trade Commission",
+            "source_url": "https://consumer.ftc.gov/articles/refund-and-recovery-scams",
+            "guidance": "Do not pay an unsolicited contact who promises to recover money lost to a scam for an upfront fee. Independently verify organisations that contact you, and do not disclose financial credentials to obtain a refund.",
+            "topics": [
+              "recovery"
+            ],
+            "matched_signals": [],
+            "matched_topics": [
+              "recovery"
+            ],
+            "matched_stages": [],
+            "similarity": 0.5580852627754211,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "topic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-016",
+      "expected_topics": [
+        "otp"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-017",
+      "expected_topics": [
+        "otp"
+      ],
+      "retrieved_topics": [
+        "otp"
+      ],
+      "available": true,
+      "recall": 1.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": [
+          {
+            "source_id": "otp-safety",
+            "chunk_id": "otp-safety-1",
+            "title": "Keep one-time passwords private",
+            "source_name": "State Bank of India",
+            "source_url": "https://sbi.co.in/web/customer-care/contact-centre",
+            "guidance": "Do not disclose an OTP to a caller or someone claiming to be bank support. SBI states that it does not ask customers for OTPs.",
+            "topics": [
+              "otp"
+            ],
+            "matched_signals": [
+              "OTP_REQUEST"
+            ],
+            "matched_topics": [
+              "otp"
+            ],
+            "matched_stages": [
+              "AUTHENTICATION_TAKEOVER"
+            ],
+            "similarity": 0.34603843092918396,
+            "reviewed_on": "2026-09-05",
+            "review_due": false,
+            "relevance": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rag-018",
+      "expected_topics": [
+        "credentials"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-019",
+      "expected_topics": [
+        "remote_access"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-020",
+      "expected_topics": [
+        "recovery"
+      ],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": 0.0,
+      "benign_abstained": null,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-021",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-022",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-023",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-024",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-025",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    },
+    {
+      "id": "rag-026",
+      "expected_topics": [],
+      "retrieved_topics": [],
+      "available": true,
+      "recall": null,
+      "benign_abstained": true,
+      "result": {
+        "available": true,
+        "results": []
+      }
+    }
+  ],
+  "mean_topic_recall": 0.7,
+  "benign_controls": 6,
+  "benign_abstentions": 6,
+  "risk_effect": "none",
+  "limitations": "Frozen synthetic smoke set; source freshness uses review age, not live website verification. No threshold tuned on this set."
+}

@@ -1,4 +1,10 @@
 import re
+import unicodedata
+
+from services.multilingual_patterns import MULTILINGUAL_ACTIONS, MULTILINGUAL_SAFETY, MULTILINGUAL_SIGNALS
+from services.sensitive_requests import SENSITIVE_SAFETY, PRESSURE, request_signals, ambiguous_pressure, benign_code_context, safe_clause, clauses as request_clauses
+from services.risk_levels import risk_level_for_score
+from services.remote_access_patterns import REMOTE_SAFETY, remote_access_request
 
 from schemas.analysis import AnalysisContext, SignalCode, TextAnalysisResponse
 
@@ -157,10 +163,12 @@ PATTERN_RULES = {
 }
 
 
-def analyze_text(text: str) -> TextAnalysisResponse:
+def analyze_text(text: str, *, url_evidence: bool = False) -> TextAnalysisResponse:
     normalized_text = _normalize(text)
     context = _detect_context(normalized_text)
     signal_codes = _detect_signals(normalized_text, context)
+    if url_evidence and not context.is_safety_warning:
+        signal_codes.add(SignalCode.LINK_REQUEST)
     patterns = _detect_combination_patterns(signal_codes)
     score = _calculate_score(signal_codes, context, patterns)
     signals = [
@@ -182,7 +190,7 @@ def analyze_text(text: str) -> TextAnalysisResponse:
 
 
 def _normalize(text: str) -> str:
-    return " ".join(text.lower().replace("’", "'").split())
+    return re.sub(r"[^\S\n]+", " ", unicodedata.normalize("NFKC", text).lower().replace("’", "'").replace("\u200b", "").replace("\ufeff", "")).strip()
 
 
 def _contains(text: str, phrase: str) -> bool:
@@ -192,11 +200,21 @@ def _contains(text: str, phrase: str) -> bool:
 
 
 def _detect_context(text: str) -> AnalysisContext:
-    is_safety_warning = any(_contains(text, phrase) for phrase in SAFETY_PHRASES)
-    has_action_verb = any(_contains(text, verb) for verb in ACTION_VERBS)
+    all_safety = SAFETY_PHRASES + MULTILINGUAL_SAFETY + REMOTE_SAFETY + SENSITIVE_SAFETY
+    # Safety belongs to clauses. An exception or another request must not hide
+    # behind a warning elsewhere in the input. Preserve original sentence breaks.
+    clauses = request_clauses(text)
+    safe = [clause for clause in clauses if safe_clause(clause) or any(_contains(clause, phrase) for phrase in all_safety)]
+    exceptions = bool(re.search(r"\b(?:except|apart from|unless)\b.{0,45}\b(?:me|us|agent|caller)\b", text))
+    remaining = " ".join(clause for clause in clauses if clause not in safe)
+    remaining_request = (any(_contains(remaining, verb) for verb in ACTION_VERBS + MULTILINGUAL_ACTIONS)
+        or remote_access_request(remaining) or bool(request_signals(text)))
+    is_safety_warning = bool(safe) and not exceptions and not remaining_request
+    has_action_verb = any(_contains(text, verb) for verb in ACTION_VERBS + MULTILINGUAL_ACTIONS) or remote_access_request(text) or bool(request_signals(text))
     return AnalysisContext(
         is_safety_warning=is_safety_warning,
         is_action_request=has_action_verb and not is_safety_warning,
+        has_contextual_pressure=not is_safety_warning and ambiguous_pressure(text),
     )
 
 
@@ -204,13 +222,37 @@ def _detect_signals(text: str, context: AnalysisContext) -> set[SignalCode]:
     if context.is_safety_warning:
         return set()
 
+    # Exclude warning clauses from evidence attribution when a different clause
+    # contains a real request. Exception clauses remain active.
+    implicit = request_signals(text)
+    phrases = SAFETY_PHRASES + MULTILINGUAL_SAFETY + REMOTE_SAFETY + SENSITIVE_SAFETY
+    text = "; ".join(clause for clause in request_clauses(text)
+        if not (safe_clause(clause) or any(_contains(clause, phrase) for phrase in phrases))
+        or re.search(r"\b(?:except|apart from|unless)\b", clause))
     detected = {
         code
         for code, phrases in SIGNAL_PATTERNS.items()
         if any(_contains(text, phrase) for phrase in phrases)
     }
+    detected.update(
+        code for code, phrases in MULTILINGUAL_SIGNALS.items()
+        if any(_contains(text, phrase) for phrase in phrases)
+        and (code != SignalCode.URGENCY or context.is_action_request)
+    )
+    if remote_access_request(text):
+        detected.add(SignalCode.REMOTE_ACCESS)
+    detected.update(implicit)
+    if benign_code_context(text):
+        # Only suppress ambiguous code/PIN concepts, never an explicit OTP elsewhere.
+        if not request_signals(text):
+            detected.discard(SignalCode.CREDENTIAL_REQUEST)
     if not context.is_action_request:
         detected -= ACTION_REQUIRED_SIGNALS
+    if detected - {SignalCode.URGENCY}:
+        if context.is_action_request and PRESSURE.search(text):
+            detected.add(SignalCode.URGENCY)
+    else:
+        detected.discard(SignalCode.URGENCY)
     return detected
 
 
@@ -238,18 +280,20 @@ def _calculate_score(
 
 
 def risk_guidance(score: int) -> tuple[str, str]:
+    level = risk_level_for_score(score)
+    # Preserve existing action guidance; only the score-to-label mapping changes.
     if score >= 70:
         return (
-            "high",
+            level,
             "Do not click or respond. Verify the request through the official organization.",
         )
     if score >= 35:
         return (
-            "medium",
+            level,
             "Pause and verify the sender through a trusted channel before acting.",
         )
     return (
-        "low",
+        level,
         "No common scam signs were detected, but stay cautious with unexpected requests.",
     )
 
@@ -258,7 +302,9 @@ def _build_explanation(signals: list[str], context: AnalysisContext) -> str:
     if context.is_safety_warning:
         return "The message appears to be safety advice rather than a request to take a risky action."
     if signals:
+        detail = (" Verification codes can give access to accounts; do not send them to another person."
+            if SIGNAL_LABELS[SignalCode.OTP_REQUEST] in signals else "")
         return "The message contains: " + ", ".join(
             signal.lower() for signal in signals
-        ) + "."
+        ) + "." + detail
     return "No common scam signs were detected by the current rule set."

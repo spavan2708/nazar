@@ -1,0 +1,599 @@
+{
+  "examples": [
+    {
+      "id": "eval-051",
+      "text": "காப்பீட்டு பணம் வருவதற்கு முன் குறுஞ்செய்தியில் உள்ள பாதுகாப்பு இலக்கங்களை எனக்குப் படியுங்கள்.",
+      "label": "scam",
+      "language": "Tamil",
+      "category": "implicit_sensitive",
+      "difficulty": "hard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-implicit_sensitive-0",
+      "score": 0.15460936725139618,
+      "failed": true,
+      "likely_causes": [
+        "implicit_request",
+        "training_sparsity",
+        "lexical_coverage",
+        "representation_shift"
+      ],
+      "assessment": "No Tamil OTP/implicit-request positive signal support in the prior train; low .155 score is not a marginal threshold miss.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-052",
+      "text": "சரிபார்க்க எங்கள் உதவியாளர் உங்கள் கணினியை இயக்க வேண்டும், இணைப்பை ஏற்றுக்கொள்ளுங்கள்.",
+      "label": "scam",
+      "language": "Tamil",
+      "category": "remote_access",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-remote_access-0",
+      "score": 0.042772646993398666,
+      "failed": true,
+      "likely_causes": [
+        "training_sparsity",
+        "remote_access_coverage",
+        "representation_shift"
+      ],
+      "assessment": "No Tamil remote-access positive support; .043 score. Unsolicited-control context remains a prototype label assumption, not evidence of completed fraud.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-053",
+      "text": "நகராட்சி அதிகாரி பேசுகிறேன், கடையை மூடாமல் இருக்க இந்த தனி கணக்கில் பணம் செலுத்துங்கள்.",
+      "label": "scam",
+      "language": "Tamil",
+      "category": "government_impersonation",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-government_impersonation-0",
+      "score": 0.7575952410697937,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-054",
+      "text": "எங்கள் தானியங்கி வர்த்தகம் மாதந்தோறும் உறுதியான வருமானம் தரும், முழு சேமிப்பையும் அனுப்புங்கள்.",
+      "label": "scam",
+      "language": "Tamil",
+      "category": "investment",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-investment-0",
+      "score": 0.8994107246398926,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-055",
+      "text": "பரிசுத் தொகையைப் பெற இந்த இணையதளத்தில் மின்னஞ்சல் ரகசிய கடவுச்சொல்லை இடுங்கள்.",
+      "label": "scam",
+      "language": "Tamil",
+      "category": "link",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-link-0",
+      "score": 0.06316516548395157,
+      "failed": true,
+      "likely_causes": [
+        "lexical_coverage",
+        "domain_imbalance",
+        "representation_shift"
+      ],
+      "assessment": "One prior Tamil link-positive row with an explicit URL; this prize-pretext credential request lacks a URL. Score .063 is far below threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-056",
+      "text": "தொலைபேசியில் பேசும் அந்நியருக்கு குறுஞ்செய்தியின் பாதுகாப்பு இலக்கங்களைப் படிக்காதீர்கள்.",
+      "label": "safe",
+      "language": "Tamil",
+      "category": "safety",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-safety-0",
+      "score": 0.02877701073884964,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-057",
+      "text": "பயிற்சி சேவையகத்தில் உள்ள குறியீடு உண்மையான உள்நுழைவுக்கானது இல்லை.",
+      "label": "safe",
+      "language": "Tamil",
+      "category": "hard_negative",
+      "difficulty": "hard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-hard_negative-0",
+      "score": 0.026467807590961456,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-058",
+      "text": "இந்த ஞாயிறு குடும்பத்துடன் அருங்காட்சியகத்திற்குச் செல்கிறோம்.",
+      "label": "safe",
+      "language": "Tamil",
+      "category": "ordinary",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-ordinary-0",
+      "score": 0.0689983069896698,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-059",
+      "text": "விளம்பரம் உறுதி அளித்தாலும் முதலீட்டில் இழப்பு ஏற்படலாம்.",
+      "label": "safe",
+      "language": "Tamil",
+      "category": "educational",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-educational-0",
+      "score": 0.17615477740764618,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-060",
+      "text": "அதிகாரி என்று கூறி தனிப்பட்ட கணக்கில் பணம் கேட்பவரை தனியாக சரிபாருங்கள்.",
+      "label": "safe",
+      "language": "Tamil",
+      "category": "safety",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-safety-1",
+      "score": 0.043475810438394547,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-071",
+      "text": "Insurance amount vara notification security digits enakku padichu kaattunga.",
+      "label": "scam",
+      "language": "Tanglish",
+      "category": "implicit_sensitive",
+      "difficulty": "hard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-implicit_sensitive-0",
+      "score": 0.9753122329711914,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-072",
+      "text": "Tablet check panna assistance connection invite accept pannunga, naan operate panren.",
+      "label": "scam",
+      "language": "Tanglish",
+      "category": "remote_access",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-remote_access-0",
+      "score": 0.6315839290618896,
+      "failed": true,
+      "likely_causes": [
+        "threshold_proximity",
+        "transliteration",
+        "training_sparsity"
+      ],
+      "assessment": "Score .632 is just below .65; only two annotated Tanglish remote-access training positives. Do not lower the global threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-073",
+      "text": "Unga email delete aagapogudhu, backup keys operator ku anuppunga.",
+      "label": "scam",
+      "language": "Tanglish",
+      "category": "account_threat",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-account_threat-0",
+      "score": 0.9563685655593872,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-074",
+      "text": "Buyer payment release aaga collect request la deposit pay pannunga.",
+      "label": "scam",
+      "language": "Tanglish",
+      "category": "payment",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-payment-0",
+      "score": 0.8197312355041504,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-075",
+      "text": "Private robot monthly fixed profit tharum, savings inga transfer pannunga.",
+      "label": "scam",
+      "language": "Tanglish",
+      "category": "investment",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-scam-investment-0",
+      "score": 0.22259409725666046,
+      "failed": true,
+      "likely_causes": [
+        "domain_imbalance",
+        "lexical_coverage",
+        "training_sparsity"
+      ],
+      "assessment": "Only one Tanglish investment training positive; robot/monthly-profit language is underrepresented. Score .223.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-076",
+      "text": "Bank notification digits caller ku padichu kaatta thevai illai.",
+      "label": "safe",
+      "language": "Tanglish",
+      "category": "safety",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-safety-0",
+      "score": 0.04994957149028778,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-077",
+      "text": "Staging server fake login tokens documentation mattum anuppunga.",
+      "label": "safe",
+      "language": "Tanglish",
+      "category": "hard_negative",
+      "difficulty": "hard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-hard_negative-0",
+      "score": 0.1663329154253006,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-078",
+      "text": "Sunday family oda museum pogalaam.",
+      "label": "safe",
+      "language": "Tanglish",
+      "category": "ordinary",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-ordinary-0",
+      "score": 0.04726739600300789,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-079",
+      "text": "Guarantee sonnaalum investment risk pogadhu.",
+      "label": "safe",
+      "language": "Tanglish",
+      "category": "educational",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-educational-0",
+      "score": 0.6855588555335999,
+      "failed": true,
+      "likely_causes": [
+        "negation_confusion",
+        "transliteration",
+        "threshold_proximity"
+      ],
+      "assessment": "Warning that investment risk remains is scored .686; this is a false positive on concessive negation, not a label error.",
+      "label_changed": false
+    },
+    {
+      "id": "eval-080",
+      "text": "Court peru solli voucher ketta public office la neengale verify pannunga.",
+      "label": "safe",
+      "language": "Tanglish",
+      "category": "safety",
+      "difficulty": "standard",
+      "source_type": "synthetic_manual",
+      "notes": "Authored prototype scenario; not an observed fraud label.",
+      "group": "eval-safe-safety-1",
+      "score": 0.03818129375576973,
+      "failed": false,
+      "likely_causes": [],
+      "assessment": "Correct at the unchanged threshold.",
+      "label_changed": false
+    }
+  ],
+  "support": {
+    "hardening_v2": {
+      "Tamil": {
+        "n": 15,
+        "labels": {
+          "safe": 12,
+          "scam": 3
+        },
+        "categories": {
+          "ordinary": 4,
+          "hard_negative": 1,
+          "safety": 1,
+          "educational": 1,
+          "phishing": 1,
+          "benign_support": 3,
+          "credential_request": 1,
+          "job_scam": 1,
+          "login_notice": 2
+        },
+        "signals": {
+          "LINK_REQUEST": 1,
+          "CREDENTIAL_REQUEST": 2,
+          "PAYMENT_REQUEST": 1
+        },
+        "implicit": {
+          "None": 6,
+          "False": 9
+        },
+        "safety": {
+          "None": 6,
+          "False": 9
+        },
+        "spelling_support": {
+          "pannunga": 0,
+          "pannu": 0,
+          "panren": 0,
+          "kudu": 0,
+          "kudunga": 0,
+          "anuppu": 0,
+          "anuppunga": 0,
+          "vendam": 0,
+          "koodadhu": 0,
+          "thevai illa": 0,
+          "msg": 0,
+          "nga": 0
+        }
+      },
+      "Tanglish": {
+        "n": 56,
+        "labels": {
+          "safe": 33,
+          "scam": 23
+        },
+        "categories": {
+          "ordinary": 3,
+          "safety": 16,
+          "tech_support": 1,
+          "benign_support": 12,
+          "payment_request": 2,
+          "remote_access": 1,
+          "implicit_otp": 5,
+          "account_recovery": 1,
+          "upi": 1,
+          "job_scam": 3,
+          "kyc": 1,
+          "prize": 1,
+          "fake_support": 1,
+          "government_impersonation": 1,
+          "investment": 1,
+          "phishing": 1,
+          "credential_request": 3,
+          "quoted_education": 1,
+          "login_notice": 1
+        },
+        "signals": {
+          "REMOTE_ACCESS": 2,
+          "CREDENTIAL_REQUEST": 6,
+          "PAYMENT_REQUEST": 9,
+          "URGENCY": 2,
+          "OTP_REQUEST": 7,
+          "IDENTITY_VERIFICATION": 1,
+          "LINK_REQUEST": 2,
+          "ACCOUNT_THREAT": 1,
+          "GOVERNMENT_IMPERSONATION": 1,
+          "INVESTMENT_PROMISE": 1
+        },
+        "implicit": {
+          "None": 3,
+          "False": 46,
+          "True": 7
+        },
+        "safety": {
+          "None": 3,
+          "False": 37,
+          "True": 16
+        },
+        "spelling_support": {
+          "pannunga": 20,
+          "pannu": 20,
+          "panren": 8,
+          "kudu": 4,
+          "kudunga": 2,
+          "anuppu": 10,
+          "anuppunga": 10,
+          "vendam": 19,
+          "koodadhu": 0,
+          "thevai illa": 6,
+          "msg": 0,
+          "nga": 49
+        }
+      }
+    },
+    "recovery_v1": {
+      "Tamil": {
+        "n": 51,
+        "labels": {
+          "safe": 30,
+          "scam": 21
+        },
+        "categories": {
+          "ordinary": 4,
+          "hard_negative": 1,
+          "safety": 18,
+          "educational": 1,
+          "phishing": 3,
+          "benign_support": 3,
+          "credential_request": 1,
+          "job_scam": 1,
+          "login_notice": 2,
+          "implicit_otp": 3,
+          "otp": 1,
+          "contradiction": 1,
+          "quoted_education": 2,
+          "remote_access": 3,
+          "payment": 1,
+          "kyc": 1,
+          "investment": 1,
+          "credential": 2,
+          "ordinary_support": 1,
+          "benign_verification": 1
+        },
+        "signals": {
+          "LINK_REQUEST": 3,
+          "CREDENTIAL_REQUEST": 7,
+          "PAYMENT_REQUEST": 3,
+          "OTP_REQUEST": 8,
+          "BANK_IMPERSONATION": 2,
+          "REMOTE_ACCESS": 3,
+          "IDENTITY_VERIFICATION": 1,
+          "INVESTMENT_PROMISE": 1
+        },
+        "implicit": {
+          "None": 6,
+          "False": 35,
+          "True": 10
+        },
+        "safety": {
+          "None": 6,
+          "False": 27,
+          "True": 18
+        },
+        "spelling_support": {
+          "pannunga": 0,
+          "pannu": 0,
+          "panren": 0,
+          "kudu": 0,
+          "kudunga": 0,
+          "anuppu": 0,
+          "anuppunga": 0,
+          "vendam": 0,
+          "koodadhu": 0,
+          "thevai illa": 0,
+          "msg": 0,
+          "nga": 0
+        }
+      },
+      "Tanglish": {
+        "n": 80,
+        "labels": {
+          "safe": 45,
+          "scam": 35
+        },
+        "categories": {
+          "ordinary": 3,
+          "safety": 28,
+          "tech_support": 1,
+          "benign_support": 12,
+          "payment_request": 2,
+          "remote_access": 3,
+          "implicit_otp": 6,
+          "account_recovery": 1,
+          "upi": 1,
+          "job_scam": 3,
+          "kyc": 2,
+          "prize": 1,
+          "fake_support": 1,
+          "government_impersonation": 1,
+          "investment": 2,
+          "phishing": 2,
+          "credential_request": 3,
+          "quoted_education": 1,
+          "login_notice": 1,
+          "otp": 1,
+          "contradiction": 1,
+          "payment": 1,
+          "credential": 1,
+          "ordinary_support": 1,
+          "benign_verification": 1
+        },
+        "signals": {
+          "REMOTE_ACCESS": 4,
+          "CREDENTIAL_REQUEST": 9,
+          "PAYMENT_REQUEST": 11,
+          "URGENCY": 2,
+          "OTP_REQUEST": 12,
+          "IDENTITY_VERIFICATION": 2,
+          "LINK_REQUEST": 3,
+          "ACCOUNT_THREAT": 1,
+          "GOVERNMENT_IMPERSONATION": 1,
+          "INVESTMENT_PROMISE": 2,
+          "BANK_IMPERSONATION": 1
+        },
+        "implicit": {
+          "None": 3,
+          "False": 64,
+          "True": 13
+        },
+        "safety": {
+          "None": 3,
+          "False": 49,
+          "True": 28
+        },
+        "spelling_support": {
+          "pannunga": 22,
+          "pannu": 26,
+          "panren": 13,
+          "kudu": 13,
+          "kudunga": 2,
+          "anuppu": 13,
+          "anuppunga": 10,
+          "vendam": 28,
+          "koodadhu": 2,
+          "thevai illa": 7,
+          "msg": 6,
+          "nga": 60
+        }
+      }
+    }
+  },
+  "interpretation": "Likely causes based on observed scores and training support; not a causal ablation. No frozen labels changed."
+}
