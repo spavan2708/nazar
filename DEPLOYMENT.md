@@ -24,35 +24,75 @@ continues to use port 8000.
 | Uncertain/retained | Other ML research/training Python modules and metadata | Conservative cleanup; no behavior changes to justify removal |
 
 The Python image pins the local major inference dependencies, using CPU Torch
-wheels rather than CUDA. Model files are never downloaded, rebuilt, or retrained.
+wheels rather than CUDA. Exact preserved model files are downloaded during the image build, never rebuilt or retrained.
 Whisper is compiled for Linux from the matching v1.9.2 release. The macOS binaries
 are never uploaded. OCR language data comes from Debian packages.
 
-## Packaging and repeat deployment
+## Runtime artifact releases and repeat deployment
 
-Vercel CLI rejects individual source uploads larger than 100 MB. Run:
+Published release: [runtime-artifacts-2026-09-06.1](https://github.com/spavan2708/nazar/releases/tag/runtime-artifacts-2026-09-06.1).
+The manifest pins its exact versioned asset URLs and original SHA-256 hashes.
+GitHub's API reported `immutable: false` when verified on 2026-09-06. Treat the
+release as fixed: do not replace or remove its assets. Checksum pinning rejects any
+changed bytes, but cannot prevent deletion. Retain an independent backup.
+
+`backend/runtime_artifacts/manifest.json` records the source Git commit, bundle
+version, destination paths relative to `backend/`, exact byte sizes, file SHA-256
+hashes, and archive SHA-256 hashes. Public versioned GitHub Release assets
+hold these archives outside Git history:
+
+- `nazar-minilm.tar.gz`: complete existing MiniLM directory, including tokenizer,
+  configs and README; every file except README participates in the RAG fingerprint.
+- `nazar-classifiers.tar.gz`: exact v1 and v2 classifiers and matching metadata.
+- `nazar-whisper.tar.gz`: exact multilingual `ggml-base.bin`.
+
+Existing tracked RAG index/knowledge and neighbor data remain supplied by Git.
+No model is loaded, saved, reserialized, or trained by artifact preparation.
+
+The one-time preparation command is `python3 backend/runtime_artifacts/prepare.py`.
+It refuses to overwrite an existing version or manifest. Archives are written to
+ignored `backend/.runtime-artifacts/runtime-artifacts-2026-09-06.1/`; the old
+`.runtime-upload` workflow is obsolete and remains ignored. Neither directory
+is sent to Vercel or Docker. The legacy chunk script is not used by deployment.
+
+### Published assets and future versions
+
+The three assets above are published and their actual download URLs are recorded
+in the manifest. No publication step remains for this version. Never use `latest`
+or expiring signed URLs. Future artifact changes require a new version and fresh
+hash verification; enable GitHub release immutability before publishing future
+releases. Commit, push and deployment remain separate approval steps.
+
+The Docker models stage downloads the pinned assets over HTTPS without secrets,
+checks each archive's byte count and SHA-256, rejects paths outside the manifest,
+duplicate entries and nonregular members, then verifies every extracted file.
+Downloads use at most three attempts, a 60-second socket timeout and bounded
+exponential retry delays; archive sizes are bounded by the manifest.
+Only verified files are copied into separate final layers. Missing URLs, missing
+assets, or invalid checksums fail the build. Production inference remains offline
+with `HF_HUB_OFFLINE=1` and `TRANSFORMERS_OFFLINE=1`.
+
+Offline archive validation:
 
 ```sh
-python3 backend/prepare_vercel_artifacts.py
-vercel deploy --prod
+python3 backend/runtime_artifacts/download.py \
+  --archive-dir backend/.runtime-artifacts/runtime-artifacts-2026-09-06.1 \
+  --destination /tmp/nazar-artifact-verification
 ```
 
-The preparation command splits the two existing weight files into 64 MiB chunks
-under ignored `backend/.runtime-upload/`. The container build reassembles them
-and verifies SHA-256 before copying each model into a separate final image layer.
-Separate layers respect VCR's 500 MB compressed-layer limit. Intermediate upload
-chunks are not part of the final image. `.vercelignore` deliberately includes
-these generated runtime chunks and excludes the original oversized files.
+Use an empty destination. Omit `--archive-dir` to validate real release downloads.
+A clean Git checkout plus public release access supplies all runtime artifacts during Git-triggered Docker builds.
+No local ignored inputs or private download credentials are required. Retain old
+versioned releases and an independent backup; rollback selects the old code and
+its pinned manifest. Do not overwrite an artifact version.
 
-Deploy from this local artifact-complete working tree. A Git-only checkout does
-not contain the ignored models and cannot reproduce this deployment by itself.
-The CLI linked the existing GitHub repository when it created the project; a
-future Git-triggered build also needs these artifacts before it can succeed.
+The initial download is about 606 MiB uncompressed; cache reuse is optional.
+Keep MiniLM and Whisper in separate image layers to respect the existing VCR
+500 MB compressed-layer limit. Network availability, build duration, dependency
+installation and the existing Vercel size/runtime limits still apply.
 
-`.vercelignore` and `.dockerignore` exclude environment files, virtualenvs,
-node_modules, build caches, evaluation outputs, research checkpoints, and
-development-only datasets. Approximately 3.6 GiB of local development/research
-content is excluded. Required model files remain local and uncommitted.
+Environment files, local model copies, virtualenvs, build caches and research
+artifacts remain excluded from the deployment context.
 
 ## Environment and security
 

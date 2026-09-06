@@ -25,4 +25,8 @@ DEPLOYMENT.md
 deploy
 backend/ml/artifacts/embedding_model/model.safetensors
 backend/stt/models/ggml-base.bin
-!backend/.runtime-upload/**
+backend/.runtime-upload
+backend/.runtime-artifacts
+backend/ml/artifacts/embedding_model
+backend/ml/artifacts/classifier.joblib
+backend/ml/artifacts/v2

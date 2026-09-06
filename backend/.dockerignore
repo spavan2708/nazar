@@ -15,3 +15,9 @@ ml/data/eval_v2.json
 ml/data/scam_training.json
 ml/artifacts/embedding_model/model.safetensors
 stt/models/ggml-base.bin
+
+.runtime-upload
+.runtime-artifacts
+ml/artifacts/embedding_model
+ml/artifacts/classifier.joblib
+ml/artifacts/v2

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "artifact_version": "runtime-artifacts-2026-09-06.1",
+  "repository": "spavan2708/nazar",
+  "source_git_commit": "256f2332210dc1ec6dc0bf615d0c9f74fab11374",
+  "destination_root": "backend/",
+  "archives": [
+    {
+      "name": "nazar-minilm.tar.gz",
+      "url": "https://github.com/spavan2708/nazar/releases/download/runtime-artifacts-2026-09-06.1/nazar-minilm.tar.gz",
+      "files": [
+        {
+          "path": "ml/artifacts/embedding_model/1_Pooling/config.json",
+          "size_bytes": 90,
+          "sha256": "4fef0a7e8c8ee36e74c0fad89bab60ade72324442d43f559ea219bb7c2580710"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/README.md",
+          "size_bytes": 3888,
+          "sha256": "1e98ea05b0de579fcaad3d625b62ea55647142ed674d5f5ebf1440e4bbbb6f23"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/config.json",
+          "size_bytes": 747,
+          "sha256": "bca510755ecfe5db7addd38b7c181176bb5b5fc3e8493897f1c5a25fb430f2e6"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/config_sentence_transformers.json",
+          "size_bytes": 278,
+          "sha256": "91b54164e46a010d042e4bfe12ee85fdd140c8b4401bef9936a58fdcecf41993"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/model.safetensors",
+          "size_bytes": 470637416,
+          "sha256": "7f4f89d628f87ade0e0b57c40affb6402cd77abc8110584d8d35dc86da514ee8"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/modules.json",
+          "size_bytes": 277,
+          "sha256": "e4068aab8a95663636c4c28044a95eafdb6492387397ec8283d8f8b31078d645"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/sentence_bert_config.json",
+          "size_bytes": 241,
+          "sha256": "3084164002c0bca01b0259c5327123803fce32e660a57feb93184ffead186fc8"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/tokenizer.json",
+          "size_bytes": 17082987,
+          "sha256": "cad551d5600a84242d0973327029452a1e3672ba6313c2a3c3d69c4310e12719"
+        },
+        {
+          "path": "ml/artifacts/embedding_model/tokenizer_config.json",
+          "size_bytes": 588,
+          "sha256": "52202d0e04ff99028314e47c17f34b434d464d5329439874caedaefa9408e047"
+        }
+      ],
+      "size_bytes": 435437427,
+      "sha256": "2ff5bfa35b32294649d986e83fd8a09c0cc8a0dcf255cf23c4bd8dd9fafab533"
+    },
+    {
+      "name": "nazar-classifiers.tar.gz",
+      "url": "https://github.com/spavan2708/nazar/releases/download/runtime-artifacts-2026-09-06.1/nazar-classifiers.tar.gz",
+      "files": [
+        {
+          "path": "ml/artifacts/classifier.joblib",
+          "size_bytes": 2395,
+          "sha256": "ae25004a66f73a9c9d38fbfd8b11b8028369b3a168388a30e38084ae700e3fb0"
+        },
+        {
+          "path": "ml/artifacts/metadata.json",
+          "size_bytes": 1288,
+          "sha256": "1454d8c26885bace2cb43fbf3ac3012c32c6a1db3347d0b4cea964d8106331a5"
+        },
+        {
+          "path": "ml/artifacts/v2/classifier.joblib",
+          "size_bytes": 2395,
+          "sha256": "92df25090eae3a41ff43ee8e75e95323e9b37229d30a886b9395c73a515c0793"
+        },
+        {
+          "path": "ml/artifacts/v2/metadata.json",
+          "size_bytes": 26851,
+          "sha256": "057aa75b500df6c50dad0831ab90abdf441aa2289f8a0d8a71d2f1444ce17dd5"
+        }
+      ],
+      "size_bytes": 8302,
+      "sha256": "fc4fe82603cab02ca17bcc44c3f68f835fd65243202d94ea932493eda4257a0c"
+    },
+    {
+      "name": "nazar-whisper.tar.gz",
+      "url": "https://github.com/spavan2708/nazar/releases/download/runtime-artifacts-2026-09-06.1/nazar-whisper.tar.gz",
+      "files": [
+        {
+          "path": "stt/models/ggml-base.bin",
+          "size_bytes": 147951465,
+          "sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe"
+        }
+      ],
+      "size_bytes": 133282502,
+      "sha256": "43ce75f1d3f2015736f590884e2d658cc78109f04a37d14d14bd754e5d2d6cc2"
+    }
+  ]
+}

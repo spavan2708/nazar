@@ -33,3 +33,6 @@ backend/ml/artifacts/research/
 .vercel/
 .pytest_cache/
 backend/.runtime-upload/
+
+# Prepared release archives (never commit)
+backend/.runtime-artifacts/
