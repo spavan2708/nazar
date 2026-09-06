@@ -1,0 +1,9 @@
+-r requirements.txt
+-r requirements-vision.txt
+# Match the local inference stack. CPU wheels avoid unused CUDA libraries.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.0+cpu
+numpy==2.5.2
+transformers==5.16.1
+tokenizers==0.23.2
+safetensors==0.8.0

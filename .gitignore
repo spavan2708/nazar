@@ -28,3 +28,8 @@ backend/ml/artifacts/classifier.joblib
 backend/ml/artifacts/embedding_model/
 backend/ml/artifacts/v2*/
 backend/ml/artifacts/research/
+
+# Deployment links and local validation caches
+.vercel/
+.pytest_cache/
+backend/.runtime-upload/

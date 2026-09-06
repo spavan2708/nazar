@@ -1,0 +1,35 @@
+FROM python:3.14-slim-bookworm AS whisper-build
+RUN apt-get update && apt-get install -y --no-install-recommends git cmake build-essential ca-certificates
+RUN git clone --depth 1 --branch v1.9.2 https://github.com/ggml-org/whisper.cpp.git /whisper
+RUN cmake -S /whisper -B /whisper/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DGGML_NATIVE=OFF -DWHISPER_BUILD_TESTS=OFF \
+    && cmake --build /whisper/build --target whisper-cli -j2
+
+FROM python:3.14-slim-bookworm AS models
+WORKDIR /models
+COPY .runtime-upload /tmp/runtime-upload
+RUN mkdir -p ml/artifacts/embedding_model stt/models \
+    && cat /tmp/runtime-upload/embedding.part* > ml/artifacts/embedding_model/model.safetensors \
+    && cat /tmp/runtime-upload/whisper.part* > stt/models/ggml-base.bin \
+    && sha256sum -c /tmp/runtime-upload/SHA256SUMS
+
+FROM python:3.14-slim-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg tesseract-ocr tesseract-ocr-eng tesseract-ocr-hin tesseract-ocr-tam libgomp1 ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=whisper-build /whisper/build/bin/whisper-cli /usr/local/bin/whisper-cli
+WORKDIR /app
+COPY requirements*.txt ./
+RUN pip install --no-cache-dir -r requirements-production.txt
+COPY main.py ./
+COPY schemas ./schemas
+COPY services ./services
+COPY ml ./ml
+COPY rag ./rag
+# Separate model layers stay below VCR's 500 MB compressed-layer limit.
+# The upload chunks exist only in the intermediate stage, not the final image.
+COPY --from=models /models/ml/artifacts/embedding_model/model.safetensors ./ml/artifacts/embedding_model/model.safetensors
+COPY --from=models /models/stt/models/ggml-base.bin ./stt/models/ggml-base.bin
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 HF_HOME=/tmp/huggingface LLM_ENABLED=false \
+    OCR_LANGUAGES=eng+hin+tam QR_ENABLED=true NAZAR_ML_VERSION=v2
+CMD ["sh", "-c", "exec uvicorn main:app --host 0.0.0.0 --port ${PORT:-80} --no-access-log"]

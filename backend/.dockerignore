@@ -1,0 +1,17 @@
+.env*
+.venv
+__pycache__
+**/__pycache__
+**/*.pyc
+.pytest_cache
+tests
+evaluation
+ml/artifacts/research
+ml/artifacts/v2-reproduction
+ml/data/hardening
+ml/data/hardening_v2
+ml/data/recovery_v1
+ml/data/eval_v2.json
+ml/data/scam_training.json
+ml/artifacts/embedding_model/model.safetensors
+stt/models/ggml-base.bin
